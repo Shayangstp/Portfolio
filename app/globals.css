@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+  background-color: #000;
+} */
+
+.hero {
+  background-image: url("../public/assets/testFinal.png");
+  background-size: cover;
+}
+.sec2Wallpaper {
+  background-image: url("../public/assets/sec2Wallpaper.png");
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+}
+.sec3Wallpaper-aboutUs {
+  background-image: url("../public/assets/sec3Wallpaper-aboutUs.png");
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+}
