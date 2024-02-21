@@ -9,6 +9,7 @@ import { RsetDarkMode, selectDarkMode } from "./slices/mainSlices";
 import { useDispatch, useSelector } from "react-redux";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const Home = () => {
         <Hero />
         <Skills />
         <Projects />
+        <Contact />
       </div>
     </div>
   );

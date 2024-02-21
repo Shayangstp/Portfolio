@@ -26,9 +26,6 @@ export const skillsData = [
     bgColor: "bg-green-400",
     skills: [
       {
-        title: "JavaScript",
-      },
-      {
         title: "React",
       },
       {
@@ -83,7 +80,7 @@ export const skillsData = [
   {
     no: "3.",
     title: "Other",
-    titleColor: "text-red-400",
+    titleColor: "text-green-400",
     bgColor: "bg-purple-400",
     skills: [
       {

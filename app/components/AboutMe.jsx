@@ -4,7 +4,9 @@ const AboutMe = () => {
   return (
     <div>
       <div className="grid grid-cols-4">
-        <div className="text-[30px] col-span-1 ">About-Me</div>
+        <div className="text-[30px] col-span-1 ">
+          About-<span className="text-red-700">Me</span>
+        </div>
         <div
           id="line"
           className="w-[95%] col-span-3 h-0 my-auto border border-gray-600"
