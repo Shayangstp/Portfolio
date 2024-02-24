@@ -10,6 +10,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import ViewCompactAltOutlinedIcon from "@mui/icons-material/ViewCompactAltOutlined";
 
 const blogData = [
   {
@@ -73,15 +74,17 @@ const Projects = () => {
     }
   };
   return (
-    <div className="h-[90vh] relative max-w-[1920px]  mt-10 p-10">
-      <div
-        id="header"
-        className="text-[70px] border border-red-600 rounded-2xl py-2 px-16 max-w-min shadow-headerShadow"
-      >
-        <span className="text-[70px]">MY.</span>
-        <span className="text-[50px] text-red-600">Projects</span>
+    <div className="h-[90vh] relative max-w-[1920px] mt-40 p-10">
+      <div id="header" className="text-[70px] rounded-2xl py-2 px-5 max-w-min">
+        <div className="flex items-center">
+          <span>
+            <ViewCompactAltOutlinedIcon className="me-2 text-[50px]" />
+          </span>
+          <span className="text-[70px]">MY.</span>
+          <span className="text-[50px] text-red-600 mt-5">Projects</span>
+        </div>
       </div>
-      <div className="flex mt-32 max-w-[90vw]">
+      <div className="flex mt-40 max-w-[90vw]">
         <Button
           variant="outlined"
           size="small"

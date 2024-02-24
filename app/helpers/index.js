@@ -23,7 +23,7 @@ export const skillsData = [
     no: "1.",
     title: "FrontEnd",
     titleColor: "text-yellow-500",
-    bgColor: "bg-green-400",
+    bgColor: "bg-gradient-to-r from-[#0c260b] from-[#161616]",
     skills: [
       {
         title: "React",
@@ -58,7 +58,7 @@ export const skillsData = [
     no: "2.",
     title: "BackEnd",
     titleColor: "text-blue-300",
-    bgColor: "bg-blue-400",
+    bgColor: "bg-gradient-to-r from-[#0b1c26] from-[#161616]",
     skills: [
       {
         title: "NodeJs",
@@ -81,7 +81,7 @@ export const skillsData = [
     no: "3.",
     title: "Other",
     titleColor: "text-green-400",
-    bgColor: "bg-purple-400",
+    bgColor: "bg-gradient-to-r from-[#210d29] from-[#161616]",
     skills: [
       {
         title: "Figma",

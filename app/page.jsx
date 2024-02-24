@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Home = () => {
         <Skills />
         <Projects />
         <Contact />
+        <Footer />
       </div>
     </div>
   );

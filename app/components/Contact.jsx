@@ -1,10 +1,12 @@
 import React from "react";
 import { TextField, Button } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
+import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
+import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
 
 const Input = styled(TextField)({
   "& label.Mui-focused": {
-    color: "#5a8de0",
+    color: "#914343",
   },
   "& label": {
     fontSize: "13px",
@@ -25,7 +27,7 @@ const Input = styled(TextField)({
       borderColor: "white",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#5a8de0",
+      borderColor: "#914343",
     },
     // "& input[type=number]": {
     //   "-moz-appearance": "textfield",
@@ -48,26 +50,25 @@ const Input = styled(TextField)({
 
 const Contact = () => {
   return (
-    <div className="h-[90vh] relative max-w-[1920px] mt-10 p-10 border">
-      <div
-        id="header"
-        className="text-[70px] border border-red-600 rounded-2xl py-2 px-16 max-w-min shadow-headerShadow"
-      >
-        <span className="text-[70px]">Contact.</span>
-        <span className="text-[50px] text-red-600">me</span>
+    <div className="h-[90vh] relative max-w-[1920px] w-[100%] mt-40 p-10">
+      <div id="header" className="text-[70px] rounded-2xl py-2 px-5 max-w-min">
+        <div className="flex items-center">
+          <span>
+            <MarkunreadOutlinedIcon className="me-2 text-[50px]" />
+          </span>
+          <span className="text-[70px]">Contact.</span>
+          <span className="text-[50px] text-red-600 mt-4">me</span>
+        </div>
       </div>
-      <div className="flex justify-center mt-24 w-[90vw]">
-        <form
-          id="contact"
-          className="flex flex-col gap-5 border w-[50%]"
-        >
-          <div className="w-[100%] flex gap-4 border">
+      <div className="flex justify-center items-center mt-24 max-w-[100%]">
+        <form id="contact" className="flex flex-col gap-5 w-[50%]">
+          <div className="flex gap-4 border-red-900">
             <Input
               // error={formErrors.staffCodeMeli}
               label="Name"
               type="text"
+              className="w-[50%]"
               // value={staffCodeMeli}
-              id="custom-css-outlined-input"
               // onChange={(e) => {
               //   //limit the input
               //   let inputValue = e.target.value;
@@ -78,12 +79,13 @@ const Contact = () => {
               //   dispatch(RsetStaffCodeMeli(inputValue));
               // }}
             />
+            {/* make email validation */}
             <Input
               // error={formErrors.staffCodeMeli}
               label="Email"
               type="text"
+              className="w-[50%]"
               // value={staffCodeMeli}
-              id="custom-css-outlined-input"
               // onChange={(e) => {
               //   //limit the input
               //   let inputValue = e.target.value;
@@ -100,7 +102,6 @@ const Contact = () => {
             label="Subject..."
             type="text"
             // value={staffCodeMeli}
-            id="custom-css-outlined-input"
             // onChange={(e) => {
             //   //limit the input
             //   let inputValue = e.target.value;
@@ -116,7 +117,6 @@ const Contact = () => {
             label="Message..."
             type="text"
             // value={staffCodeMeli}
-            id="custom-css-outlined-input"
             multiline
             rows={4}
             // onChange={(e) => {
@@ -129,6 +129,12 @@ const Contact = () => {
             //   dispatch(RsetStaffCodeMeli(inputValue));
             // }}
           />
+          <Button
+            variant="outlined"
+            className="rounded-xl py-2 border border-red-600 text-white hover:border-red-500"
+          >
+            Submit
+          </Button>
         </form>
       </div>
     </div>
