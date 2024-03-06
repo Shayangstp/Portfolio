@@ -16,6 +16,7 @@ module.exports = {
         // Define your custom shadows here
         headerShadow: "0px 4px 100px rgba(255, 0, 0, 0.1)", // Example custom shadow
         socialShadow: "0px 4px 50px rgba(255, 0, 0, 0.1)", // Example custom shadow
+        socialShadowDark: "0px 4px 50px rgba(255, 0, 0, 0.4)", // Example custom shadow
       },
     },
   },

@@ -63,7 +63,7 @@ const Nav = () => {
                         activeLink === item.href
                           ? "text-[#ff0000]"
                           : "dark:text-white text-black"
-                      } hover:text-[#ff0000] text-sm`}
+                      } hover:text-[#ff0000] dark:hover:text-[#ff0000] text-sm`}
                     >
                       {item.title}
                     </Link>

@@ -13,7 +13,7 @@ const AboutMe = () => {
           className="w-[95%] col-span-3 h-0 my-auto border border-gray-600"
         ></div>
       </div>
-      <p className="text-[13px] leading-6 text-gray-300 ms-2">
+      <p className="text-[13px] leading-6 text-gray-800 dark:text-gray-400 ms-2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quo
         et, aspernatur eos facilis necessitatibus laboriosam modi sed dolor,
         fuga voluptate. Ad voluptatibus fugit doloribus nihil soluta suscipit

@@ -18,6 +18,21 @@ export const socials = [
   },
 ];
 
+export const socialsResponsive = [
+  {
+    icon: <GitHubIcon fontSize="small" className="text-[20px]" />,
+  },
+  {
+    icon: <TelegramIcon fontSize="small" className="text-[20px]" />,
+  },
+  {
+    icon: <EmailIcon fontSize="small" className="text-[20px]" />,
+  },
+  {
+    icon: <LinkedInIcon fontSize="small" className="text-[20px]" />,
+  },
+];
+
 export const skillsData = [
   {
     no: "1.",
