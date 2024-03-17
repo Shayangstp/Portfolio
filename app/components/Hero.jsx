@@ -31,12 +31,12 @@ const Hero = () => {
       </div>
       <div
         id="mainHero"
-        className="lg:col-span-5 flex flex-col xl:ms-10 justify-center items-center lg:items-start "
+        className="lg:col-span-5 flex flex-col xl:ms-10 justify-center  lg:items-start "
       >
-        <div id="hero-text" className="lg:mt-28 xl:ms-24 w-full">
+        <div id="hero-text" className="lg:mt-28 xl:ms-24">
           <div className="text-white text-end flex justify-end lg:hidden">
             <div>
-              <div className="flex flex-col gap-1 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 rounded-2xl bg-gray-800 dark:bg-transparent me-10 mt-2">
+              <div className="flex flex-col gap-1 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 rounded-2xl bg-gray-800 dark:bg-transparent me-8 mt-4">
                 {socialsResponsive.map((item, idx) => {
                   return (
                     <div
@@ -53,7 +53,7 @@ const Hero = () => {
           <div className="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black md:ms-32 ms-10 lg:ms-0">
             Hi there
           </div>
-          <div className="lg:text-[60px] sm:text-[40px] text-[25px]  md:ms-32 ms-10 lg:ms-0">
+          <div className="lg:text-[60px] sm:text-[40px] text-[25px]  md:ms-32 ms-10 lg:ms-0 ">
             I'm Shayan Golestanipour
           </div>
           <div className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent mt-2 lg:hidden md:ms-32 ms-10 ">
@@ -71,16 +71,16 @@ const Hero = () => {
         <div className="w-[600px] xl:ms-24 mt-5 border border-gray-600 px-5 py-8 rounded-2xl hidden lg:inline-block">
           <AboutMe />
         </div>
-        <div className="lg:w-[80%] me-16 lg:ms-0 w-full mt-16 flex justify-end gap-4">
+        <div className="lg:w-[80%] lg:ms-0 w-full mt-16 flex justify-end gap-4">
           <Button
             variant="contained"
-            className="bg-gray-800 px-10 lg:py-3 py-2.5 hover:bg-red-900 text-[12px] sm:text-[14px]"
+            className="bg-gray-800 px-10 lg:py-3 py-2.5 hover:bg-red-900 text-[12px] sm:text-[14px] "
           >
             Skills
           </Button>
           <Button
             variant="outlined"
-            className="border border-gray-700 dark:border-gray-400 text-gray-600  dark:text-gray-200 dark:hover:text-red-500 hover:bg-transparent  hover:text-black lg:py-3 py-2.5 hover:border-red-500 dark:hover:border-white text-[12px] sm:text-[14px]"
+            className="border me-10 border-gray-700 dark:border-gray-400 text-gray-600  dark:text-gray-200 dark:hover:text-red-500 hover:bg-transparent  hover:text-black lg:py-3 py-2.5 hover:border-red-500 dark:hover:border-white text-[12px] sm:text-[14px]"
           >
             My Projects
           </Button>

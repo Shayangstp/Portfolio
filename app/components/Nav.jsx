@@ -127,9 +127,9 @@ const Nav = () => {
               </div>
             </div>
             <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
-              <div className="dark:bg-[#2a2f36] bg-gray-200 h-[100vh] ">
+              <div className="dark:bg-[#2a2f36] bg-gray-200 h-[100%] ">
                 <header className="text-white p-4 mt-3">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between"> 
                     <h3 className="dark:text-white text-black">Menu</h3>
                     <div className="flex gap-1">
                       <div
