@@ -33,12 +33,13 @@ export const socialsResponsive = [
   },
 ];
 
-export const skillsData = [
+export const frontSkills = [
   {
-    no: "1.",
-    title: "FrontEnd",
-    titleColor: "text-yellow-500",
-    bgColor: "bg-gradient-to-r from-[#0c260b] to-[#161616]",
+    title: "Basics",
+    skills: [{ title: "HTML" }, { title: "CSS" }, { title: "JavaScript" }],
+  },
+  {
+    title: "Frameworks",
     skills: [
       {
         title: "React",
@@ -52,51 +53,59 @@ export const skillsData = [
       {
         title: "ReactNative",
       },
-      {
-        title: "Redux",
-      },
-      {
-        title: "AntD",
-      },
+    ],
+  },
+  {
+    title: "CSS Framworks",
+    skills: [
       {
         title: "Bootstrap",
       },
       {
-        title: "TailwindCss",
+        title: "Tailwind",
       },
       {
         title: "MaterialUI",
       },
+      {
+        title: "AntD",
+      },
     ],
   },
+];
+
+export const backendSkills = [
   {
-    no: "2.",
-    title: "BackEnd",
-    titleColor: "text-blue-300",
-    bgColor: "bg-gradient-to-r from-[#0b1c26] to-[#161616]",
+    title: "Basics",
     skills: [
       {
         title: "NodeJs",
       },
+    ],
+  },
+  {
+    title: "FrameWorks",
+    skills: [
       {
-        title: "ExpressJs",
+        title: "ExpressJS",
       },
+    ],
+  },
+  {
+    title: "DataBase",
+    skills: [
       {
         title: "SQL",
       },
       {
         title: "MongoDB",
       },
-      {
-        title: "RestFull_API",
-      },
     ],
   },
+];
+export const otherSkills = [
   {
-    no: "3.",
-    title: "Other",
-    titleColor: "text-green-400",
-    bgColor: "bg-gradient-to-r from-[#210d29] to-[#161616]",
+    title: "Other Skill",
     skills: [
       {
         title: "Figma",
@@ -136,5 +145,20 @@ export const navData = [
   {
     title: "ContactMe",
     href: "/contactMe",
+  },
+];
+
+export const skillsDesc = [
+  {
+    title: "FrontEnd",
+    desc: "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+  },
+  {
+    title: "BackEnd",
+    desc: "I am a BackEnd developer with a passion for creating scalable and reliable web applications. I have experience with NodeJs, ExpressJS, and databases like MongoDB and SQL.",
+  },
+  {
+    title: "Other",
+    desc: "I am a BackEnd developer with a passion for creating scalable and reliable web applications. I have experience with NodeJs, ExpressJS",
   },
 ];

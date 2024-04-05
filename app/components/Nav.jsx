@@ -38,8 +38,6 @@ const Nav = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-  console.log(theme);
-
   return (
     <div className="bg-transparent py-2 max-w-[1920px] w-[100%] border-b border-gray-700 mt-3">
       <div className="grid grid-cols-5 text-blue-gray-900">
@@ -108,7 +106,7 @@ const Nav = () => {
             </Button>
             {/* the drwer */}
             <div id="drwer" className="col-span-5 lg:col-span-0">
-              <div className="bg-transparent lg:hidden flex justify-between w-[100vw]">
+              <div className="bg-transparent lg:hidden flex justify-between w-[95vw]">
                 <Link
                   href="/"
                   className="text-center ms-10 mr-4 cursor-pointer py-1.5 dark:text-white text-black"
@@ -116,7 +114,7 @@ const Nav = () => {
                   Shayan_Gstp
                 </Link>
                 <IconButton
-                  className="dark:text-white text-black me-10"
+                  className="dark:text-white text-black me-5"
                   edge="start"
                   color="inherit"
                   aria-label="menu"
@@ -129,7 +127,7 @@ const Nav = () => {
             <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
               <div className="dark:bg-[#2a2f36] bg-gray-200 h-[100%] ">
                 <header className="text-white p-4 mt-3">
-                  <div className="flex justify-between"> 
+                  <div className="flex justify-between">
                     <h3 className="dark:text-white text-black">Menu</h3>
                     <div className="flex gap-1">
                       <div

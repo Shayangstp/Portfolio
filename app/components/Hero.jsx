@@ -5,7 +5,7 @@ import { socials, socialsResponsive } from "../helpers/index";
 
 const Hero = () => {
   return (
-    <div className="lg:grid grid-cols-6 h-[80vh] relative max-w-[1920px] w-[100%]">
+    <div className="lg:grid grid-cols-6 relative max-w-[1920px] w-[100%]">
       <div
         id="leftHero"
         className="col-span-1 flex-col items-center lg:justify-between justify-center relative hidden lg:flex"

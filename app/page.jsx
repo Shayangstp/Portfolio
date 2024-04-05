@@ -11,6 +11,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import SklillsP2 from "./components/SklillsP2";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,10 +21,11 @@ const Home = () => {
       <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
         <Navbar />
         <Hero />
-        <Skills />
+        {/* <Skills /> */}
+        <SklillsP2 />
         <Projects />
         <Contact />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import ViewCompactAltOutlinedIcon from "@mui/icons-material/ViewCompactAltOutlined";
+import { useTheme } from "next-themes";
 
 const blogData = [
   {
@@ -58,6 +59,7 @@ const blogData = [
 ];
 
 const Projects = () => {
+  const { theme } = useTheme();
   const [items, setItems] = useState(blogData);
 
   const swiperRef = useRef(null);
@@ -74,21 +76,23 @@ const Projects = () => {
     }
   };
   return (
-    <div className="h-[90vh] relative max-w-[1920px] mt-40 p-10">
-      <div id="header" className="text-[70px] rounded-2xl py-2 px-5 max-w-min">
+    <div className="relative max-w-[1920px] mt-16 md:mt-0 md:p-16 p-2">
+      <div id="header" className="text-[70px] rounded-2xl  px-5 max-w-min">
         <div className="flex items-center">
           <span>
             <ViewCompactAltOutlinedIcon className="me-2 text-[50px]" />
           </span>
-          <span className="text-[70px]">MY.</span>
-          <span className="text-[50px] text-red-600 mt-5">Projects</span>
+          <span className="text-[50px] md:text-[70px]">MY.</span>
+          <span className="text-[20px] md:text-[30px] text-red-600 md:mt-7 mt-6">
+            Projects
+          </span>
         </div>
       </div>
-      <div className="flex mt-40 max-w-[90vw]">
+      <div className="flex mt-20 max-w-[90vw]">
         <Button
           variant="outlined"
           size="small"
-          className=" border-gray-500 text-gray-300 hover:text-white hover:border-red-300 rounded-xl me-2"
+          className=" dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl me-2"
           // onClick={() => {
           //   swiper.slideNext();
           // }}
@@ -125,19 +129,23 @@ const Projects = () => {
               >
                 <div className="border border-gray-400 rounded-xl max-w-[100%]">
                   <div
-                    className={`p-4 rounded-t-xl border-b border-gray-400 h-[100px] slider-item ${
+                    className={`p-4 rounded-t-xl border-b border-gray-400 h-[100px] slider-item bg-red-900 ${
                       index === 1 ? "active" : ""
                     }`}
                     style={{
-                      backgroundColor: `${item.titleColor}80`,
+                      backgroundColor: `${item.titleColor}${
+                        theme === "light" ? "" : "90"
+                      }`,
                     }}
                   >
-                    <div className="font-bold text-[18px] text-white">
+                    <div className="font-bold text-[18px] dark:text-white text-white">
                       {item.title}
                     </div>
                   </div>
                   <CardContent>
-                    <p className="text-gray-300">{item.content}</p>
+                    <p className="dark:text-gray-300 text-gray-800">
+                      {item.content}
+                    </p>
                   </CardContent>
                   <CardActions className="ms-2 mb-2">
                     <Button
@@ -156,7 +164,7 @@ const Projects = () => {
                     <Button
                       size="small"
                       variant="outlined"
-                      className="text-white text-[12px] ms-2 px-5 border-gray-600 hover:border-red-600"
+                      className="dark:text-white text-black text-[12px] ms-2 px-5 border-gray-600 hover:border-red-600"
                     >
                       <span className="mt-1 mb-1">Read More</span>
                     </Button>
@@ -169,7 +177,7 @@ const Projects = () => {
         <Button
           variant="outlined"
           size="small"
-          className=" border-gray-500 text-gray-300 hover:text-white  hover:border-red-300 rounded-xl ms-2"
+          className=" dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl ms-2"
           onClick={slideNext}
         >
           <span className="text-[13px]">
