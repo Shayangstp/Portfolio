@@ -76,8 +76,11 @@ const Projects = () => {
     }
   };
   return (
-    <div className="relative max-w-[1920px] mt-16 md:mt-0 md:p-16 p-2">
-      <div id="header" className="text-[70px] rounded-2xl  px-5 max-w-min">
+    <div className="relative max-w-[1920px] w-[100%] mt-40 mb-20 md:mt-16 p-2">
+      <div
+        id="header"
+        className="text-[70px] rounded-2xl px-5 max-w-min md:ms-10 ms-0"
+      >
         <div className="flex items-center">
           <span>
             <ViewCompactAltOutlinedIcon className="me-2 text-[50px]" />
@@ -88,7 +91,7 @@ const Projects = () => {
           </span>
         </div>
       </div>
-      <div className="flex mt-20 max-w-[90vw]">
+      <div className="flex justify-center mt-20 max-w-[90vw] mx-auto">
         <Button
           variant="outlined"
           size="small"
@@ -138,12 +141,12 @@ const Projects = () => {
                       }`,
                     }}
                   >
-                    <div className="font-bold text-[18px] dark:text-white text-white">
+                    <div className="font-bold md:text-[18px] text-[14px] dark:text-white text-white">
                       {item.title}
                     </div>
                   </div>
                   <CardContent>
-                    <p className="dark:text-gray-300 text-gray-800">
+                    <p className="dark:text-gray-300 text-gray-800 md:text-[15px] text-[12px]">
                       {item.content}
                     </p>
                   </CardContent>
@@ -151,7 +154,7 @@ const Projects = () => {
                     <Button
                       size="small"
                       variant="contained"
-                      className="text-[12px] flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-5"
+                      className="sm:text-[12px] text-[9px] flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-5"
                       onClick={() => {
                         console.log("hi");
                       }}
@@ -164,7 +167,7 @@ const Projects = () => {
                     <Button
                       size="small"
                       variant="outlined"
-                      className="dark:text-white text-black text-[12px] ms-2 px-5 border-gray-600 hover:border-red-600"
+                      className="dark:text-white text-black md:text-[12px] text-[9px] ms-2 px-5 border-gray-600 hover:border-red-600"
                     >
                       <span className="mt-1 mb-1">Read More</span>
                     </Button>

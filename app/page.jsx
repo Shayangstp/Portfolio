@@ -25,7 +25,7 @@ const Home = () => {
         <SklillsP2 />
         <Projects />
         <Contact />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
