@@ -4,8 +4,10 @@ import { alpha, styled } from "@mui/material/styles";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
 import { useTheme } from "next-themes";
+import { selectDarkMode } from "../slices/mainSlices";
+import { useSelector } from "react-redux";
 
-const Input = styled(TextField)({
+const inputDark = {
   "& label.Mui-focused": {
     color: "#914343",
   },
@@ -47,8 +49,8 @@ const Input = styled(TextField)({
     // Prevent browser from autofilling
     autoComplete: "off",
   },
-});
-const InputLight = styled(TextField)({
+};
+const InputLight = {
   "& label.Mui-focused": {
     color: "#914343",
   },
@@ -90,10 +92,13 @@ const InputLight = styled(TextField)({
     // Prevent browser from autofilling
     autoComplete: "off",
   },
-});
+};
 
 const Contact = () => {
   const { theme } = useTheme();
+  const darkMode = useSelector(selectDarkMode);
+
+  const inputStyle = darkMode === "dark" ? inputDark : InputLight;
 
   return (
     <div className="h-[90vh] relative max-w-[1920px] w-[100%] mt-16 md:mt-32 p-2">
@@ -117,148 +122,76 @@ const Contact = () => {
           className="flex flex-col gap-5 md:w-[50%] p-5 md:p-0"
         >
           <div className="flex gap-4 border-red-900">
-            {theme === "dark" ? (
-              <Input
-                // error={formErrors.staffCodeMeli}
-                label="Name"
-                type="text"
-                className="md:w-[50%] w-[100%]"
-                // value={staffCodeMeli}
-                // onChange={(e) => {
-                //   //limit the input
-                //   let inputValue = e.target.value;
-                //   const maxLength = 10;
-                //   if (inputValue.length > maxLength) {
-                //     inputValue = inputValue.slice(0, maxLength);
-                //   }
-                //   dispatch(RsetStaffCodeMeli(inputValue));
-                // }}
-              />
-            ) : (
-              <InputLight
-                // error={formErrors.staffCodeMeli}
-                label="Name"
-                type="text"
-                className="md:w-[50%] w-[100%]"
-                // value={staffCodeMeli}
-                // onChange={(e) => {
-                //   //limit the input
-                //   let inputValue = e.target.value;
-                //   const maxLength = 10;
-                //   if (inputValue.length > maxLength) {
-                //     inputValue = inputValue.slice(0, maxLength);
-                //   }
-                //   dispatch(RsetStaffCodeMeli(inputValue));
-                // }}
-              />
-            )}
+            <TextField
+              // error={formErrors.staffCodeMeli}
+              label="Name"
+              type="text"
+              className="md:w-[50%] w-[100%]"
+              sx={inputStyle}
+              // value={staffCodeMeli}
+              // onChange={(e) => {
+              //   //limit the input
+              //   let inputValue = e.target.value;
+              //   const maxLength = 10;
+              //   if (inputValue.length > maxLength) {
+              //     inputValue = inputValue.slice(0, maxLength);
+              //   }
+              //   dispatch(RsetStaffCodeMeli(inputValue));
+              // }}
+            />
             {/* make email validation */}
-            {theme == "dark" ? (
-              <Input
-                // error={formErrors.staffCodeMeli}
-                label="Email"
-                type="text"
-                className="md:w-[50%] w-[100%]"
-                // value={staffCodeMeli}
-                // onChange={(e) => {
-                //   //limit the input
-                //   let inputValue = e.target.value;
-                //   const maxLength = 10;
-                //   if (inputValue.length > maxLength) {
-                //     inputValue = inputValue.slice(0, maxLength);
-                //   }
-                //   dispatch(RsetStaffCodeMeli(inputValue));
-                // }}
-              />
-            ) : (
-              <InputLight
-                // error={formErrors.staffCodeMeli}
-                label="Email"
-                type="text"
-                className="md:w-[50%] w-[100%]"
-                // value={staffCodeMeli}
-                // onChange={(e) => {
-                //   //limit the input
-                //   let inputValue = e.target.value;
-                //   const maxLength = 10;
-                //   if (inputValue.length > maxLength) {
-                //     inputValue = inputValue.slice(0, maxLength);
-                //   }
-                //   dispatch(RsetStaffCodeMeli(inputValue));
-                // }}
-              />
-            )}
+            <TextField
+              // error={formErrors.staffCodeMeli}
+              label="Email"
+              type="text"
+              className="md:w-[50%] w-[100%]"
+              sx={inputStyle}
+              // value={staffCodeMeli}
+              // onChange={(e) => {
+              //   //limit the input
+              //   let inputValue = e.target.value;
+              //   const maxLength = 10;
+              //   if (inputValue.length > maxLength) {
+              //     inputValue = inputValue.slice(0, maxLength);
+              //   }
+              //   dispatch(RsetStaffCodeMeli(inputValue));
+              // }}
+            />
           </div>
-          {theme === "dark" ? (
-            <Input
-              // error={formErrors.staffCodeMeli}
-              label="Subject..."
-              type="text"
-              // value={staffCodeMeli}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
-            />
-          ) : (
-            <InputLight
-              // error={formErrors.staffCodeMeli}
-              label="Subject..."
-              type="text"
-              // value={staffCodeMeli}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
-            />
-          )}
-          {theme === "dark" ? (
-            <Input
-              // error={formErrors.staffCodeMeli}
-              label="Message..."
-              type="text"
-              // value={staffCodeMeli}
-              multiline
-              rows={4}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
-            />
-          ) : (
-            <InputLight
-              // error={formErrors.staffCodeMeli}
-              label="Message..."
-              type="text"
-              // value={staffCodeMeli}
-              multiline
-              rows={4}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
-            />
-          )}
+          <TextField
+            // error={formErrors.staffCodeMeli}
+            label="Subject..."
+            type="text"
+            sx={inputStyle}
+            // value={staffCodeMeli}
+            // onChange={(e) => {
+            //   //limit the input
+            //   let inputValue = e.target.value;
+            //   const maxLength = 10;
+            //   if (inputValue.length > maxLength) {
+            //     inputValue = inputValue.slice(0, maxLength);
+            //   }
+            //   dispatch(RsetStaffCodeMeli(inputValue));
+            // }}
+          />
+          <TextField
+            // error={formErrors.staffCodeMeli}
+            label="Message..."
+            type="text"
+            // value={staffCodeMeli}
+            multiline
+            rows={4}
+            sx={inputStyle}
+            // onChange={(e) => {
+            //   //limit the input
+            //   let inputValue = e.target.value;
+            //   const maxLength = 10;
+            //   if (inputValue.length > maxLength) {
+            //     inputValue = inputValue.slice(0, maxLength);
+            //   }
+            //   dispatch(RsetStaffCodeMeli(inputValue));
+            // }}
+          />
           <Button
             variant="outlined"
             className="rounded-xl py-2 border border-red-600 dark:text-white text-black hover:border-red-500"

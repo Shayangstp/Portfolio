@@ -4,10 +4,75 @@ import { socials } from "../helpers/index";
 import { Button, TextField } from "@mui/material";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { useTheme } from "next-themes";
+import { navData } from "../helpers/index";
+import { selectDarkMode } from "../slices/mainSlices";
+import { useSelector } from "react-redux";
+
+
+const textFeildDark = {
+  "& input": {
+    color: "white",
+  },
+  "& label": {
+    color: "white",
+  },
+  "& .MuiInput-underline:before": {
+    borderBottomColor: "white",
+  },
+  "& label.Mui-focused": {
+    color: "red",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "red",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#E0E3E7",
+    },
+    "&:hover fieldset": {
+      borderColor: "#B2BAC2",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "red",
+    },
+  },
+};
+const textFeildLight = {
+  "& input": {
+    color: "black",
+  },
+  "& label": {
+    color: "black",
+  },
+  "& .MuiInput-underline:before": {
+    borderBottomColor: "black",
+  },
+  "& label.Mui-focused": {
+    color: "red",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "red",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#E0E3E7",
+    },
+    "&:hover fieldset": {
+      borderColor: "#B2BAC2",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "red",
+    },
+  },
+};
 
 const Footer = () => {
   const [activeLink, setActiveLink] = useState("/");
-  const { theme } = useTheme();
+
+  const darkMode = useSelector(selectDarkMode);
+
+  const style = darkMode === "dark" ? textFeildDark : textFeildLight;
+
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
       <li>
@@ -80,67 +145,8 @@ const Footer = () => {
             id="standard-basic"
             label="Email"
             variant="standard"
-            color=""
             className="mt-5 me-3"
-            sx={
-              theme === "dark"
-                ? {
-                    "& input": {
-                      color: "white",
-                    },
-                    "& label": {
-                      color: "white",
-                    },
-                    "& .MuiInput-underline:before": {
-                      borderBottomColor: "white",
-                    },
-                    "& label.Mui-focused": {
-                      color: "red",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "red",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#E0E3E7",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#B2BAC2",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "red",
-                      },
-                    },
-                  }
-                : {
-                    "& input": {
-                      color: "black",
-                    },
-                    "& label": {
-                      color: "black",
-                    },
-                    "& .MuiInput-underline:before": {
-                      borderBottomColor: "black",
-                    },
-                    "& label.Mui-focused": {
-                      color: "red",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "red",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#E0E3E7",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#B2BAC2",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "red",
-                      },
-                    },
-                  }
-            }
+            sx={style}
           />
           <Button
             size="small"
@@ -156,7 +162,23 @@ const Footer = () => {
           <div className="dark:text-white text-black">Shayan_gstp</div>
         </div>
         <div id="navFooter" className="col-span-3 lg:inline-block hidden">
-          <ul className="flex gap-5 justify-center ">{navList}</ul>
+          <ul className="flex gap-5 justify-center ">
+            {navData.map((item, idx) => {
+              return (
+                <Link
+                  href={item.href}
+                  className={`flex items-center ${
+                    activeLink === item.href
+                      ? "text-[#ff0000]"
+                      : "dark:text-white text-black"
+                  } hover:text-[#ff0000] dark:hover:text-[#ff0000] text-sm`}
+                  // onClick={() => handleLinkClick("#ContactUS")}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
+          </ul>
         </div>
         <div id="social" className="lg:col-span-1 col-span-2">
           <div className="flex gap-2 md:gap-5 lg:justify-start justify-end">
@@ -164,7 +186,7 @@ const Footer = () => {
               return (
                 <div
                   key={idx}
-                  className="hover:text-red-600 cursor-pointer dark:text-gray-300"
+                  className="hover:text-red-600 hover:dark:text-red-400 cursor-pointer dark:text-gray-300"
                 >
                   {item.icon}
                 </div>

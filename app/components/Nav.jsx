@@ -34,6 +34,10 @@ const Nav = () => {
   //darkmode
   const { systemTheme, theme, setTheme, resolvedTheme } = useTheme();
 
+  useEffect(() => {
+    dispatch(RsetDarkMode(theme));
+  }, [theme]);
+
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
