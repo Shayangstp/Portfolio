@@ -12,6 +12,10 @@ import {
   ListItem,
   ListItemText,
   Button,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -21,6 +25,11 @@ import { RsetDarkMode, selectDarkMode } from "../slices/mainSlices";
 import { useDispatch, useSelector } from "react-redux";
 import { navData } from "../helpers/index";
 import { useRouter } from "next/navigation";
+import us from "../assets/us.jpg";
+import iran from "../assets/iran.jpg";
+import Image from "next/image";
+import { lightSelect, darkSelect } from "../helpers/index";
+import NavDrawer from "./NavDrawer";
 
 const Nav = () => {
   const route = useRouter();
@@ -28,9 +37,13 @@ const Nav = () => {
 
   const [activeLink, setActiveLink] = useState("/");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isSelectFocused, setIsSelectFocused] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
 
   //select
   const darkMode = useSelector(selectDarkMode);
+  console.log(darkMode);
+  const selectStyle = darkMode === "dark" ? darkSelect : lightSelect;
   //darkmode
   const { systemTheme, theme, setTheme, resolvedTheme } = useTheme();
 
@@ -99,15 +112,70 @@ const Nav = () => {
                 )}
               </span>
             </Button>
-            <Button
+            {/* <Button
               variant="outlined"
               size="small"
               className="hidden lg:inline-block text-white border border-gray-500 hover:border-red-600 hover:bg-transparent px-4 rounded-lg py-1.5"
-            >
-              <span className="text-[12px] dark:text-white text-black">
+            > */}
+            {/* <span className="text-[12px] dark:text-white text-black"> */}
+            <FormControl id="language" className="hidden lg:inline-block">
+              <InputLabel
+                id="demo-simple-select-label"
+                className={`text-black dark:text-white ${
+                  isSelectFocused || selectedValue ? "mt-0" : "mt-[-7px]"
+                } flex items-center`}
+              >
                 <GTranslateIcon fontSize="small" />
-              </span>
-            </Button>
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                style={{
+                  width: "100px", // Change the background color here
+                  height: "40px",
+                }}
+                onFocus={() => setIsSelectFocused(true)}
+                onBlur={() => setIsSelectFocused(false)}
+                onChange={(e) => {
+                  setSelectedValue(e.target.value);
+                }}
+                value={selectedValue}
+                label="Age"
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: "blue",
+                    },
+                  },
+                }}
+                sx={selectStyle}
+                // onChange={handleChange}
+              >
+                <MenuItem value={10}>
+                  <div className="flex items-center">
+                    <span className="text-[12px] text-black dark:text-white">
+                      {" "}
+                      IR -{" "}
+                    </span>
+                    <span className="ms-2">
+                      <Image src={iran} alt="IR Flag" width={20} height={20} />
+                    </span>{" "}
+                  </div>
+                </MenuItem>
+                <MenuItem value={20}>
+                  <div className="flex items-center">
+                    <span className="text-black dark:text-white text-[12px]">
+                      {" "}
+                      US -{" "}
+                    </span>
+                    <span className="ms-1">
+                      <Image src={us} alt="US Flag" width={20} />
+                    </span>
+                  </div>
+                </MenuItem>
+              </Select>
+            </FormControl>
+
             {/* the drwer */}
             <div id="drwer" className="col-span-5 lg:col-span-0">
               <div className="bg-transparent lg:hidden flex justify-between w-[95vw]">
@@ -128,64 +196,11 @@ const Nav = () => {
                 </IconButton>
               </div>
             </div>
-            <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
-              <div className="dark:bg-[#2a2f36] bg-gray-200 h-[100%] ">
-                <header className="text-white p-4 mt-3">
-                  <div className="flex justify-between">
-                    <h3 className="dark:text-white text-black">Menu</h3>
-                    <div className="flex gap-1">
-                      <div
-                        variant="text"
-                        size="middle"
-                        className=" dark:text-white text-black  hover:text-red-500 dark:hover:text-red-500 px-4 rounded-lg cursor-pointer"
-                      >
-                        <span className="text-[12px]">
-                          <GTranslateIcon />
-                        </span>
-                      </div>
-                      <div
-                        variant="text"
-                        size="small"
-                        className=" dark:text-white text-black  hover:text-red-500 dark:hover:text-red-500 px-4 rounded-lg cursor-pointer"
-                        onClick={() => {
-                          if (resolvedTheme === "dark") {
-                            setTheme("light");
-                          } else if (resolvedTheme === "light") {
-                            setTheme("dark");
-                          }
-
-                          dispatch(RsetDarkMode(!darkMode));
-                        }}
-                      >
-                        <span className="text-[12px]">
-                          {theme === "dark" ? (
-                            <LightModeIcon />
-                          ) : (
-                            <Brightness2Icon />
-                          )}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="border dark:border-white border-black w-100 mt-4"></div>
-                </header>
-                <List className="w-[300px] flex flex-col text-white">
-                  {navData.map((item, idx) => {
-                    return (
-                      <ListItem
-                        button
-                        onClick={toggleDrawer}
-                        className="hover:bg-red-900 dark:text-white text-black hover:text-white"
-                      >
-                        <Link href={item.href}>
-                          <ListItemText primary={item.title} />
-                        </Link>
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              </div>
-            </Drawer>
+            {/* drawer */}
+            <NavDrawer
+              isDrawerOpen={isDrawerOpen}
+              setIsDrawerOpen={setIsDrawerOpen}
+            />
           </div>
         </div>
       </div>

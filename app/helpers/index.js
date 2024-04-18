@@ -162,3 +162,33 @@ export const skillsDesc = [
     desc: "I am a BackEnd developer with a passion for creating scalable and reliable web applications. I have experience with NodeJs, ExpressJS",
   },
 ];
+
+export const lightSelect = {
+  "& .MuiSvgIcon-root": {
+    color: "black",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "gray", // Default border color
+  },
+  "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#9e1f16", // Border color on hover
+  },
+  "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#9e1f16", // Border color when focused
+  },
+};
+
+export const darkSelect = {
+  "& .MuiSvgIcon-root": {
+    color: "white",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "gray", // Default border color
+  },
+  "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#9e1f16", // Border color on hover
+  },
+  "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#9e1f16", // Border color when focused
+  },
+};
