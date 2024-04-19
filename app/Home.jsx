@@ -1,4 +1,3 @@
-// import Image from "next/image";
 "use client";
 import React, { use, useEffect } from "react";
 import Navbar from "./components/Nav";
@@ -17,11 +16,13 @@ const Home = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className=" bg-white dark:bg-[#161616] flex justify-center relative ">
+    <div
+      dir={true ? "rtl" : "ltr"}
+      className=" bg-white dark:bg-[#161616] flex justify-center relative "
+    >
       <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
         <Navbar />
         <Hero />
-        {/* <Skills /> */}
         <SklillsP2 />
         <Projects />
         <Contact />

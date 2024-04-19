@@ -16,7 +16,6 @@ const Skills = () => {
       </div>
       <div id="skills" className="flex gap-10 justify-center mt-32">
         {skillsData.map((item) => {
-          console.log(item.bgColor);
           return (
             <div
               id="card"

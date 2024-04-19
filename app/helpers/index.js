@@ -131,19 +131,19 @@ export const otherSkills = [
 
 export const navData = [
   {
-    title: "Home",
+    titleKey: "home",
     href: "/",
   },
   {
-    title: "Resume",
+    titleKey: "resume",
     href: "/resume",
   },
   {
-    title: "Projects",
+    titleKey: "projects",
     href: "/projects",
   },
   {
-    title: "ContactMe",
+    titleKey: "contactMe",
     href: "/contactMe",
   },
 ];

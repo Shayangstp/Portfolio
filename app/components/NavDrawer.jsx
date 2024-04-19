@@ -35,6 +35,7 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
   return (
     <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
       <div className="dark:bg-[#2a2f36] bg-gray-200 h-[100%] ">

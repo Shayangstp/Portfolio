@@ -30,9 +30,10 @@ import iran from "../assets/iran.jpg";
 import Image from "next/image";
 import { lightSelect, darkSelect } from "../helpers/index";
 import NavDrawer from "./NavDrawer";
+import { useTranslations } from "next-intl";
 
-const Nav = () => {
-  const route = useRouter();
+const Nav = ({ params }) => {
+  const t = useTranslations("Nav");
   const dispatch = useDispatch();
 
   const [activeLink, setActiveLink] = useState("/");
@@ -42,7 +43,6 @@ const Nav = () => {
 
   //select
   const darkMode = useSelector(selectDarkMode);
-  console.log(darkMode);
   const selectStyle = darkMode === "dark" ? darkSelect : lightSelect;
   //darkmode
   const { systemTheme, theme, setTheme, resolvedTheme } = useTheme();
@@ -80,7 +80,7 @@ const Nav = () => {
                           : "dark:text-white text-black"
                       } hover:text-[#ff0000] dark:hover:text-[#ff0000] text-sm`}
                     >
-                      {item.title}
+                      {t(item.titleKey)}
                     </Link>
                   </li>
                 );
@@ -118,7 +118,7 @@ const Nav = () => {
               className="hidden lg:inline-block text-white border border-gray-500 hover:border-red-600 hover:bg-transparent px-4 rounded-lg py-1.5"
             > */}
             {/* <span className="text-[12px] dark:text-white text-black"> */}
-            <FormControl id="language" className="hidden lg:inline-block">
+            <FormControl id="locale" className="hidden lg:inline-block">
               <InputLabel
                 id="demo-simple-select-label"
                 className={`text-black dark:text-white ${
