@@ -2,8 +2,10 @@ import React from "react";
 import AboutMe from "./AboutMe";
 import { Button } from "@mui/material";
 import { socials, socialsResponsive } from "../helpers/index";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("Hero");
   return (
     <div className="lg:grid grid-cols-6 relative max-w-[1920px] w-[100%]">
       <div
@@ -16,7 +18,7 @@ const Hero = () => {
             &nbsp; Developer
           </p>
         </div>
-        <div className="flex flex-col gap-1 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 rounded-2xl bg-gray-800 dark:bg-transparent">
+        <div className="flex flex-col gap-3 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 py-4 rounded-2xl bg-gray-800 dark:bg-transparent">
           {socials.map((item, idx) => {
             return (
               <div
@@ -31,9 +33,9 @@ const Hero = () => {
       </div>
       <div
         id="mainHero"
-        className="lg:col-span-5 flex flex-col xl:ms-10 justify-center  lg:items-start "
+        className="lg:col-span-5 flex flex-col xl:ms-10 justify-center lg:items-start "
       >
-        <div id="hero-text" className="lg:mt-28 xl:ms-24">
+        <div id="hero-text" className="lg:mt-28 xl:ms-32">
           <div className="text-white text-end flex justify-end lg:hidden">
             <div>
               <div className="flex flex-col gap-1 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 rounded-2xl bg-gray-800 dark:bg-transparent me-8 mt-4">
@@ -50,11 +52,17 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black md:ms-32 ms-10 lg:ms-0">
-            Hi there
+          <div
+            id="Hi"
+            className="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black md:ms-32 ms-10 lg:ms-0"
+          >
+            {t("title1")}
           </div>
-          <div className="lg:text-[60px] sm:text-[40px] text-[25px]  md:ms-32 ms-10 lg:ms-0 ">
-            I'm Shayan Golestanipour
+          <div
+            id="imShayan"
+            className="lg:text-[60px] sm:text-[40px] text-[25px]  md:ms-32 ms-10 lg:ms-0 mb-5"
+          >
+            {t("title2")}
           </div>
           <div className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent mt-2 lg:hidden md:ms-32 ms-10 ">
             <p className="me-10">
@@ -64,25 +72,25 @@ const Hero = () => {
               &nbsp; Developer
             </p>
           </div>
-          <div className="lg: max-w-[600px] xl:ms-24 mt-5 border border-gray-600 px-5 py-8 rounded-2xl md:ms-32 sm:ms-10 mx-5 lg:hidden">
+          <div className="lg: max-w-[650px] xl:ms-32 mt-5 border border-gray-600 px-5 py-8 rounded-2xl md:ms-32 sm:ms-10 mx-5 lg:hidden">
             <AboutMe />
           </div>
         </div>
-        <div className="w-[600px] xl:ms-24 mt-5 border border-gray-600 px-5 py-8 rounded-2xl hidden lg:inline-block">
+        <div className="w-[650px] xl:ms-32 mt-5 border border-gray-600 px-5 py-8 rounded-2xl hidden lg:inline-block">
           <AboutMe />
         </div>
         <div className="lg:w-[80%] lg:ms-0 w-full mt-16 flex justify-end gap-4">
           <Button
-            variant="contained"
-            className="bg-gray-800 px-10 lg:py-3 py-2.5 hover:bg-red-900 text-[12px] sm:text-[14px] "
+            variant="outlined"
+            className="border  border-gray-700 dark:border-gray-400 text-gray-600  dark:text-gray-200 dark:hover:text-red-500 hover:bg-transparent  hover:text-black lg:py-3 py-2.5 px-5 lg:px-6 hover:border-red-500 dark:hover:border-white text-[12px] sm:text-[14px]"
           >
-            Skills
+            {t("projectBtn")}
           </Button>
           <Button
-            variant="outlined"
-            className="border me-10 border-gray-700 dark:border-gray-400 text-gray-600  dark:text-gray-200 dark:hover:text-red-500 hover:bg-transparent  hover:text-black lg:py-3 py-2.5 hover:border-red-500 dark:hover:border-white text-[12px] sm:text-[14px]"
+            variant="contained"
+            className="bg-gray-800 px-5 lg:px-6 lg:py-3 py-2.5  hover:bg-red-900 text-[12px] sm:text-[14px] me-10"
           >
-            My Projects
+            {t("skillBtn")}
           </Button>
         </div>
       </div>

@@ -4,5 +4,16 @@
     "resume": "Resume",
     "projects": "Projects",
     "contactMe": "Contact Me"
+  },
+  "Hero": {
+    "title1": "Hi there",
+    "title2": "I'm Shayan Golestanipour",
+
+    "aboutMe1": "About",
+    "aboutMe2": "Me",
+    "aboutMe3": "I'm a self-taught web developer with a passion for creating visually appealing and functional websites. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!",
+
+    "skillBtn": "Skills",
+    "projectBtn": "MY Projects"
   }
 }

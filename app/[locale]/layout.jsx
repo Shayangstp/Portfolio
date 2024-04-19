@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import StoreProvider from "../StoreProvider";
 import ThemeProviderNextJs from "../ThemeProviderNextJs";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import MuiThemeProvider from "../MuiThemeProvider";
 
 config.autoAddCss = false;
 
@@ -22,9 +23,11 @@ const RootLayout = ({ children, params: { locale } }) => {
       <StoreProvider>
         <body className={`${poppins.className}`}>
           <ThemeProviderNextJs>
-            <NextIntlClientProvider messages={messages}>
-              {children}
-            </NextIntlClientProvider>
+            <MuiThemeProvider>
+              <NextIntlClientProvider messages={messages}>
+                {children}
+              </NextIntlClientProvider>
+            </MuiThemeProvider>
           </ThemeProviderNextJs>
         </body>
       </StoreProvider>

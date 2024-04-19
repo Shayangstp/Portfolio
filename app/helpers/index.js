@@ -5,16 +5,16 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export const socials = [
   {
-    icon: <GitHubIcon />,
+    icon: <GitHubIcon fontSize="small" />,
   },
   {
-    icon: <TelegramIcon />,
+    icon: <TelegramIcon fontSize="small" />,
   },
   {
-    icon: <EmailIcon />,
+    icon: <EmailIcon fontSize="small" />,
   },
   {
-    icon: <LinkedInIcon />,
+    icon: <LinkedInIcon fontSize="small" />,
   },
 ];
 

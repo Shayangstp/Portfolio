@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useTransition } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import {
@@ -30,16 +30,17 @@ import iran from "../assets/iran.jpg";
 import Image from "next/image";
 import { lightSelect, darkSelect } from "../helpers/index";
 import NavDrawer from "./NavDrawer";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Nav = ({ params }) => {
   const t = useTranslations("Nav");
   const dispatch = useDispatch();
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  const localeActive = useLocale();
 
   const [activeLink, setActiveLink] = useState("/");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isSelectFocused, setIsSelectFocused] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
 
   //select
   const darkMode = useSelector(selectDarkMode);
@@ -53,6 +54,11 @@ const Nav = ({ params }) => {
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
+  };
+  const handleLocaleSelect = (e) => {
+    startTransition(() => {
+      router.replace(`/${e.target.value}`);
+    });
   };
 
   return (
@@ -121,9 +127,7 @@ const Nav = ({ params }) => {
             <FormControl id="locale" className="hidden lg:inline-block">
               <InputLabel
                 id="demo-simple-select-label"
-                className={`text-black dark:text-white ${
-                  isSelectFocused || selectedValue ? "mt-0" : "mt-[-7px]"
-                } flex items-center`}
+                className={`text-black dark:text-white  flex items-center`}
               >
                 <GTranslateIcon fontSize="small" />
               </InputLabel>
@@ -134,12 +138,13 @@ const Nav = ({ params }) => {
                   width: "100px", // Change the background color here
                   height: "40px",
                 }}
-                onFocus={() => setIsSelectFocused(true)}
-                onBlur={() => setIsSelectFocused(false)}
+                // onFocus={() => setIsSelectFocused(true)}
+                // onBlur={() => setIsSelectFocused(false)}
                 onChange={(e) => {
-                  setSelectedValue(e.target.value);
+                  handleLocaleSelect(e);
                 }}
-                value={selectedValue}
+                value={localeActive}
+                defaultValue={localeActive}
                 label="Age"
                 MenuProps={{
                   PaperProps: {
@@ -151,7 +156,7 @@ const Nav = ({ params }) => {
                 sx={selectStyle}
                 // onChange={handleChange}
               >
-                <MenuItem value={10}>
+                <MenuItem value={"fa"}>
                   <div className="flex items-center">
                     <span className="text-[12px] text-black dark:text-white">
                       {" "}
@@ -162,7 +167,7 @@ const Nav = ({ params }) => {
                     </span>{" "}
                   </div>
                 </MenuItem>
-                <MenuItem value={20}>
+                <MenuItem value={"en"}>
                   <div className="flex items-center">
                     <span className="text-black dark:text-white text-[12px]">
                       {" "}

@@ -11,13 +11,17 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SklillsP2 from "./components/SklillsP2";
+import { useLocale } from "next-intl";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const localeActive = useLocale();
+  console.log(localeActive);
 
+  // can return cookies for dir
   return (
     <div
-      dir={true ? "rtl" : "ltr"}
+      dir={localeActive === "fa" ? "rtl" : "ltr"}
       className=" bg-white dark:bg-[#161616] flex justify-center relative "
     >
       <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
