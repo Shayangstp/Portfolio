@@ -8,18 +8,31 @@ import {
   skillsDesc,
   mySkills,
 } from "../helpers/index";
+import { useTranslations, useLocale } from "next-intl";
 
 const SklillsP2 = () => {
+  const t = useTranslations("Skills");
+  const localeActive = useLocale();
   return (
     <div className="relative max-w-[1920px] w-[100%] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0">
-      <div id="header" className="text-[70px] py-2 px-5 max-w-min">
+      <div id="header" className="text-[70px] py-2 px-5">
         <div className="flex items-center">
           <span>
             <HandymanOutlinedIcon className="me-2 text-[50px]" />
           </span>
-          <span className="text-[50px] md:text-[70px]">Skills.</span>
-          <span className="text-[20px] md:text-[30px] text-red-600 md:mt-7 mt-5">
-            Development
+          <span
+            className={`${
+              localeActive === "fa" ? "text-[30px]" : "text-[50px]"
+            } md:text-[70px]`}
+          >
+            {t("title1")}
+          </span>
+          <span
+            className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+              localeActive === "fa" ? "mt-0" : "mt-5"
+            }`}
+          >
+            {t("title2")}
           </span>
         </div>
       </div>
@@ -33,18 +46,20 @@ const SklillsP2 = () => {
               return (
                 <div className=" p-10 rounded-2xl ">
                   <header className="text-[32px] border-b border-gray-900 dark:border-gray-500 py-2">
-                    {item.title}
+                    {t(item.title)}
                   </header>
-                  <p className="mt-5 md:text-[15px] text-[13px]">{item.desc}</p>
+                  <p className="mt-5 md:text-[15px] text-[13px]">
+                    {t(item.desc)}
+                  </p>
                   <div id="front-skill-set" className="mt-10">
-                    {item.title === "FrontEnd" &&
+                    {item.title === "frontEnd" &&
                       frontSkills.map((item, idx) => {
                         return (
                           <div className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5">
                             <span className="dark:text-red-600 text-red-900">
                               <RadioButtonCheckedIcon fontSize="small" />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
-                                {item.title}
+                                {t(item.title)}
                               </span>
                             </span>
                             <div className="flex flex-wrap gap-2">
@@ -66,14 +81,14 @@ const SklillsP2 = () => {
                           </div>
                         );
                       })}
-                    {item.title === "BackEnd" &&
+                    {item.title === "backEnd" &&
                       backendSkills.map((item, idx) => {
                         return (
                           <div className="border-b border-gray-600 pb-3  md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5">
                             <span className="dark:text-red-600 text-red-900">
                               <RadioButtonCheckedIcon fontSize="small" />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
-                                {item.title}
+                                {t(item.title)}
                               </span>
                             </span>
                             <div className="flex flex-wrap gap-2">
@@ -95,14 +110,14 @@ const SklillsP2 = () => {
                           </div>
                         );
                       })}
-                    {item.title === "Other" &&
+                    {item.title === "other" &&
                       otherSkills.map((item, idx) => {
                         return (
                           <div className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5">
                             <span className="dark:text-red-600 text-red-900">
                               <RadioButtonCheckedIcon fontSize="small" />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
-                                {item.title}
+                                {t(item.title)}
                               </span>
                             </span>
                             <div className="flex flex-wrap gap-2">

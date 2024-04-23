@@ -35,11 +35,11 @@ export const socialsResponsive = [
 
 export const frontSkills = [
   {
-    title: "Basics",
+    title: "frontBasic",
     skills: [{ title: "HTML" }, { title: "CSS" }, { title: "JavaScript" }],
   },
   {
-    title: "Frameworks",
+    title: "frontFrameWork",
     skills: [
       {
         title: "React",
@@ -56,7 +56,7 @@ export const frontSkills = [
     ],
   },
   {
-    title: "CSS Framworks",
+    title: "frontCssFrameWorks",
     skills: [
       {
         title: "Bootstrap",
@@ -76,7 +76,7 @@ export const frontSkills = [
 
 export const backendSkills = [
   {
-    title: "Basics",
+    title: "backBasic",
     skills: [
       {
         title: "NodeJs",
@@ -84,7 +84,7 @@ export const backendSkills = [
     ],
   },
   {
-    title: "FrameWorks",
+    title: "backFrameWork",
     skills: [
       {
         title: "ExpressJS",
@@ -92,7 +92,7 @@ export const backendSkills = [
     ],
   },
   {
-    title: "DataBase",
+    title: "backDataBase",
     skills: [
       {
         title: "SQL",
@@ -105,7 +105,7 @@ export const backendSkills = [
 ];
 export const otherSkills = [
   {
-    title: "Other Skill",
+    title: "other",
     skills: [
       {
         title: "Figma",
@@ -150,16 +150,16 @@ export const navData = [
 
 export const skillsDesc = [
   {
-    title: "FrontEnd",
-    desc: "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+    title: "frontEnd",
+    desc: "frontEndDesc",
   },
   {
-    title: "BackEnd",
-    desc: "I am a BackEnd developer with a passion for creating scalable and reliable web applications. I have experience with NodeJs, ExpressJS, and databases like MongoDB and SQL.",
+    title: "backEnd",
+    desc: "backEndDesc",
   },
   {
-    title: "Other",
-    desc: "I am a BackEnd developer with a passion for creating scalable and reliable web applications. I have experience with NodeJs, ExpressJS",
+    title: "other",
+    desc: "otherDesc",
   },
 ];
 

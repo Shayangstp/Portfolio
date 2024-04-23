@@ -15,5 +15,33 @@
 
     "skillBtn": "Skills",
     "projectBtn": "MY Projects"
+  },
+  "Skills": {
+    "title1": "Skills.",
+    "title2": "development",
+
+    "frontEnd": "FrontEnd",
+    "frontEndDesc": "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+    "frontBasic": "Basic",
+    "frontFrameWork": "Frameworks",
+    "frontCssFrameWorks": "CSS Frameworks",
+
+    "backEnd": "BackEnd",
+    "backEndDesc": "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+    "backBasic": "Basics",
+    "backFrameWork": "FrameWorks",
+    "backDataBase": "DataBases",
+
+    "other": "Other",
+    "otherDesc": "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+    "otherSkills": "Other Skills"
+  },
+
+  "projects": {
+    "title1": "MY.",
+    "title2": "Projects",
+
+    "githubBtn": "GITHUB",
+    "readMoreBtn": "Read More"
   }
 }

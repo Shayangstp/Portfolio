@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import ViewCompactAltOutlinedIcon from "@mui/icons-material/ViewCompactAltOutlined";
 import { useTheme } from "next-themes";
+import { useTranslations, useLocale } from "next-intl";
 
 const blogData = [
   {
@@ -61,6 +62,8 @@ const blogData = [
 const Projects = () => {
   const { theme } = useTheme();
   const [items, setItems] = useState(blogData);
+  const t = useTranslations("projects");
+  const localeActive = useLocale();
 
   const swiperRef = useRef(null);
 
@@ -77,17 +80,24 @@ const Projects = () => {
   };
   return (
     <div className="relative max-w-[1920px] w-[100%] mt-40 mb-20 md:mt-16 p-2">
-      <div
-        id="header"
-        className="text-[70px] rounded-2xl px-5 max-w-min md:ms-10 ms-0"
-      >
+      <div id="header" className="text-[70px] rounded-2xl px-5 md:ms-10 ms-0">
         <div className="flex items-center">
           <span>
             <ViewCompactAltOutlinedIcon className="me-2 text-[50px]" />
           </span>
-          <span className="text-[50px] md:text-[70px]">MY.</span>
-          <span className="text-[20px] md:text-[30px] text-red-600 md:mt-7 mt-6">
-            Projects
+          <span
+            className={`${
+              localeActive === "fa" ? "text-[30px]" : "text-[50px]"
+            } md:text-[70px]`}
+          >
+            {t("title1")}
+          </span>
+          <span
+            className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+              localeActive === "fa" ? "mt-0" : "mt-5"
+            }`}
+          >
+            {t("title2")}
           </span>
         </div>
       </div>
@@ -162,14 +172,14 @@ const Projects = () => {
                       <span>
                         <GitHubIcon fontSize="small" className="text-white" />
                       </span>
-                      <span className="mt-1 text-white">GitHub</span>
+                      <span className="mt-1 text-white">{t("githubBtn")}</span>
                     </Button>
                     <Button
                       size="small"
                       variant="outlined"
                       className="dark:text-white text-black md:text-[12px] text-[9px] ms-2 px-5 border-gray-600 hover:border-red-600"
                     >
-                      <span className="mt-1 mb-1">Read More</span>
+                      <span className="mt-1 mb-1">{t("readMoreBtn")}</span>
                     </Button>
                   </CardActions>
                 </div>
