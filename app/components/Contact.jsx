@@ -1,11 +1,17 @@
 import React from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, createTheme } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
 import { useTheme } from "next-themes";
 import { selectDarkMode } from "../slices/mainSlices";
 import { useSelector } from "react-redux";
+import { useTranslations, useLocale } from "next-intl";
+import rtlPlugin from "stylis-plugin-rtl";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import CssBaseline from "@mui/material/CssBaseline";
+import { prefixer } from "stylis";
 
 const inputDark = {
   "& label.Mui-focused": {
@@ -17,6 +23,8 @@ const inputDark = {
   },
   "& .MuiInputBase-input": {
     color: "white",
+    direction: "rtl", // Right-to-left text direction
+    textAlign: "right",
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "blue",
@@ -97,8 +105,20 @@ const InputLight = {
 const Contact = () => {
   const { theme } = useTheme();
   const darkMode = useSelector(selectDarkMode);
+  const localeActive = useLocale();
+  const t = useTranslations("contactMe");
 
   const inputStyle = darkMode === "dark" ? inputDark : InputLight;
+
+  const cacheRtl = createCache({
+    key: "muirtl",
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
+
+  const cacheLtr = createCache({
+    key: "muiltr",
+    stylisPlugins: [prefixer],
+  });
 
   return (
     <div className="h-[90vh] relative max-w-[1920px] w-[100%] mt-16 md:mt-32 p-2">
@@ -122,76 +142,83 @@ const Contact = () => {
           className="flex flex-col gap-5 md:w-[50%] p-5 md:p-0"
         >
           <div className="flex gap-4 border-red-900">
-            <TextField
-              // error={formErrors.staffCodeMeli}
-              label="Name"
-              type="text"
-              className="md:w-[50%] w-[100%]"
-              sx={inputStyle}
-              // value={staffCodeMeli}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
-            />
-            {/* make email validation */}
-            <TextField
-              // error={formErrors.staffCodeMeli}
-              label="Email"
-              type="text"
-              className="md:w-[50%] w-[100%]"
-              sx={inputStyle}
-              // value={staffCodeMeli}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
-            />
+            <CacheProvider value={localeActive === "fa" ? cacheRtl : cacheLtr}>
+              <TextField
+                // error={formErrors.staffCodeMeli}
+                label={t("name")}
+                type="text"
+                className="md:w-[50%] w-[100%]"
+                sx={inputStyle}
+                // InputLabelProps={{
+                //   className: "rtl-label",
+                // }}
+                // value={staffCodeMeli}
+                // onChange={(e) => {
+                //   //limit the input
+                //   let inputValue = e.target.value;
+                //   const maxLength = 10;
+                //   if (inputValue.length > maxLength) {
+                //     inputValue = inputValue.slice(0, maxLength);
+                //   }
+                //   dispatch(RsetStaffCodeMeli(inputValue));
+                // }}
+              />
+              {/* make email validation */}
+              <TextField
+                // error={formErrors.staffCodeMeli}
+                label="Email"
+                type="text"
+                className="md:w-[50%] w-[100%]"
+                sx={inputStyle}
+                // value={staffCodeMeli}
+                // onChange={(e) => {
+                //   //limit the input
+                //   let inputValue = e.target.value;
+                //   const maxLength = 10;
+                //   if (inputValue.length > maxLength) {
+                //     inputValue = inputValue.slice(0, maxLength);
+                //   }
+                //   dispatch(RsetStaffCodeMeli(inputValue));
+                // }}
+              />
+            </CacheProvider>
           </div>
-          <TextField
-            // error={formErrors.staffCodeMeli}
-            label="Subject..."
-            type="text"
-            sx={inputStyle}
-            // value={staffCodeMeli}
-            // onChange={(e) => {
-            //   //limit the input
-            //   let inputValue = e.target.value;
-            //   const maxLength = 10;
-            //   if (inputValue.length > maxLength) {
-            //     inputValue = inputValue.slice(0, maxLength);
-            //   }
-            //   dispatch(RsetStaffCodeMeli(inputValue));
-            // }}
-          />
-          <TextField
-            // error={formErrors.staffCodeMeli}
-            label="Message..."
-            type="text"
-            // value={staffCodeMeli}
-            multiline
-            rows={4}
-            sx={inputStyle}
-            // onChange={(e) => {
-            //   //limit the input
-            //   let inputValue = e.target.value;
-            //   const maxLength = 10;
-            //   if (inputValue.length > maxLength) {
-            //     inputValue = inputValue.slice(0, maxLength);
-            //   }
-            //   dispatch(RsetStaffCodeMeli(inputValue));
-            // }}
-          />
+          <CacheProvider value={localeActive === "fa" ? cacheRtl : cacheLtr}>
+            <TextField
+              // error={formErrors.staffCodeMeli}
+              label="Subject..."
+              type="text"
+              sx={inputStyle}
+              // value={staffCodeMeli}
+              // onChange={(e) => {
+              //   //limit the input
+              //   let inputValue = e.target.value;
+              //   const maxLength = 10;
+              //   if (inputValue.length > maxLength) {
+              //     inputValue = inputValue.slice(0, maxLength);
+              //   }
+              //   dispatch(RsetStaffCodeMeli(inputValue));
+              // }}
+            />
+            <TextField
+              // error={formErrors.staffCodeMeli}
+              label="Message..."
+              type="text"
+              // value={staffCodeMeli}
+              multiline
+              rows={4}
+              sx={inputStyle}
+              // onChange={(e) => {
+              //   //limit the input
+              //   let inputValue = e.target.value;
+              //   const maxLength = 10;
+              //   if (inputValue.length > maxLength) {
+              //     inputValue = inputValue.slice(0, maxLength);
+              //   }
+              //   dispatch(RsetStaffCodeMeli(inputValue));
+              // }}
+            />
+          </CacheProvider>
           <Button
             variant="outlined"
             className="rounded-xl py-2 border border-red-600 dark:text-white text-black hover:border-red-500"
