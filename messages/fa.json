@@ -51,7 +51,9 @@
 
     "email": "ایمیل",
     "name": "نام",
-    "subject": "موضوع",
-    "message": "پیام"
+    "subject": "موضوع ...",
+    "message": "پیام ...",
+
+    "submitBtn": "ارسال"
   }
 }

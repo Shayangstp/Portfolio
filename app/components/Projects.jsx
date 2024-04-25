@@ -94,7 +94,7 @@ const Projects = () => {
           </span>
           <span
             className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
-              localeActive === "fa" ? "mt-0" : "mt-5"
+              localeActive === "fa" ? "mt-2" : "mt-5"
             }`}
           >
             {t("title2")}

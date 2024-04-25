@@ -44,13 +44,16 @@
     "githubBtn": "GITHUB",
     "readMoreBtn": "Read More"
   },
-  "contactMe": {
-    "title1": "تماس با.",
-    "title2": "من",
 
-    "email": "ایمیل",
-    "name": "تام",
-    "subject": "موضوع",
-    "message": "پیام"
+  "contactMe": {
+    "title1": "Contact.",
+    "title2": "Me",
+
+    "email": "Email",
+    "name": "Name",
+    "subject": "Subject...",
+    "message": "Message...",
+
+    "submitBtn": "Submit"
   }
 }

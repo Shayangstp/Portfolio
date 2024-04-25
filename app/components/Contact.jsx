@@ -23,8 +23,6 @@ const inputDark = {
   },
   "& .MuiInputBase-input": {
     color: "white",
-    direction: "rtl", // Right-to-left text direction
-    textAlign: "right",
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "blue",
@@ -124,15 +122,25 @@ const Contact = () => {
     <div className="h-[90vh] relative max-w-[1920px] w-[100%] mt-16 md:mt-32 p-2">
       <div
         id="header"
-        className="text-[70px] rounded-2xl py-2 px-5 max-w-min md:ms-10 ms-0"
+        className="text-[70px] rounded-2xl py-2 px-5  md:ms-10 ms-0"
       >
         <div className="flex items-center">
           <span>
             <MarkunreadOutlinedIcon className="me-2 text-[50px]" />
           </span>
-          <span className="text-[50px] md:text-[70px]">Contact.</span>
-          <span className="text-[20px] md:text-[30px] text-red-600 md:mt-7 mt-6">
-            me
+          <span
+            className={`${
+              localeActive === "fa" ? "text-[30px]" : "text-[50px]"
+            } md:text-[70px]`}
+          >
+            {t("title1")}
+          </span>
+          <span
+            className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+              localeActive === "fa" ? "mt-2" : "mt-5"
+            }`}
+          >
+            {t("title2")}
           </span>
         </div>
       </div>
@@ -148,7 +156,7 @@ const Contact = () => {
                 label={t("name")}
                 type="text"
                 className="md:w-[50%] w-[100%]"
-                sx={inputStyle}
+                sx={{ ...inputStyle, direction: "ltr" }}
                 // InputLabelProps={{
                 //   className: "rtl-label",
                 // }}
@@ -166,7 +174,7 @@ const Contact = () => {
               {/* make email validation */}
               <TextField
                 // error={formErrors.staffCodeMeli}
-                label="Email"
+                label={`${t("email")}`}
                 type="text"
                 className="md:w-[50%] w-[100%]"
                 sx={inputStyle}
@@ -186,7 +194,7 @@ const Contact = () => {
           <CacheProvider value={localeActive === "fa" ? cacheRtl : cacheLtr}>
             <TextField
               // error={formErrors.staffCodeMeli}
-              label="Subject..."
+              label={`${t("subject")}`}
               type="text"
               sx={inputStyle}
               // value={staffCodeMeli}
@@ -202,7 +210,7 @@ const Contact = () => {
             />
             <TextField
               // error={formErrors.staffCodeMeli}
-              label="Message..."
+              label={`${t("message")}`}
               type="text"
               // value={staffCodeMeli}
               multiline
@@ -223,7 +231,7 @@ const Contact = () => {
             variant="outlined"
             className="rounded-xl py-2 border border-red-600 dark:text-white text-black hover:border-red-500"
           >
-            Submit
+            {t("submitBtn")}
           </Button>
         </form>
       </div>
