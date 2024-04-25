@@ -21,11 +21,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "next-themes";
 import { navData } from "../helpers/index";
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 
 const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
   const dispatch = useDispatch();
   const [isSelectFocused, setIsSelectFocused] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const t = useTranslations("Nav");
+  const localeActive = useLocale();
 
   const darkMode = useSelector(selectDarkMode);
   const selectStyle = darkMode === "dark" ? darkSelect : lightSelect;
@@ -125,21 +128,23 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
           </div>
           <div className="border dark:border-white border-black w-100 mt-4"></div>
         </header>
-        <List className="w-[300px] flex flex-col text-white">
-          {navData.map((item, idx) => {
-            return (
-              <ListItem
-                button
-                onClick={toggleDrawer}
-                className="hover:bg-red-900 dark:text-white text-black hover:text-white"
-              >
-                <Link href={item.href}>
-                  <ListItemText primary={item.title} />
-                </Link>
-              </ListItem>
-            );
-          })}
-        </List>
+        <div dir={localeActive === "fa" ? "rtl" : "ltr"}>
+          <List className="w-[300px] flex flex-col text-white">
+            {navData.map((item, idx) => {
+              return (
+                <ListItem
+                  button
+                  onClick={toggleDrawer}
+                  className="hover:bg-red-900 dark:text-white text-black hover:text-white"
+                >
+                  <Link href={item.href}>
+                    <ListItemText primary={t(item.titleKey)} />
+                  </Link>
+                </ListItem>
+              );
+            })}
+          </List>
+        </div>
       </div>
     </Drawer>
   );

@@ -62,7 +62,7 @@ const Nav = ({ params }) => {
   };
 
   return (
-    <div className="bg-transparent py-2 max-w-[1920px] w-[100%] border-b border-gray-700 mt-3">
+    <div className="bg-transparent py-2 max-w-[1440px] w-[100%] border-b border-gray-700 mt-3">
       <div className="grid grid-cols-5 text-blue-gray-900">
         <div id="logo" className="lg:col-span-1 flex justify-center p-2">
           <Link
@@ -183,7 +183,6 @@ const Nav = ({ params }) => {
                 </MenuItem>
               </Select>
             </FormControl>
-
             {/* the drwer */}
             <div id="drwer" className="col-span-5 lg:col-span-0">
               <div className="bg-transparent lg:hidden flex justify-between w-[95vw]">

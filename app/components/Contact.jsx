@@ -120,7 +120,7 @@ const Contact = () => {
   return (
     <div
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="h-[90vh] relative max-w-[1920px] w-[100%] mt-16 md:mt-32 p-2"
+      className="h-[90vh] relative max-w-[1440px] w-[100%] mt-16 md:mt-32 p-2"
     >
       <div
         id="header"

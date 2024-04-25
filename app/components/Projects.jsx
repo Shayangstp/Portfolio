@@ -79,7 +79,7 @@ const Projects = () => {
     }
   };
   return (
-    <div className="relative max-w-[1920px] w-[100%] mt-40 mb-20 md:mt-16 p-2">
+    <div className="relative max-w-[1440px] w-[100%] mt-40 mb-20 md:mt-16 p-2">
       <div
         dir={localeActive === "fa" ? "rtl" : "ltr"}
         id="header"
@@ -105,7 +105,7 @@ const Projects = () => {
           </span>
         </div>
       </div>
-      <div className="flex justify-center mt-20 max-w-[90vw] mx-auto">
+      <div className="flex justify-center mt-20 max-w-[80vw] mx-auto">
         <Button
           variant="outlined"
           size="small"
