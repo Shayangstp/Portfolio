@@ -7,7 +7,11 @@ import { useTheme } from "next-themes";
 import { navData } from "../helpers/index";
 import { selectDarkMode } from "../slices/mainSlices";
 import { useSelector } from "react-redux";
-
+import { useTranslations, useLocale } from "next-intl";
+import rtlPlugin from "stylis-plugin-rtl";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import { prefixer } from "stylis";
 
 const textFeildDark = {
   "& input": {
@@ -68,10 +72,22 @@ const textFeildLight = {
 
 const Footer = () => {
   const [activeLink, setActiveLink] = useState("/");
+  const t = useTranslations("footer");
+  const localeActive = useLocale();
 
   const darkMode = useSelector(selectDarkMode);
 
   const style = darkMode === "dark" ? textFeildDark : textFeildLight;
+
+  const cacheLtr = createCache({
+    key: "muiltr",
+    stylisPlugins: [prefixer],
+  });
+
+  const cacheRtl = createCache({
+    key: "muirtl",
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
@@ -128,32 +144,39 @@ const Footer = () => {
     </ul>
   );
   return (
-    <div className="max-w-[1920px] w-[100%] mt-20 p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-red-200 bg-opacity-80">
+    <div
+      dir={localeActive === "fa" ? "rtl" : "ltr"}
+      className="max-w-[1920px] w-[100%] mt-20 p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-red-200 bg-opacity-80"
+    >
       <div
         id="ready_toGrow"
         className="flex flex-col justify-center items-center text-white"
       >
         <div className="dark:text-white text-black font-bold lg:text-[100px] md:text-[70px] text-[30px]">
-          Ready to Grow ?
+          {t("ready")}
         </div>
-        <p className="dark:text-white text-gray-700 text-center sm:text-start text-[10px] md:text-[15px] lg:text-[20px]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda,
-          cupiditate
+        <p className="dark:text-white text-gray-700 text-center sm:text-start text-[9px] md:text-[12px] lg:text-[15px] mt-2">
+          {t("readySub")}
         </p>
-        <div className="flex items-end mt-5">
-          <TextField
-            id="standard-basic"
-            label="Email"
-            variant="standard"
-            className="mt-5 me-3"
-            sx={style}
-          />
+        <div className="flex items-end mt-10">
+          <CacheProvider value={localeActive === "fa" ? cacheRtl : cacheLtr}>
+            <TextField
+              id="standard-basic"
+              label={t("email")}
+              variant="standard"
+              className="mt-5 me-3"
+              sx={style}
+            />
+          </CacheProvider>
           <Button
             size="small"
             className="dark:text-black text-white border-black px-3 py-3 rounded-xl dark:bg-white bg-gray-900 sm:text-[12px] text-[10px] hover:dark:bg-gray-200 hover:bg-gray-800"
           >
-            <span>Hire.Me</span>
-            <ArrowOutwardOutlinedIcon fontSize="small" />
+            <span>{t("hireMeBtn")}</span>
+            <ArrowOutwardOutlinedIcon
+              fontSize="small"
+              className={`${localeActive === "fa" ? "rotate-[270deg]" : ""}`}
+            />
           </Button>
         </div>
       </div>
@@ -196,7 +219,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center pt-10 me-5 md:text-[13px] text-[10px]">
-        <p>Copyrights © 2024 Your Shayan_gstp. All rights reserved.</p>
+        <p>Copyrights © 2024 Your Shayan_gstp. All rights reserved</p>
       </div>
     </div>
   );

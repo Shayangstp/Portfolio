@@ -10,7 +10,6 @@ import { useTranslations, useLocale } from "next-intl";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import CssBaseline from "@mui/material/CssBaseline";
 import { prefixer } from "stylis";
 
 const inputDark = {
@@ -119,7 +118,10 @@ const Contact = () => {
   });
 
   return (
-    <div className="h-[90vh] relative max-w-[1920px] w-[100%] mt-16 md:mt-32 p-2">
+    <div
+      dir={localeActive === "fa" ? "rtl" : "ltr"}
+      className="h-[90vh] relative max-w-[1920px] w-[100%] mt-16 md:mt-32 p-2"
+    >
       <div
         id="header"
         className="text-[70px] rounded-2xl py-2 px-5  md:ms-10 ms-0"

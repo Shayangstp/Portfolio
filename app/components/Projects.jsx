@@ -80,7 +80,11 @@ const Projects = () => {
   };
   return (
     <div className="relative max-w-[1920px] w-[100%] mt-40 mb-20 md:mt-16 p-2">
-      <div id="header" className="text-[70px] rounded-2xl px-5 md:ms-10 ms-0">
+      <div
+        dir={localeActive === "fa" ? "rtl" : "ltr"}
+        id="header"
+        className="text-[70px] rounded-2xl px-5 md:ms-10 ms-0"
+      >
         <div className="flex items-center">
           <span>
             <ViewCompactAltOutlinedIcon className="me-2 text-[50px]" />
@@ -140,7 +144,10 @@ const Projects = () => {
                 virtualIndex={index}
                 className="m-0 p-0 max-w-[500px] cursor-pointer"
               >
-                <div className="border border-gray-400 rounded-xl max-w-[100%]">
+                <div
+                  dir={localeActive === "fa" ? "rtl" : "ltr"}
+                  className="border border-gray-400 rounded-xl max-w-[100%]"
+                >
                   <div
                     className={`p-4 rounded-t-xl border-b border-gray-400 h-[100px] slider-item bg-red-900 ${
                       index === 1 ? "active" : ""

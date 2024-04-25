@@ -73,7 +73,10 @@ const Nav = ({ params }) => {
           </Link>
         </div>
         <div id="navList" className="lg:col-span-3 flex justify-center p-2">
-          <div className="hidden lg:block mt-2">
+          <div
+            dir={localeActive === "fa" ? "rtl" : "ltr"}
+            className="hidden lg:block mt-2"
+          >
             <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
               {navData.map((item, idx) => {
                 return (

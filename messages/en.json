@@ -55,5 +55,13 @@
     "message": "Message...",
 
     "submitBtn": "Submit"
+  },
+
+  "footer": {
+    "ready": "Ready to Grow",
+    "readySub": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, cupiditate",
+
+    "email": "Email",
+    "hireMeBtn": "HIRE.ME"
   }
 }

@@ -14,7 +14,10 @@ const SklillsP2 = () => {
   const t = useTranslations("Skills");
   const localeActive = useLocale();
   return (
-    <div className="relative max-w-[1920px] w-[100%] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0">
+    <div
+      dir={localeActive === "fa" ? "rtl" : "ltr"}
+      className="relative max-w-[1920px] w-[100%] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
+    >
       <div id="header" className="text-[70px] py-2 px-5">
         <div className="flex items-center">
           <span>
