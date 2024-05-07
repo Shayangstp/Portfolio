@@ -29,6 +29,9 @@ const textFeildDark = {
   "& .MuiInput-underline:after": {
     borderBottomColor: "red",
   },
+  "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+    borderBottomColor: "white",
+  },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "#E0E3E7",
@@ -146,7 +149,7 @@ const Footer = () => {
   return (
     <div
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="max-w-[100vw] w-[100%] mt-20 p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-red-200 bg-opacity-80"
+      className="max-w-[100vw] w-[100%]  p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-red-200 bg-opacity-80"
     >
       <div clas>
         <div
@@ -212,7 +215,12 @@ const Footer = () => {
                     key={idx}
                     className="hover:text-red-600 hover:dark:text-red-400 cursor-pointer dark:text-gray-300"
                   >
-                    {item.icon}
+                    <a
+                      href={`${item.href}`}
+                      target={`${item.href === "#email" ? "" : "_blank"}`}
+                    >
+                      {item.icon}
+                    </a>
                   </div>
                 );
               })}

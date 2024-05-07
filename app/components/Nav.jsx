@@ -61,6 +61,10 @@ const Nav = ({ params }) => {
     });
   };
 
+  const dropdownStyle = {
+    backgroundColor: theme === "dark" ? "#226e8f" : "white",
+  };
+
   return (
     <div className="bg-transparent py-2 max-w-[1440px] w-[100%] border-b border-gray-700 mt-3">
       <div className="grid grid-cols-5 text-blue-gray-900">
@@ -151,9 +155,7 @@ const Nav = ({ params }) => {
                 label="Age"
                 MenuProps={{
                   PaperProps: {
-                    style: {
-                      backgroundColor: "blue",
-                    },
+                    style: dropdownStyle,
                   },
                 }}
                 sx={selectStyle}

@@ -6,30 +6,38 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 export const socials = [
   {
     icon: <GitHubIcon fontSize="small" />,
+    href: "https://github.com/Shayangstp",
   },
   {
     icon: <TelegramIcon fontSize="small" />,
+    href: "https://t.me/shayan5529",
   },
   {
     icon: <EmailIcon fontSize="small" />,
+    href: "#email",
   },
   {
     icon: <LinkedInIcon fontSize="small" />,
+    href: "https://www.linkedin.com/in/shayangstp",
   },
 ];
 
 export const socialsResponsive = [
   {
     icon: <GitHubIcon fontSize="small" className="text-[20px]" />,
+    href: "https://github.com/Shayangstp",
   },
   {
     icon: <TelegramIcon fontSize="small" className="text-[20px]" />,
+    href: "https://t.me/shayan5529",
   },
   {
     icon: <EmailIcon fontSize="small" className="text-[20px]" />,
+    href: "#email",
   },
   {
     icon: <LinkedInIcon fontSize="small" className="text-[20px]" />,
+    href: "https://www.linkedin.com/in/shayangstp",
   },
 ];
 

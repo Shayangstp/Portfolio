@@ -10,6 +10,10 @@
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .hero {
   background-image: url("../public/assets/testFinal.png");
   background-size: cover;

@@ -3,8 +3,10 @@ import AboutMe from "./AboutMe";
 import { Button } from "@mui/material";
 import { socials, socialsResponsive } from "../helpers/index";
 import { useTranslations, useLocale } from "next-intl";
-
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 const Hero = () => {
+  const router = useRouter();
   const t = useTranslations("Hero");
   const localeActive = useLocale();
 
@@ -28,7 +30,7 @@ const Hero = () => {
       </div>
       <div
         id="mainHero"
-        className="lg:col-span-4 flex flex-col justify-center items-center mt-20 lg:mt-0"
+        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-20 lg:mt-0"
       >
         <div id="hero-text" className="lg:mt-28">
           <div
@@ -39,7 +41,7 @@ const Hero = () => {
           </div>
           <div
             id="imShayan"
-            className="lg:text-[60px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mb-5 mt-4"
+            className="lg:text-[50px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mb-5 mt-4"
           >
             {t("title2")}
           </div>
@@ -51,7 +53,7 @@ const Hero = () => {
               &nbsp; Developer
             </p>
           </div>
-          <div className="max-w-[700px] mt-5 border border-gray-600 px-5 py-8 rounded-2xl  sm:ms-6 mx-5 lg:hidden">
+          <div className="max-w-[700px] mt-5 border border-gray-600 px-5 py-8 rounded-2xl  sm:ms-6  mx-5 lg:hidden">
             <AboutMe />
           </div>
           <div
@@ -61,12 +63,13 @@ const Hero = () => {
             <div className="flex gap-4 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark px-3 py-2 pb-3 rounded-2xl bg-gray-800 dark:bg-transparent mt-5">
               {socialsResponsive.map((item, idx) => {
                 return (
-                  <div
+                  <Link
                     key={idx}
                     className="cursor-pointer text-white dark:text-white dark:hover:text-red-200 hover:text-red-200"
+                    href={item.href}
                   >
                     {item.icon}
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -78,12 +81,17 @@ const Hero = () => {
       </div>
 
       <div className="col-span-1 flex-col items-center justify-around relative hidden lg:flex">
-        <div id="experience" className="flex items-center mt-10">
-          <div className="flex flex-col mt-2">
-            <span className="ms-10 text-gray-400">Years</span>
-            <span>Experience</span>
+        <div
+          id="experience"
+          className="flex items-center mt-10 p-3 rounded-2xl  bg-gradient-to-b dark:from-gray-800 from-white dark:to-gray-900 border to-gray-200 dark:border-gray-800 border-gray-50"
+        >
+          <div className="flex flex-col mt-2 ">
+            <span className="ms-10 text-gray-500  dark:text-gray-400 text-[15px]">
+              Years
+            </span>
+            <span className="text-[15px]">Experience</span>
           </div>
-          <div className="text-[70px] mt-2">3</div>
+          <div className=" text-[50px] mt-2">3</div>
         </div>
         <div className="flex flex-col gap-3 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 py-4 rounded-2xl bg-gray-800 dark:bg-transparent">
           {socials.map((item, idx) => {
@@ -92,7 +100,12 @@ const Hero = () => {
                 key={idx}
                 className="cursor-pointer text-white dark:text-white dark:hover:text-red-200 hover:text-red-200"
               >
-                {item.icon}
+                <a
+                  href={`${item.href}`}
+                  target={`${item.href === "#email" ? "" : "_blank"}`}
+                >
+                  {item.icon}
+                </a>
               </div>
             );
           })}

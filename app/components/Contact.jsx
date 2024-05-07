@@ -4,13 +4,24 @@ import { alpha, styled } from "@mui/material/styles";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
 import { useTheme } from "next-themes";
-import { selectDarkMode } from "../slices/mainSlices";
-import { useSelector } from "react-redux";
+import {
+  RsetUserName,
+  RsetUserEmail,
+  RsetUserMessage,
+  RsetUserSubject,
+  selectDarkMode,
+  selectUserEmail,
+  selectUserMessage,
+  selectUserName,
+  selectUserSubject,
+} from "../slices/mainSlices";
 import { useTranslations, useLocale } from "next-intl";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
+import { postContactEmail } from "../services/emailContact";
+import { useSelector, useDispatch } from "react-redux";
 
 const inputDark = {
   "& label.Mui-focused": {
@@ -100,10 +111,21 @@ const InputLight = {
 };
 
 const Contact = () => {
+  const dispatch = useDispatch();
+
   const { theme } = useTheme();
+
   const darkMode = useSelector(selectDarkMode);
+
   const localeActive = useLocale();
+
   const t = useTranslations("contactMe");
+
+  //select
+  const userName = useSelector(selectUserName);
+  const userEmail = useSelector(selectUserEmail);
+  const userSubject = useSelector(selectUserSubject);
+  const userMessage = useSelector(selectUserMessage);
 
   const inputStyle = darkMode === "dark" ? inputDark : InputLight;
 
@@ -117,8 +139,27 @@ const Contact = () => {
     stylisPlugins: [prefixer],
   });
 
+  const handelContactEmail = async (e) => {
+    e.preventDefault();
+    console.log("test");
+
+    const values = {
+      name: userName,
+      email: userEmail,
+      subject: userSubject,
+      message: userMessage,
+    };
+    console.log(values);
+
+    const postContactEmailRes = await postContactEmail(values);
+    console.log(postContactEmailRes);
+
+    //make an loading and emty the emails 
+  };
+
   return (
     <div
+      id="email"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="h-[90vh] relative max-w-[1440px] w-[100%] mt-16 md:mt-32 p-2"
     >
@@ -162,16 +203,10 @@ const Contact = () => {
                 // InputLabelProps={{
                 //   className: "rtl-label",
                 // }}
-                // value={staffCodeMeli}
-                // onChange={(e) => {
-                //   //limit the input
-                //   let inputValue = e.target.value;
-                //   const maxLength = 10;
-                //   if (inputValue.length > maxLength) {
-                //     inputValue = inputValue.slice(0, maxLength);
-                //   }
-                //   dispatch(RsetStaffCodeMeli(inputValue));
-                // }}
+                value={userName}
+                onChange={(e) => {
+                  dispatch(RsetUserName(e.target.value));
+                }}
               />
               {/* make email validation */}
               <TextField
@@ -180,16 +215,10 @@ const Contact = () => {
                 type="text"
                 className="md:w-[50%] w-[100%]"
                 sx={inputStyle}
-                // value={staffCodeMeli}
-                // onChange={(e) => {
-                //   //limit the input
-                //   let inputValue = e.target.value;
-                //   const maxLength = 10;
-                //   if (inputValue.length > maxLength) {
-                //     inputValue = inputValue.slice(0, maxLength);
-                //   }
-                //   dispatch(RsetStaffCodeMeli(inputValue));
-                // }}
+                value={userEmail}
+                onChange={(e) => {
+                  dispatch(RsetUserEmail(e.target.value));
+                }}
               />
             </CacheProvider>
           </div>
@@ -199,39 +228,28 @@ const Contact = () => {
               label={`${t("subject")}`}
               type="text"
               sx={inputStyle}
-              // value={staffCodeMeli}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
+              value={userSubject}
+              onChange={(e) => {
+                dispatch(RsetUserSubject(e.target.value));
+              }}
             />
             <TextField
               // error={formErrors.staffCodeMeli}
               label={`${t("message")}`}
               type="text"
-              // value={staffCodeMeli}
+              value={userMessage}
               multiline
               rows={4}
               sx={inputStyle}
-              // onChange={(e) => {
-              //   //limit the input
-              //   let inputValue = e.target.value;
-              //   const maxLength = 10;
-              //   if (inputValue.length > maxLength) {
-              //     inputValue = inputValue.slice(0, maxLength);
-              //   }
-              //   dispatch(RsetStaffCodeMeli(inputValue));
-              // }}
+              onChange={(e) => {
+                dispatch(RsetUserMessage(e.target.value));
+              }}
             />
           </CacheProvider>
           <Button
             variant="outlined"
             className="rounded-xl py-2 border border-red-600 dark:text-white text-black hover:border-red-500"
+            onClick={handelContactEmail}
           >
             {t("submitBtn")}
           </Button>
