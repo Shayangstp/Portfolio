@@ -154,8 +154,6 @@ const Contact = () => {
     return errors;
   };
 
-  console.log(formErrors.userName);
-
   const inputStyle = darkMode === "dark" ? inputDark : InputLight;
 
   const cacheRtl = createCache({
@@ -307,7 +305,11 @@ const Contact = () => {
             {loading === false ? (
               t("submitBtn")
             ) : (
-              <ButtonLoader height={25} width={50} />
+              <ButtonLoader
+                height={25}
+                width={50}
+                color={theme === "dark" ? "white" : "black"}
+              />
             )}
           </Button>
         </form>

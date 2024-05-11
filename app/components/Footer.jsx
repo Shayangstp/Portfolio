@@ -3,15 +3,24 @@ import Link from "next/link";
 import { socials } from "../helpers/index";
 import { Button, TextField } from "@mui/material";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
-import { useTheme } from "next-themes";
 import { navData } from "../helpers/index";
-import { selectDarkMode } from "../slices/mainSlices";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslations, useLocale } from "next-intl";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
+import { errorMessage, successMessage } from "../utils/msg";
+import { postContactEmail } from "../services/emailContact";
+import {
+  selectDarkMode,
+  RsetUserHireEmail,
+  selectUserHireEmail,
+  RsetFormErrors,
+  selectFormErrors,
+} from "../slices/mainSlices";
+import { ButtonLoader } from "../utils/Loader";
+import { useTheme } from "next-themes";
 
 const textFeildDark = {
   "& input": {
@@ -74,11 +83,32 @@ const textFeildLight = {
 };
 
 const Footer = () => {
+  const dispatch = useDispatch();
+  const { theme } = useTheme();
+
   const [activeLink, setActiveLink] = useState("/");
+  const [loading, setLoading] = useState(false);
+
   const t = useTranslations("footer");
   const localeActive = useLocale();
 
   const darkMode = useSelector(selectDarkMode);
+  const userEmail = useSelector(selectUserHireEmail);
+  const formErrors = useSelector(selectFormErrors);
+
+  //validation
+  const userEmailIsValid = userEmail !== "";
+  const userEmailFormatIsValid = /\S+@\S+\.com$/.test(userEmail);
+
+  const validation = () => {
+    var errors = {};
+
+    if (!userEmailIsValid) {
+      errors.userEmail = true;
+    }
+
+    return errors;
+  };
 
   const style = darkMode === "dark" ? textFeildDark : textFeildLight;
 
@@ -91,6 +121,41 @@ const Footer = () => {
     key: "muirtl",
     stylisPlugins: [prefixer, rtlPlugin],
   });
+
+  const handelContactEmail = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    if (userEmailIsValid && !userEmailFormatIsValid) {
+      errorMessage(t("contactEmailFormat"));
+    }
+
+    if (userEmailIsValid && userEmailFormatIsValid) {
+      const values = {
+        name: "userHireMe",
+        email: userEmail,
+        subject: "hireMeSubject",
+        message: "hireMeMessage",
+      };
+      const postContactEmailRes = await postContactEmail(values);
+      if (postContactEmailRes.data.code === 200) {
+        setLoading(false);
+        successMessage(t("contactSuccessMessage"));
+        dispatch(RsetUserHireEmail(""));
+        dispatch(RsetFormErrors(""));
+      } else {
+        setLoading(false);
+        errorMessage(t("contactErrorMessage"));
+      }
+    } else {
+      dispatch(
+        RsetFormErrors(
+          validation({
+            userEmail,
+          })
+        )
+      );
+    }
+  };
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
@@ -165,18 +230,34 @@ const Footer = () => {
           <div className="flex items-end mt-10">
             <CacheProvider value={localeActive === "fa" ? cacheRtl : cacheLtr}>
               <TextField
+                error={userEmailIsValid ? false : formErrors.userEmail}
                 id="standard-basic"
+                value={userEmail}
                 label={t("email")}
                 variant="standard"
                 className="mt-5 me-3"
+                onChange={(e) => {
+                  dispatch(RsetUserHireEmail(e.target.value));
+                }}
                 sx={style}
               />
             </CacheProvider>
             <Button
               size="small"
               className="dark:text-black text-white border-black px-3 py-3 rounded-xl dark:bg-white bg-gray-900 sm:text-[12px] text-[10px] hover:dark:bg-gray-200 hover:bg-gray-800"
+              onClick={handelContactEmail}
             >
-              <span>{t("hireMeBtn")}</span>
+              <span>
+                {loading === true ? (
+                  t("hireMeBtn")
+                ) : (
+                  <ButtonLoader
+                    height={10}
+                    width={50}
+                    color={theme === "dark" ? "black" : "white"}
+                  />
+                )}
+              </span>
               <ArrowOutwardOutlinedIcon
                 fontSize="small"
                 className={`${localeActive === "fa" ? "rotate-[270deg]" : ""}`}

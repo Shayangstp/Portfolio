@@ -66,6 +66,10 @@
     "readySub": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, cupiditate",
 
     "email": "Email",
-    "hireMeBtn": "HIRE.ME"
+    "hireMeBtn": "HIRE.ME",
+
+    "contactSuccessMessage": "Email sent successfully",
+    "contactErrorMessage": "Error on sending Email",
+    "contactEmailFormat": "Email format is not correct"
   }
 }

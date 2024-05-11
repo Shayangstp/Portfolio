@@ -10,6 +10,7 @@ const initialState = {
   userEmail: "",
   userSubject: "",
   userMessage: "",
+  userHireEmail: "",
 };
 
 // export const handleCompaniesList = createAsyncThunk(
@@ -67,6 +68,9 @@ const mainSlices = createSlice({
     RsetUserMessage: (state, { payload }) => {
       return { ...state, userMessage: payload };
     },
+    RsetUserHireEmail: (state, { payload }) => {
+      return { ...state, userHireEmail: payload };
+    },
   },
 });
 
@@ -79,6 +83,7 @@ export const {
   RsetUserEmail,
   RsetUserSubject,
   RsetUserMessage,
+  RsetUserHireEmail,
 } = mainSlices.actions;
 
 export const selectLoading = (state) => state.main.loading;
@@ -91,5 +96,6 @@ export const selectUserName = (state) => state.main.userName;
 export const selectUserEmail = (state) => state.main.userEmail;
 export const selectUserSubject = (state) => state.main.userSubject;
 export const selectUserMessage = (state) => state.main.userMessage;
+export const selectUserHireEmail = (state) => state.main.userHireEmail;
 
 export default mainSlices.reducer;
