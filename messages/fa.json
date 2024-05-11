@@ -54,7 +54,11 @@
     "subject": "موضوع ...",
     "message": "پیام ...",
 
-    "submitBtn": "ارسال"
+    "submitBtn": "ارسال",
+
+    "contactSuccessMessage": "ایمیل با موفقیت ارسال شد",
+    "contactErrorMessage": "خطا در ارسال ایمیل",
+    "contactEmailFormat": "فرمت ایمیل صحیح نمی باشد"
   },
 
   "footer": {

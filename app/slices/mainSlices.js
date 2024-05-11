@@ -27,13 +27,23 @@ const initialState = {
 //     }
 //   }
 // );
+export const handleContactReset = createAsyncThunk(
+  "main/handleContactReset",
+  async (obj, { dispatch, getState }) => {
+    dispatch(RsetUserName(""));
+    dispatch(RsetUserEmail(""));
+    dispatch(RsetUserSubject(""));
+    dispatch(RsetUserMessage(""));
+    dispatch(RsetFormErrors({}));
+  }
+);
 
 const mainSlices = createSlice({
   name: "main",
   initialState,
   reducers: {
     RsetLoading: (state, { payload }) => {
-      return { ...state, lodaing: payload };
+      return { ...state, loading: payload };
     },
     RsetDarkMode: (state, { payload }) => {
       return { ...state, darkMode: payload };

@@ -54,7 +54,11 @@
     "subject": "Subject...",
     "message": "Message...",
 
-    "submitBtn": "Submit"
+    "submitBtn": "Submit",
+
+    "contactSuccessMessage": "Email sent successfully",
+    "contactErrorMessage": "Error on sending Email",
+    "contactEmailFormat": "Email format is not correct"
   },
 
   "footer": {

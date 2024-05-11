@@ -6,6 +6,7 @@ import StoreProvider from "../StoreProvider";
 import ThemeProviderNextJs from "../ThemeProviderNextJs";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import MuiThemeProvider from "../MuiThemeProvider";
+import { Toaster } from "react-hot-toast";
 
 config.autoAddCss = false;
 
@@ -22,6 +23,7 @@ const RootLayout = ({ children, params: { locale } }) => {
     <html lang={locale} className="dark" suppressHydrationWarning>
       <StoreProvider>
         <body className={`${poppins.className}`}>
+          <Toaster />
           <ThemeProviderNextJs>
             <MuiThemeProvider>
               <NextIntlClientProvider messages={messages}>

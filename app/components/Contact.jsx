@@ -14,6 +14,11 @@ import {
   selectUserMessage,
   selectUserName,
   selectUserSubject,
+  handleContactReset,
+  RsetLoading,
+  selectLoading,
+  selectFormErrors,
+  RsetFormErrors,
 } from "../slices/mainSlices";
 import { useTranslations, useLocale } from "next-intl";
 import rtlPlugin from "stylis-plugin-rtl";
@@ -22,6 +27,8 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import { postContactEmail } from "../services/emailContact";
 import { useSelector, useDispatch } from "react-redux";
+import { errorMessage, successMessage } from "../utils/msg";
+import { ButtonLoader } from "../utils/Loader";
 
 const inputDark = {
   "& label.Mui-focused": {
@@ -114,18 +121,40 @@ const Contact = () => {
   const dispatch = useDispatch();
 
   const { theme } = useTheme();
-
-  const darkMode = useSelector(selectDarkMode);
-
   const localeActive = useLocale();
-
   const t = useTranslations("contactMe");
 
   //select
+  const darkMode = useSelector(selectDarkMode);
   const userName = useSelector(selectUserName);
   const userEmail = useSelector(selectUserEmail);
   const userSubject = useSelector(selectUserSubject);
   const userMessage = useSelector(selectUserMessage);
+  const loading = useSelector(selectLoading);
+  const formErrors = useSelector(selectFormErrors);
+
+  //validation
+  const userNameIsValid = userName !== "";
+  const userEmailIsValid = userEmail !== "";
+  const userEmailFormatIsValid = /\S+@\S+\.com$/.test(userEmail);
+
+  const contactFormIsValid =
+    userNameIsValid && userEmailIsValid && userEmailFormatIsValid;
+
+  const validation = () => {
+    var errors = {};
+
+    if (!userNameIsValid) {
+      errors.userName = true;
+    }
+    if (!userEmailIsValid) {
+      errors.userEmail = true;
+    }
+
+    return errors;
+  };
+
+  console.log(formErrors.userName);
 
   const inputStyle = darkMode === "dark" ? inputDark : InputLight;
 
@@ -141,20 +170,43 @@ const Contact = () => {
 
   const handelContactEmail = async (e) => {
     e.preventDefault();
-    console.log("test");
 
-    const values = {
-      name: userName,
-      email: userEmail,
-      subject: userSubject,
-      message: userMessage,
-    };
-    console.log(values);
+    if (userEmailIsValid && !userEmailFormatIsValid) {
+      errorMessage(t("contactEmailFormat"));
+    }
 
-    const postContactEmailRes = await postContactEmail(values);
-    console.log(postContactEmailRes);
+    if (contactFormIsValid) {
+      dispatch(RsetLoading(true));
 
-    //make an loading and emty the emails 
+      const values = {
+        name: userName,
+        email: userEmail,
+        subject: userSubject,
+        message: userMessage,
+      };
+      console.log(values);
+
+      const postContactEmailRes = await postContactEmail(values);
+      console.log(postContactEmailRes);
+
+      if (postContactEmailRes.data.code === 200) {
+        dispatch(RsetLoading(false));
+        successMessage(t("contactSuccessMessage"));
+        dispatch(handleContactReset());
+      } else {
+        dispatch(RsetLoading(false));
+        errorMessage(t("contactErrorMessage"));
+      }
+    } else {
+      dispatch(
+        RsetFormErrors(
+          validation({
+            userEmail,
+            userName,
+          })
+        )
+      );
+    }
   };
 
   return (
@@ -197,6 +249,7 @@ const Contact = () => {
               <TextField
                 // error={formErrors.staffCodeMeli}
                 label={t("name")}
+                error={userNameIsValid ? false : formErrors.userEmail}
                 type="text"
                 className="md:w-[50%] w-[100%]"
                 sx={{ ...inputStyle, direction: "ltr" }}
@@ -210,7 +263,7 @@ const Contact = () => {
               />
               {/* make email validation */}
               <TextField
-                // error={formErrors.staffCodeMeli}
+                error={userEmailIsValid ? false : formErrors.userEmail}
                 label={`${t("email")}`}
                 type="text"
                 className="md:w-[50%] w-[100%]"
@@ -251,7 +304,11 @@ const Contact = () => {
             className="rounded-xl py-2 border border-red-600 dark:text-white text-black hover:border-red-500"
             onClick={handelContactEmail}
           >
-            {t("submitBtn")}
+            {loading === false ? (
+              t("submitBtn")
+            ) : (
+              <ButtonLoader height={25} width={50} />
+            )}
           </Button>
         </form>
       </div>
