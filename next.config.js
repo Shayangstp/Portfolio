@@ -4,6 +4,10 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  i18n: {
+    locales: ["en-US", "fa-IR"],
+    defaultLocale: "en-US",
+  },
   plugins: [
     "tailwindcss",
     "autoprefixer",

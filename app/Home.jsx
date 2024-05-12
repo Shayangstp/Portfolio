@@ -1,6 +1,6 @@
 "use client";
 import React, { use, useEffect } from "react";
-import Navbar from "./components/Nav";
+import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -13,7 +13,6 @@ import Footer from "./components/Footer";
 import SklillsP2 from "./components/SklillsP2";
 import { useLocale } from "next-intl";
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const localeActive = useLocale();
@@ -23,7 +22,7 @@ const Home = () => {
   return (
     <div className=" bg-white dark:bg-[#161616] flex justify-center relative ">
       <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
-        <Navbar />
+        <Nav />
         <Hero />
         <SklillsP2 />
         <Projects />

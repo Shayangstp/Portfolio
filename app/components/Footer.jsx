@@ -248,7 +248,7 @@ const Footer = () => {
               onClick={handelContactEmail}
             >
               <span>
-                {loading === true ? (
+                {loading === false ? (
                   t("hireMeBtn")
                 ) : (
                   <ButtonLoader

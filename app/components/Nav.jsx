@@ -24,7 +24,7 @@ import Brightness2Icon from "@mui/icons-material/Brightness2";
 import { RsetDarkMode, selectDarkMode } from "../slices/mainSlices";
 import { useDispatch, useSelector } from "react-redux";
 import { navData } from "../helpers/index";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import us from "../assets/us.jpg";
 import iran from "../assets/iran.jpg";
 import Image from "next/image";
@@ -32,14 +32,14 @@ import { lightSelect, darkSelect } from "../helpers/index";
 import NavDrawer from "./NavDrawer";
 import { useLocale, useTranslations } from "next-intl";
 
-const Nav = ({ params }) => {
+const Nav = () => {
   const t = useTranslations("Nav");
   const dispatch = useDispatch();
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const pathname = usePathname();
   const localeActive = useLocale();
 
-  const [activeLink, setActiveLink] = useState("/");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   //select
@@ -57,7 +57,7 @@ const Nav = ({ params }) => {
   };
   const handleLocaleSelect = (e) => {
     startTransition(() => {
-      router.replace(`/${e.target.value}`);
+      router.replace(`/${pathname}/${e.target.value}`);
     });
   };
 
@@ -83,12 +83,22 @@ const Nav = ({ params }) => {
           >
             <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
               {navData.map((item, idx) => {
+                //handle text active
+                const pathWithoutLocale = pathname.replace(/^\/(en|fa)/, "");
+                let isActive;
+
+                if (pathWithoutLocale === "" && item.href === "/") {
+                  isActive = true;
+                } else {
+                  isActive = pathWithoutLocale === item.href;
+                }
+
                 return (
                   <li>
                     <Link
                       href={item.href}
                       className={`flex items-center ${
-                        activeLink === item.href
+                        isActive
                           ? "text-[#ff0000]"
                           : "dark:text-white text-black"
                       } hover:text-[#ff0000] dark:hover:text-[#ff0000] text-sm`}

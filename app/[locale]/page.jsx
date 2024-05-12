@@ -1,6 +1,6 @@
-import Home from "../Home";
-
+"use client";
 import React from "react";
+import Home from "../Home";
 
 const page = () => {
   return (
