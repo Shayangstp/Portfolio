@@ -1,22 +1,29 @@
 import React from "react";
 import PDFDownload from "./PDFDownload";
 import PDFViewer from "./PDFViewer";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import DescriptionIcon from "@mui/icons-material/Description";
 
 const Resume = () => {
+  const t = useTranslations("resume");
   const localeActive = useLocale();
+
   return (
     <div dir={localeActive === "en" ? "ltr" : "rtl"}>
       <div id="header" className="ms-16 mt-10 flex items-center">
         <span>
-          <DescriptionIcon className="text-[50px]" />
+          <DescriptionIcon
+            className={`text-[50px] ${
+              localeActive === "fa" ? "text-red-500" : ""
+            }`}
+          />
         </span>
-        <span className="text-[70px]">MY.</span>
-        <span className="text-[20px] md:text-[30px] text-red-600 md:mt-7">
-          {" "}
-          Resume
-        </span>
+        <span className="text-[70px] ms-2">{t("resumeTitle1")}</span>
+        {localeActive === "en" && (
+          <span className="text-[20px] md:text-[30px] text-red-600 md:mt-7 ms-2">
+            {t("resumeTitle2")}
+          </span>
+        )}
       </div>
       <PDFDownload />
       <PDFViewer />

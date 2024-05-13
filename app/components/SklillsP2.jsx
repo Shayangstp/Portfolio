@@ -21,7 +21,11 @@ const SklillsP2 = () => {
       <div id="header" className="text-[70px] py-2 px-5">
         <div className="flex items-center">
           <span>
-            <HandymanOutlinedIcon className="me-2 text-[50px]" />
+            <HandymanOutlinedIcon
+              className={`me-2 text-[50px] ${
+                localeActive === "fa" ? "text-red-500 mt-6" : ""
+              }`}
+            />
           </span>
           <span
             className={`${
@@ -30,13 +34,15 @@ const SklillsP2 = () => {
           >
             {t("title1")}
           </span>
-          <span
-            className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
-              localeActive === "fa" ? "mt-0" : "mt-5"
-            }`}
-          >
-            {t("title2")}
-          </span>
+          {localeActive === "en" && (
+            <span
+              className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+                localeActive === "fa" ? "mt-0" : "mt-5"
+              }`}
+            >
+              {t("title2")}
+            </span>
+          )}
         </div>
       </div>
       <div id="skills_list" className="grid grid-cols-6 mt-10">
@@ -47,7 +53,7 @@ const SklillsP2 = () => {
           >
             {skillsDesc.map((item, idx) => {
               return (
-                <div className=" p-10 rounded-2xl ">
+                <div className=" p-10 rounded-2xl">
                   <header className="text-[32px] border-b border-gray-900 dark:border-gray-500 py-2">
                     {t(item.title)}
                   </header>

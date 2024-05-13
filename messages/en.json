@@ -71,5 +71,12 @@
     "contactSuccessMessage": "Email sent successfully",
     "contactErrorMessage": "Error on sending Email",
     "contactEmailFormat": "Email format is not correct"
+  },
+  "resume": {
+    "resumeTitle1" : "MY." , 
+    "resumeTitle2" : " Resume" , 
+
+    "downloadCV" : "Download CV"  , 
+    "pdfPreview" : "PDF Preview"
   }
 }

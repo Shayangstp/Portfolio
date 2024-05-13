@@ -152,7 +152,7 @@ export const navData = [
   },
   {
     titleKey: "contactMe",
-    href: "/contactMe",
+    href: "#email",
   },
 ];
 

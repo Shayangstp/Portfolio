@@ -57,7 +57,9 @@ const Nav = () => {
   };
   const handleLocaleSelect = (e) => {
     startTransition(() => {
-      router.replace(`/${pathname}/${e.target.value}`);
+      router.replace(
+        `/${e.target.value}/${pathname.replace(/^\/(en|fa)/, "")}`
+      );
     });
   };
 
@@ -96,7 +98,7 @@ const Nav = () => {
                 return (
                   <li>
                     <Link
-                      href={item.href}
+                      href={` /${localeActive}/${item.href}`}
                       className={`flex items-center ${
                         isActive
                           ? "text-[#ff0000]"
@@ -159,6 +161,7 @@ const Nav = () => {
                 // onBlur={() => setIsSelectFocused(false)}
                 onChange={(e) => {
                   handleLocaleSelect(e);
+                  document.documentElement.lang = e.target.value;
                 }}
                 value={localeActive}
                 defaultValue={localeActive}

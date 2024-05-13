@@ -82,16 +82,21 @@ const Hero = () => {
 
       <div className="col-span-1 flex-col items-center justify-around relative hidden lg:flex">
         <div
+          dir="ltr"
           id="experience"
           className="flex items-center mt-10 p-3 rounded-2xl  bg-gradient-to-b dark:from-gray-800 from-white dark:to-gray-900 border to-gray-200 dark:border-gray-800 border-gray-50"
         >
           <div className="flex flex-col mt-2 ">
-            <span className="ms-10 text-gray-500  dark:text-gray-400 text-[15px]">
+            <span className="ms-8 text-gray-500  dark:text-gray-400 text-[15px]">
               Years
             </span>
             <span className="text-[15px]">Experience</span>
           </div>
-          <div className=" text-[50px] mt-2">3</div>
+          <div
+            className={`text-[50px] ${localeActive === "fa" ? "mt-3" : "mt-2"} `}
+          >
+            3
+          </div>
         </div>
         <div className="flex flex-col gap-3 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 py-4 rounded-2xl bg-gray-800 dark:bg-transparent">
           {socials.map((item, idx) => {

@@ -7,7 +7,10 @@ const PDFViewer = () => {
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <Image src={resume} className="mt-10 mb-24 w-[80%]" />
+        <Image
+          src={resume}
+          className="mt-10 mb-24 w-[80%] border border-gray-500"
+        />
       </div>
     </div>
   );

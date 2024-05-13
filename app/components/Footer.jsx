@@ -214,7 +214,7 @@ const Footer = () => {
   return (
     <div
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="max-w-[100vw] w-[100%]  p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-red-200 bg-opacity-80"
+      className="max-w-[100vw] w-[100%] p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-red-200 bg-opacity-80"
     >
       <div clas>
         <div

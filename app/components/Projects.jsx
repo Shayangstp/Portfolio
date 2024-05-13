@@ -87,7 +87,11 @@ const Projects = () => {
       >
         <div className="flex items-center">
           <span>
-            <ViewCompactAltOutlinedIcon className="me-2 text-[50px]" />
+            <ViewCompactAltOutlinedIcon
+              className={`me-2 text-[50px] ${
+                localeActive === "fa" ? "text-red-500 mt-6" : ""
+              }`}
+            />
           </span>
           <span
             className={`${
@@ -96,13 +100,15 @@ const Projects = () => {
           >
             {t("title1")}
           </span>
-          <span
-            className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
-              localeActive === "fa" ? "mt-2" : "mt-5"
-            }`}
-          >
-            {t("title2")}
-          </span>
+          {localeActive === "en" && (
+            <span
+              className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+                localeActive === "fa" ? "mt-2" : "mt-5"
+              }`}
+            >
+              {t("title2")}
+            </span>
+          )}
         </div>
       </div>
       <div className="flex justify-center mt-20 max-w-[80vw] mx-auto">

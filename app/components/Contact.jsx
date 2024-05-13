@@ -211,7 +211,7 @@ const Contact = () => {
     <div
       id="email"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="h-[90vh] relative max-w-[1440px] w-[100%] mt-16 md:mt-32 p-2"
+      className="h-[85vh] relative max-w-[1440px] w-[100%] mt-16 md:mt-32 p-2"
     >
       <div
         id="header"
@@ -219,22 +219,29 @@ const Contact = () => {
       >
         <div className="flex items-center">
           <span>
-            <MarkunreadOutlinedIcon className="me-2 text-[50px]" />
+            <MarkunreadOutlinedIcon
+              className={`me-2 text-[50px] ${
+                localeActive === "fa" ? "text-red-500 mt-6" : ""
+              }`}
+            />
           </span>
           <span
+            style={{ fontFamily: "iranSans" }}
             className={`${
               localeActive === "fa" ? "text-[30px]" : "text-[50px]"
             } md:text-[70px]`}
           >
             {t("title1")}
           </span>
-          <span
-            className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
-              localeActive === "fa" ? "mt-2" : "mt-5"
-            }`}
-          >
-            {t("title2")}
-          </span>
+          {localeActive === "en" && (
+            <span
+              className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+                localeActive === "fa" ? "mt-2" : "mt-5"
+              }`}
+            >
+              {t("title2")}
+            </span>
+          )}
         </div>
       </div>
       <div className="md:flex md:justify-center md:items-center mt-24 max-w-[100%]">

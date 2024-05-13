@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
 import DownloadIcon from "@mui/icons-material/Download";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import { useLocale, useTranslations } from "next-intl";
 
 const PDFDownload = () => {
+  const t = useTranslations("resume");
   const router = useRouter();
   const activeLocale = useLocale();
 
@@ -41,7 +42,7 @@ const PDFDownload = () => {
       {!isPDFDownload && (
         <Button
           variant="contained"
-          className="py-2 bg-red-500 flex gap-2"
+          className="py-2 bg-red-500 flex gap-2 hover:bg-red-700"
           href={"/Shayan-Golestanipour-Resume.pdf"}
           target="_blank"
           alt="cv"
@@ -50,19 +51,19 @@ const PDFDownload = () => {
           <span>
             <PictureAsPdfIcon />
           </span>{" "}
-          PDF preview
+          {t("pdfPreview")}
         </Button>
       )}
       {!isPDFDownload && (
         <Button
           variant="contained"
-          className="py-2 bg-red-500 flex gap-2"
+          className="py-2 bg-red-500 flex gap-2 hover:bg-red-700"
           onClick={handlePDFDownload}
         >
           <span>
             <DownloadIcon />
           </span>
-          PDF download
+          {t("downloadCV")}
         </Button>
       )}
     </div>
