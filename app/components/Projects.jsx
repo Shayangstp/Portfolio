@@ -13,6 +13,7 @@ import "swiper/css/navigation";
 import ViewCompactAltOutlinedIcon from "@mui/icons-material/ViewCompactAltOutlined";
 import { useTheme } from "next-themes";
 import { useTranslations, useLocale } from "next-intl";
+import { motion } from "framer-motion";
 
 const blogData = [
   {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import HandymanOutlinedIcon from "@mui/icons-material/HandymanOutlined";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import {
@@ -9,10 +9,12 @@ import {
   mySkills,
 } from "../helpers/index";
 import { useTranslations, useLocale } from "next-intl";
+import { motion } from "framer-motion";
 
 const SklillsP2 = () => {
   const t = useTranslations("Skills");
   const localeActive = useLocale();
+  const scrollRef = useRef(null);
   return (
     <div
       dir={localeActive === "fa" ? "rtl" : "ltr"}
@@ -54,13 +56,29 @@ const SklillsP2 = () => {
             {skillsDesc.map((item, idx) => {
               return (
                 <div className=" p-10 rounded-2xl">
-                  <header className="text-[32px] border-b border-gray-900 dark:border-gray-500 py-2">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="text-[32px] border-b border-gray-900 dark:border-gray-500 py-2"
+                  >
                     {t(item.title)}
-                  </header>
-                  <p className="mt-5 md:text-[15px] text-[13px]">
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: 100 }}
+                    whileInView={{ x: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-5 md:text-[15px] text-[13px]"
+                  >
                     {t(item.desc)}
-                  </p>
-                  <div id="front-skill-set" className="mt-10">
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: -100 }}
+                    whileInView={{ x: 0 }}
+                    viewport={{ once: true }}
+                    id="front-skill-set"
+                    className="mt-10"
+                  >
                     {item.title === "frontEnd" &&
                       frontSkills.map((item, idx) => {
                         return (
@@ -148,7 +166,7 @@ const SklillsP2 = () => {
                           </div>
                         );
                       })}
-                  </div>
+                  </motion.div>
                 </div>
               );
             })}

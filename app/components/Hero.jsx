@@ -5,6 +5,8 @@ import { socials, socialsResponsive } from "../helpers/index";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+
 const Hero = () => {
   const router = useRouter();
   const t = useTranslations("Hero");
@@ -19,14 +21,18 @@ const Hero = () => {
         id="leftHero"
         className="col-span-1 flex-col items-center lg:justify-between justify-center relative hidden lg:flex mt-20"
       >
-        <div className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent my-auto rotate-[270deg] w-[500px] p-2 h-[50px]">
+        <motion.div
+          animate={{ y: [500, 0], rotate: 270 }}
+          transition={{ ease: "easeInOut", duration: 1 }}
+          className="leading-5 translate-x-[-500px] bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent my-auto  w-[500px] p-2 h-[50px]"
+        >
           <p className="me-10">
             <span className="font-bold text-[40px] text-center tracking-widest">
               Fullstack{" "}
             </span>{" "}
             &nbsp; <span className="text-[25px]">Developer</span>
           </p>
-        </div>
+        </motion.div>
       </div>
       <div
         id="mainHero"
@@ -45,14 +51,18 @@ const Hero = () => {
           >
             {t("title2")}
           </div>
-          <div className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent mt-2 lg:hidden  ms-6 ">
+          <motion.div
+            animate={{ x: [200, 0] }}
+            transition={{ ease: "easeInOut", duration: 1 }}
+            className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent mt-2 lg:hidden  ms-6 "
+          >
             <p className="me-10">
               <span className="font-bold sm:text-[15px]">
                 F u l l s t a c k{" "}
               </span>{" "}
               &nbsp; Developer
             </p>
-          </div>
+          </motion.div>
           <div className="max-w-[700px] mt-5 border border-gray-600 px-5 py-8 rounded-2xl  sm:ms-6  mx-5 lg:hidden">
             <AboutMe />
           </div>
@@ -75,16 +85,27 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="w-[700px] mt-5 border border-gray-600 px-5 py-8 rounded-2xl hidden lg:inline-block">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="w-[700px] mt-5 border border-gray-600 px-5 py-8 rounded-2xl hidden lg:inline-block"
+        >
           <AboutMe />
-        </div>
+        </motion.div>
       </div>
 
       <div className="col-span-1 flex-col items-center justify-around relative hidden lg:flex">
-        <div
+        <motion.div
+          animate={{ x: [200, 0] }}
+          transition={{ ease: "easeInOut", duration: 1 }}
           dir="ltr"
           id="experience"
-          className="flex items-center mt-10 p-3 rounded-2xl  bg-gradient-to-b dark:from-gray-800 from-white dark:to-gray-900 border to-gray-200 dark:border-gray-800 border-gray-50"
+          className="flex translate-x-72 items-center mt-10 p-3 rounded-2xl  bg-gradient-to-b dark:from-gray-800 from-white dark:to-gray-900 border to-gray-200 dark:border-gray-800 border-gray-50"
         >
           <div className="flex flex-col mt-2 ">
             <span className="ms-8 text-gray-500  dark:text-gray-400 text-[15px]">
@@ -93,15 +114,23 @@ const Hero = () => {
             <span className="text-[15px]">Experience</span>
           </div>
           <div
-            className={`text-[50px] ${localeActive === "fa" ? "mt-3" : "mt-2"} `}
+            className={`text-[50px] ${
+              localeActive === "fa" ? "mt-3" : "mt-2"
+            } `}
           >
             3
           </div>
-        </div>
-        <div className="flex flex-col gap-3 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 py-4 rounded-2xl bg-gray-800 dark:bg-transparent">
+        </motion.div>
+        <motion.div
+          animate={{ y: [400, 0] }}
+          transition={{ ease: "easeInOut", duration: 1 }}
+          className="flex flex-col translate-y-96 gap-3 mt-10 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 py-4 rounded-2xl bg-gray-800 dark:bg-transparent"
+        >
           {socials.map((item, idx) => {
             return (
-              <div
+              <motion.div
+                whileHover={{ scale: [null, 1.5, 1.4] }}
+                transition={{ duration: 0.3 }}
                 key={idx}
                 className="cursor-pointer text-white dark:text-white dark:hover:text-red-200 hover:text-red-200"
               >
@@ -111,10 +140,10 @@ const Hero = () => {
                 >
                   {item.icon}
                 </a>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

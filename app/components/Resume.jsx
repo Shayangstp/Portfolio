@@ -10,7 +10,7 @@ const Resume = () => {
 
   return (
     <div dir={localeActive === "en" ? "ltr" : "rtl"}>
-      <div id="header" className="ms-16 mt-10 flex items-center">
+      <div id="header" className="md:ms-16 ms-2 mt-10 flex items-center">
         <span>
           <DescriptionIcon
             className={`text-[50px] ${

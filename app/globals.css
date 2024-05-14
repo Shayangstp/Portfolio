@@ -12,6 +12,10 @@
   font-display: swap;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 /* Apply font based on language */
 :lang(fa) {
   font-family: "iranSans", sans-serif; /* Fallback font */
@@ -40,4 +44,43 @@ html {
   background-size: cover;
   width: 450px;
   height: 450px;
+}
+
+/* scroll the scrollbar */
+#progress {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  transform: rotate(-90deg);
+}
+
+circle {
+  stroke-dashoffset: 0;
+  stroke-width: 5%;
+  fill: none;
+}
+
+.bg {
+  stroke: gray;
+  opacity: 0.3;
+}
+
+#progress .indicator {
+  stroke: red;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 10px;
+  background: rgba(255, 0, 0, 0.2);
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: red;
 }

@@ -38,7 +38,7 @@ const PDFDownload = () => {
   };
 
   return (
-    <div className="flex gap-2 justify-end me-16">
+    <div className="flex gap-2 md:justify-end justify-center mt-2 md:mt-0 md:me-16">
       {!isPDFDownload && (
         <Button
           variant="contained"

@@ -21,6 +21,7 @@ import {
 } from "../slices/mainSlices";
 import { ButtonLoader } from "../utils/Loader";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 const textFeildDark = {
   "& input": {
@@ -292,7 +293,9 @@ const Footer = () => {
             <div className="flex gap-2 md:gap-5 lg:justify-start justify-end">
               {socials.map((item, idx) => {
                 return (
-                  <div
+                  <motion.div
+                    whileHover={{ scale: [null, 1.5, 1.4] }}
+                    transition={{ duration: 0.3 }}
                     key={idx}
                     className="hover:text-red-600 hover:dark:text-red-400 cursor-pointer dark:text-gray-300"
                   >
@@ -302,7 +305,7 @@ const Footer = () => {
                     >
                       {item.icon}
                     </a>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
