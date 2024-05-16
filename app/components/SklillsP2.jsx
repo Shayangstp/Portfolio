@@ -17,6 +17,7 @@ const SklillsP2 = () => {
   const scrollRef = useRef(null);
   return (
     <div
+      id="skill-section"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="relative max-w-[1440px] w-[100%] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
     >

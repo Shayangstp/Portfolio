@@ -5,19 +5,19 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export const socials = [
   {
-    icon: <GitHubIcon fontSize="small" />,
+    icon: <GitHubIcon fontSize="medium" />,
     href: "https://github.com/Shayangstp",
   },
   {
-    icon: <TelegramIcon fontSize="small" />,
+    icon: <TelegramIcon fontSize="medium" />,
     href: "https://t.me/shayan5529",
   },
   {
-    icon: <EmailIcon fontSize="small" />,
+    icon: <EmailIcon fontSize="medium" />,
     href: "#email",
   },
   {
-    icon: <LinkedInIcon fontSize="small" />,
+    icon: <LinkedInIcon fontSize="medium" />,
     href: "https://www.linkedin.com/in/shayangstp",
   },
 ];
@@ -153,6 +153,10 @@ export const navData = [
   {
     titleKey: "contactMe",
     href: "#email",
+  },
+  {
+    titleKey: "blog",
+    href: "/blog",
   },
 ];
 

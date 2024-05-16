@@ -34,6 +34,7 @@ const AboutMe = () => {
         <Button
           variant="contained"
           className="bg-gray-800 px-5 lg:px-6 lg:py-3 py-2.5  hover:bg-red-900 text-[12px] sm:text-[14px]"
+          href="#skill-section"
         >
           {t("skillBtn")}
         </Button>

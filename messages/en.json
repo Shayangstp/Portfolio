@@ -3,7 +3,8 @@
     "home": "Home",
     "resume": "Resume",
     "projects": "Projects",
-    "contactMe": "Contact Me"
+    "contactMe": "Contact Me", 
+    "blog" : "Blog"
   },
   "Hero": {
     "title1": "Hi there",

@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import AddvertisedBanner from "./AddvertisedBanner";
 
 const Hero = () => {
   const router = useRouter();
@@ -24,11 +25,11 @@ const Hero = () => {
         <motion.div
           animate={{ y: [500, 0], rotate: 270 }}
           transition={{ ease: "easeInOut", duration: 1 }}
-          className="leading-5 translate-x-[-500px] bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent my-auto  w-[500px] p-2 h-[50px]"
+          className="leading-5 translate-y-[-500px] bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent my-auto  w-[500px] p-2 h-[50px] relative"
         >
           <p className="me-10">
             <span className="font-bold text-[40px] text-center tracking-widest">
-              Fullstack{" "}
+              Fullstack
             </span>{" "}
             &nbsp; <span className="text-[25px]">Developer</span>
           </p>
@@ -57,29 +58,35 @@ const Hero = () => {
             className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent mt-2 lg:hidden  ms-6 "
           >
             <p className="me-10">
-              <span className="font-bold sm:text-[15px]">
+              <span className="font-bold sm:text-[15px] ">
                 F u l l s t a c k{" "}
               </span>{" "}
               &nbsp; Developer
             </p>
           </motion.div>
-          <div className="max-w-[700px] mt-5 border border-gray-600 px-5 py-8 rounded-2xl  sm:ms-6  mx-5 lg:hidden">
+          <div className="max-w-[700px] mt-5 border border-x-8 border-gray-700 px-5 py-8 rounded-2xl  sm:ms-6  mx-5 lg:hidden">
             <AboutMe />
           </div>
           <div
             id="socials-responsive"
             className="text-white text-end flex justify-end lg:hidden me-5"
           >
-            <div className="flex gap-4 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark px-3 py-2 pb-3 rounded-2xl bg-gray-800 dark:bg-transparent mt-5">
+            <div className="flex gap-4 justify-center items-center  border  px-3 py-2 pb-3 rounded-2xl bg-gray-800 dark:bg-transparent mt-5 dark:shadow-socialShadowDark shadow-socialShadow">
               {socialsResponsive.map((item, idx) => {
                 return (
-                  <Link
+                  <motion.div
+                    whileHover={{ scale: [null, 1.5, 1.4] }}
+                    transition={{ duration: 0.3 }}
                     key={idx}
-                    className="cursor-pointer text-white dark:text-white dark:hover:text-red-200 hover:text-red-200"
-                    href={item.href}
+                    className="cursor-pointer text-black dark:text-white dark:hover:text-red-200 hover:text-red-400"
                   >
-                    {item.icon}
-                  </Link>
+                    <a
+                      href={`${item.href}`}
+                      target={`${item.href === "#email" ? "" : "_blank"}`}
+                    >
+                      {item.icon}
+                    </a>
+                  </motion.div>
                 );
               })}
             </div>
@@ -93,7 +100,7 @@ const Hero = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="w-[700px] mt-5 border border-gray-600 px-5 py-8 rounded-2xl hidden lg:inline-block"
+          className="w-[700px] mt-5  border border-y-8 border-gray-700 px-5 py-8 rounded-2xl hidden lg:inline-block"
         >
           <AboutMe />
         </motion.div>
@@ -105,7 +112,7 @@ const Hero = () => {
           transition={{ ease: "easeInOut", duration: 1 }}
           dir="ltr"
           id="experience"
-          className="flex translate-x-72 items-center mt-10 p-3 rounded-2xl  bg-gradient-to-b dark:from-gray-800 from-white dark:to-gray-900 border to-gray-200 dark:border-gray-800 border-gray-50"
+          className="flex translate-x-[2000px] items-center mt-10 p-3 rounded-2xl  bg-gradient-to-b dark:from-gray-800 from-white dark:to-gray-900 border to-gray-200 dark:border-gray-800 border-gray-50"
         >
           <div className="flex flex-col mt-2 ">
             <span className="ms-8 text-gray-500  dark:text-gray-400 text-[15px]">
@@ -124,7 +131,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [400, 0] }}
           transition={{ ease: "easeInOut", duration: 1 }}
-          className="flex flex-col translate-y-96 gap-3 mt-10 justify-center items-center  border border-red-600 dark:shadow-socialShadow shadow-socialShadowDark p-2 py-4 rounded-2xl bg-gray-800 dark:bg-transparent"
+          className="flex flex-col translate-y-[800px] gap-4 justify-center items-center  border dark:shadow-socialShadowDark shadow-socialShadow px-4 py-6 rounded-2xl bg-transparent dark:bg-transparent"
         >
           {socials.map((item, idx) => {
             return (
@@ -132,7 +139,7 @@ const Hero = () => {
                 whileHover={{ scale: [null, 1.5, 1.4] }}
                 transition={{ duration: 0.3 }}
                 key={idx}
-                className="cursor-pointer text-white dark:text-white dark:hover:text-red-200 hover:text-red-200"
+                className="cursor-pointer text-black dark:text-white dark:hover:text-red-200 hover:text-red-400"
               >
                 <a
                   href={`${item.href}`}
@@ -144,6 +151,9 @@ const Hero = () => {
             );
           })}
         </motion.div>
+      </div>
+      <div className="mt-40 mx-auto max-w-[1440px]">
+        <AddvertisedBanner />
       </div>
     </div>
   );
