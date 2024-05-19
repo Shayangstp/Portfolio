@@ -112,4 +112,21 @@ circle {
   margin-right: 30px;
 }
 
-
+.gradient-01 {
+  background-image: linear-gradient(
+    270deg,
+    hsl(204, 88%, 51%) 0%,
+    hsl(216, 77%, 38%) 74%,
+    hsl(220deg 76% 51%) 100%
+  );
+  filter: blur(120px);
+}
+.gradient-02 {
+  background-image: linear-gradient(
+    270deg,
+    hsl(298, 88%, 51%) -0%,
+    hsl(216, 77%, 38%) 80%,
+    hsl(187, 76%, 51%) 100%
+  );
+  filter: blur(120px);
+}

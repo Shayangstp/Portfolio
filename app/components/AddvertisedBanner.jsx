@@ -1,16 +1,25 @@
 import React from "react";
+import { useTranslations, useLocale } from "next-intl";
 
 const AddvertisedBanner = () => {
+  const localeActive = useLocale();
+
   return (
-    <section className="relative">
-      <div className="absolute bottom-16 rotate-[-3deg]">
+    <section dir="ltr" className="relative">
+      <div className="max-w-[1440px] absolute rotate-[-3deg]">
         <ParallaxText baseVelocity={2}>
-          <span className="text-red-500">FrontEnd Backend FullStack</span>
+          <span className="text-red-500 md:text-[50px] text-[30px]">
+            * FrontEnd * Backend * FullStack
+          </span>
         </ParallaxText>
       </div>
-      <div className="flex rotate-3">
-        <ParallaxText baseVelocity={-5}>Shayan-Gstp</ParallaxText>
-        <ParallaxText baseVelocity={-5}>wolfi</ParallaxText>
+      <div className="flex rotate-3 ">
+        <ParallaxText baseVelocity={-5}>
+          <span className="md:text-[65px] text-[45px]">Shayan-Gstp</span>
+        </ParallaxText>
+        <ParallaxText baseVelocity={-5}>
+          <span className="md:text-[65px] text-[45px]">wolfi</span>
+        </ParallaxText>
       </div>
     </section>
   );
