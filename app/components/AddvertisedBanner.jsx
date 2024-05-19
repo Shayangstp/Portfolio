@@ -3,14 +3,14 @@ import React from "react";
 const AddvertisedBanner = () => {
   return (
     <section className="relative">
-      <div className="flex rotate-3">
-        <ParallaxText baseVelocity={-5}>Shayan-Gstp</ParallaxText>
-        <ParallaxText baseVelocity={-5}>wolfi</ParallaxText>
-      </div>
-      <div className="rotate-[-3deg]">
+      <div className="absolute bottom-16 rotate-[-3deg]">
         <ParallaxText baseVelocity={2}>
           <span className="text-red-500">FrontEnd Backend FullStack</span>
         </ParallaxText>
+      </div>
+      <div className="flex rotate-3">
+        <ParallaxText baseVelocity={-5}>Shayan-Gstp</ParallaxText>
+        <ParallaxText baseVelocity={-5}>wolfi</ParallaxText>
       </div>
     </section>
   );
