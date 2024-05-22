@@ -205,3 +205,5 @@ circle {
   backdrop-filter: blur(20px);
   z-index: 999; /* Adjust if necessary to ensure it appears behind the modal */
 }
+
+
