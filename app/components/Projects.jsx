@@ -13,7 +13,8 @@ import "swiper/css/navigation";
 import ViewCompactAltOutlinedIcon from "@mui/icons-material/ViewCompactAltOutlined";
 import { useTheme } from "next-themes";
 import { useTranslations, useLocale } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const blogData = [
   {
@@ -65,6 +66,11 @@ const Projects = () => {
   const [items, setItems] = useState(blogData);
   const t = useTranslations("projects");
   const localeActive = useLocale();
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedId, setSelectedId] = useState();
+  const [selectedTitle, setSelectedTitle] = useState();
+  const [selectedContent, setSelectedContent] = useState();
+  const [isHovered, setIsHovered] = useState(false);
 
   const swiperRef = useRef(null);
 
@@ -79,8 +85,11 @@ const Projects = () => {
       swiperRef.current.swiper.slidePrev();
     }
   };
+
+  console.log(selectedId);
   return (
     <div className="relative max-w-[1440px] w-[100%] mt-40 mb-20 md:mt-16 p-2">
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[100px]  inset-0 gradient-06" />
       <div
         dir={localeActive === "fa" ? "rtl" : "ltr"}
         id="header"
@@ -144,7 +153,7 @@ const Projects = () => {
             },
           }}
         >
-          {items.map((item, index) => {
+          {/* {items.map((item, index) => {
             return (
               <SwiperSlide
                 key={index}
@@ -154,6 +163,10 @@ const Projects = () => {
                 <div
                   dir={localeActive === "fa" ? "rtl" : "ltr"}
                   className="border border-gray-400 rounded-xl max-w-[100%]"
+                  onClick={() => {
+                    setIsVisible(true);
+                    setSelectedId(index);
+                  }}
                 >
                   <div
                     className={`p-4 rounded-t-xl border-b border-gray-400 h-[100px] slider-item bg-red-900 ${
@@ -197,10 +210,125 @@ const Projects = () => {
                     </Button>
                   </CardActions>
                 </div>
+                <AnimatePresence initial={false}>
+                  {selectedId === index && (
+                    <motion.div
+                      key="modal"
+                      // initial={{ opacity: 0 }}
+                      // animate={{ opacity: 1 }}
+                      // exit={{ opacity: 0 }}
+                      layoutId={selectedId}
+                    >
+                      {" "}
+                      <motion.h5>{item.title}</motion.h5>
+                      <motion.h2>{item.content}</motion.h2>
+                      <motion.button onClick={() => setSelectedId(null)} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </SwiperSlide>
             );
-          })}
+          })} */}
+          {items.map((item, index) => (
+            <SwiperSlide
+              key={index}
+              virtualIndex={index}
+              className="m-0 p-0 max-w-[500px] cursor-pointer"
+            >
+              <div
+                dir={localeActive === "fa" ? "rtl" : "ltr"}
+                className="border border-gray-400 rounded-xl max-w-[100%] hover:border-black dark:hover:border-gray-200 transition-all ease-in"
+                onClick={() => {
+                  setIsVisible(true);
+                  setSelectedId(item.id);
+                  setSelectedContent(item.content);
+                  setSelectedTitle(item.title);
+                }}
+              >
+                <div
+                  className={`p-4 rounded-t-xl border-b border-gray-400 h-[100px] slider-item bg-red-900 ${
+                    index === 1 ? "active" : ""
+                  }`}
+                  style={{
+                    backgroundColor: `${item.titleColor}${
+                      theme === "light" ? "" : "90"
+                    }`,
+                  }}
+                >
+                  <div className="font-bold md:text-[18px] text-[14px] dark:text-white text-white">
+                    {item.title}
+                  </div>
+                </div>
+                <CardContent>
+                  <p className="dark:text-gray-300 text-gray-800 md:text-[15px] text-[12px]">
+                    {item.content}
+                  </p>
+                </CardContent>
+                <CardActions className="ms-2 mb-2">
+                  <Button
+                    size="small"
+                    variant="contained"
+                    className="sm:text-[12px] text-[9px] flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-5"
+                    onClick={() => {
+                      console.log("hi");
+                    }}
+                  >
+                    <span>
+                      <GitHubIcon fontSize="small" className="text-white" />
+                    </span>
+                    <span className="mt-1 text-white">{t("githubBtn")}</span>
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    className="dark:text-white text-black md:text-[12px] text-[9px] ms-2 px-5 border-gray-600 hover:border-black dark:hover:border-gray-200"
+                  >
+                    <span className="mt-1 mb-1">{t("readMoreBtn")}</span>
+                  </Button>
+                </CardActions>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
+        <AnimatePresence>
+          {selectedId && (
+            <>
+              <motion.div
+                className="backdrop"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedId(null)} // Close modal when clicking on backdrop
+              />
+              <motion.div
+                key="modal"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                layoutId={selectedId}
+                className="modal p-5 border border-black dark:border-white"
+              >
+                <div className="border-b border-black dark:border-white mb-5 py-8 flex justify-between">
+                  <motion.h5>{selectedTitle}</motion.h5>
+                  <motion.button onClick={() => setSelectedId(null)}>
+                    <span className="cursor-pointer border transition-all ease-in border-black dark:border-white p-3 rounded-full px-4 hover:bg-gray-900 hover:text-red-500 ">
+                      X
+                    </span>
+                  </motion.button>
+                </div>
+                <motion.h2>{selectedContent}</motion.h2>
+                <div className="flex justify-end">
+                  <Button
+                    variant="contained"
+                    className="mt-10 bg-black hover:bg-gray-800"
+                  >
+                    Read More
+                  </Button>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
         <Button
           variant="outlined"
           size="small"
@@ -209,6 +337,31 @@ const Projects = () => {
         >
           <span className="text-[13px]">
             <ArrowCircleRightOutlinedIcon className="text-[50px]" />
+          </span>
+        </Button>
+      </div>
+      <div
+        dir={`${localeActive === "fa" ? "rtl" : "ltr"}`}
+        id="see-more"
+        className="flex justify-end max-w-[80vw] mt-5 mx-auto"
+      >
+        <Button
+          className={`py-2 px-4 dark:border-gray-500 border-gray-600  dark:text-white text-black text-[13px] hover:border-black dark:hover:border-white`}
+          variant="outlined"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          href={` /${localeActive}/projects`}
+        >
+          <span className="">{t("seeMore")}</span>{" "}
+          <span
+            className={`ms-2   transition-all ease-linear ${
+              isHovered && localeActive === "fa" && "-translate-x-1"
+            } ${localeActive === "en" && isHovered && "translate-x-1"}`}
+          >
+            <ArrowForwardIcon
+              fontSize="small"
+              className={`${localeActive === "fa" ? "rotate-[180deg] " : ""} `}
+            />
           </span>
         </Button>
       </div>

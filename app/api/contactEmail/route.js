@@ -13,9 +13,9 @@ export async function POST(req, res) {
   });
 
   const mailOptions = {
-    from: process.env.AUTH_EMAIL, // Use your email
-    to: process.env.AUTH_EMAIL, // Your email to receive messages
-    replyTo: email, // User's email
+    from: process.env.AUTH_EMAIL,
+    to: process.env.AUTH_EMAIL,
+    replyTo: email,
     subject: `Message from ${name}: ${subject}`,
     text: `From: ${name} <${email}>\n\n${message}`,
     html: `<p>From: ${name} &lt;${email}&gt;</p><p>${message}</p>`,

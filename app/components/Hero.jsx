@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import AddvertisedBanner from "./AddvertisedBanner";
-import { fadeIn } from "../helpers/motion";
+import { TitleText, TypingText } from "./TypingTest";
 
 const Hero = () => {
   const router = useRouter();
@@ -21,7 +21,11 @@ const Hero = () => {
     >
       {/* blur bg */}
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[100px]  inset-0 gradient-01" />
-      <div className="absolute w-[40%] h-[40%] opacity-20 top-[300px] left-[800px]  inset-0 gradient-02" />
+      <div
+        className={`absolute w-[40%] h-[40%] opacity-20 top-[300px] ${
+          localeActive === "fa" ? "right-[1000px]" : "left-[1000px]"
+        }  inset-0 gradient-02`}
+      />
       <div
         id="leftHero"
         className="col-span-1 flex-col items-center lg:justify-between justify-center relative hidden lg:flex mt-20"
@@ -44,17 +48,23 @@ const Hero = () => {
         className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-20 lg:mt-0"
       >
         <div id="hero-text" className="lg:mt-28">
-          <div
+          <motion.div
             id="Hi"
-            className="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black ms-6 lg:ms-0 font-extrabold"
+            // className="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black ms-6 lg:ms-0 font-extrabold"
           >
-            {t("title1")} "
-          </div>
+            <TypingText
+              title={t("title1") + "''"}
+              textStyles="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black ms-6 lg:ms-0 font-extrabold"
+            />
+          </motion.div>
           <div
             id="imShayan"
-            className="lg:text-[50px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mb-5 mt-4"
+            // className="lg:text-[50px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mb-5 mt-4"
           >
-            {t("title2")}
+            <TitleText
+              title={t("title2")}
+              textStyles="lg:text-[50px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mb-5 mt-4"
+            />
           </div>
           <motion.div
             animate={{ x: [200, 0] }}
@@ -117,7 +127,7 @@ const Hero = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="w-[700px] mt-5  border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block"
+          className="w-[700px] mt-5 border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block"
         >
           <AboutMe />
         </motion.div>

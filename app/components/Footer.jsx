@@ -19,7 +19,7 @@ import {
   RsetFormErrors,
   selectFormErrors,
 } from "../slices/mainSlices";
-import { ButtonLoader } from "../utils/Loader";
+import { ButtonLoader, ButtonLoader2 } from "../utils/Loader";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
@@ -111,6 +111,8 @@ const Footer = () => {
     return errors;
   };
 
+  console.log(loading);
+
   const style = darkMode === "dark" ? textFeildDark : textFeildLight;
 
   const cacheLtr = createCache({
@@ -125,12 +127,12 @@ const Footer = () => {
 
   const handelContactEmail = async (e) => {
     e.preventDefault();
-    setLoading(true);
     if (userEmailIsValid && !userEmailFormatIsValid) {
       errorMessage(t("contactEmailFormat"));
     }
 
     if (userEmailIsValid && userEmailFormatIsValid) {
+      setLoading(true);
       const values = {
         name: "userHireMe",
         email: userEmail,
@@ -228,7 +230,7 @@ const Footer = () => {
           <p className="dark:text-white text-gray-700 text-center sm:text-start text-[9px] md:text-[12px] lg:text-[15px] mt-2">
             {t("readySub")}
           </p>
-          <div className="flex items-end mt-10">
+          <div className="flex gap-2 items-end mt-10">
             <CacheProvider value={localeActive === "fa" ? cacheRtl : cacheLtr}>
               <TextField
                 error={userEmailIsValid ? false : formErrors.userEmail}
@@ -252,11 +254,13 @@ const Footer = () => {
                 {loading === false ? (
                   t("hireMeBtn")
                 ) : (
-                  <ButtonLoader
-                    height={10}
-                    width={50}
-                    color={theme === "dark" ? "black" : "white"}
-                  />
+                  <div className="px-3">
+                    <ButtonLoader2
+                      height={20}
+                      width={50}
+                      color={theme === "dark" ? "black" : "white"}
+                    />
+                  </div>
                 )}
               </span>
               <ArrowOutwardOutlinedIcon

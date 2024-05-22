@@ -48,7 +48,9 @@
     "title2": "من",
 
     "githubBtn": "گیت هاب",
-    "readMoreBtn": "بیشتر"
+    "readMoreBtn": "بیشتر",
+
+    "seeMore": "بیشتر"
   },
   "contactMe": {
     "title1": "تماس با من",
@@ -84,5 +86,9 @@
 
     "downloadCV": "دانلود رزومه",
     "pdfPreview": "نمایش PDF"
+  },
+
+  "projectPage": {
+    "searchFeild" : "جستجو"
   }
 }

@@ -31,6 +31,7 @@ import Image from "next/image";
 import { lightSelect, darkSelect } from "../helpers/index";
 import NavDrawer from "./NavDrawer";
 import { useLocale, useTranslations } from "next-intl";
+import NavMenu from "./NavMenu";
 
 const Nav = () => {
   const t = useTranslations("Nav");
@@ -208,7 +209,7 @@ const Nav = () => {
                   Shayan_Gstp
                 </Link>
                 <IconButton
-                  className="dark:text-white text-black me-5"
+                  className="dark:text-white text-black me-5 relative"
                   edge="start"
                   color="inherit"
                   aria-label="menu"

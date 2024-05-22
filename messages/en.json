@@ -3,8 +3,8 @@
     "home": "Home",
     "resume": "Resume",
     "projects": "Projects",
-    "contactMe": "Contact Me", 
-    "blog" : "Blog"
+    "contactMe": "Contact Me",
+    "blog": "Blog"
   },
   "Hero": {
     "title1": "Hi there",
@@ -43,7 +43,9 @@
     "title2": "Projects",
 
     "githubBtn": "GITHUB",
-    "readMoreBtn": "Read More"
+    "readMoreBtn": "Read More",
+
+    "seeMore": "See More"
   },
 
   "contactMe": {
@@ -74,10 +76,14 @@
     "contactEmailFormat": "Email format is not correct"
   },
   "resume": {
-    "resumeTitle1" : "MY." , 
-    "resumeTitle2" : " Resume" , 
+    "resumeTitle1": "MY.",
+    "resumeTitle2": " Resume",
 
-    "downloadCV" : "Download CV"  , 
-    "pdfPreview" : "PDF Preview"
+    "downloadCV": "Download CV",
+    "pdfPreview": "PDF Preview"
+  },
+
+  "projectPage": {
+    "searchFeild": "search"
   }
 }

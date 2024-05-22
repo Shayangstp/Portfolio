@@ -28,7 +28,9 @@ import { prefixer } from "stylis";
 import { postContactEmail } from "../services/emailContact";
 import { useSelector, useDispatch } from "react-redux";
 import { errorMessage, successMessage } from "../utils/msg";
-import { ButtonLoader } from "../utils/Loader";
+import { ButtonLoader, ButtonLoader1 } from "../utils/Loader";
+import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 
 const inputDark = {
   "& label.Mui-focused": {
@@ -184,7 +186,8 @@ const Contact = () => {
       };
       console.log(values);
 
-      const postContactEmailRes = await postContactEmail(values);
+      const postContactEmailRes = await axios.post("api/contactEmail", values);
+
       console.log(postContactEmailRes);
 
       if (postContactEmailRes.data.code === 200) {
@@ -213,6 +216,8 @@ const Contact = () => {
       dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="h-[85vh] relative max-w-[1440px] w-[100%] mt-16 md:mt-32 p-2"
     >
+      <div className="absolute w-[90%] h-[80%] opacity-[10%] top-[100px]   inset-0 gradient-06" />
+
       <div
         id="header"
         className="text-[70px] rounded-2xl py-2 px-5  md:ms-10 ms-0"
@@ -306,13 +311,13 @@ const Contact = () => {
           </CacheProvider>
           <Button
             variant="outlined"
-            className="rounded-xl py-2 border border-red-600 dark:text-white text-black hover:border-red-500"
+            className="rounded-xl py-4 border border-red-600 dark:text-white text-black hover:border-red-500"
             onClick={handelContactEmail}
           >
             {loading === false ? (
               t("submitBtn")
             ) : (
-              <ButtonLoader
+              <ButtonLoader1
                 height={25}
                 width={50}
                 color={theme === "dark" ? "white" : "black"}

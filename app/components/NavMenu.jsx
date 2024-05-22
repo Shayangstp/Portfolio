@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { motion, Variants } from "framer-motion";
 import {
   Drawer,
   FormControl,
@@ -9,9 +11,6 @@ import {
   ListItemText,
   Button,
 } from "@mui/material";
-import React, { useState } from "react";
-import us from "../assets/us.jpg";
-import iran from "../assets/iran.jpg";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
 import Brightness2Icon from "@mui/icons-material/Brightness2";
@@ -19,12 +18,23 @@ import { lightSelect, darkSelect } from "../helpers/index";
 import { RsetDarkMode, selectDarkMode } from "../slices/mainSlices";
 import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "next-themes";
-import { navData } from "../helpers/index";
-import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
-import { motion } from "framer-motion";
 
-const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
+const itemVariants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 },
+  },
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+};
+
+const overlayVariants = {
+  open: { opacity: 1, transition: { duration: 0.3 } },
+  closed: { opacity: 0, transition: { duration: 0.2 } },
+};
+
+export default function NavMenu({ isDrawerOpen, setIsDrawerOpen }) {
   const dispatch = useDispatch();
   const [isSelectFocused, setIsSelectFocused] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
@@ -39,15 +49,44 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
-
   return (
-    <div>
-      <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
-        <div className="dark:bg-[#2a2f36] bg-gray-200 h-[100%]">
-          <header className="text-white p-4 mt-3">
+    <div dir="rtl">
+      <motion.nav
+        initial={false}
+        animate={isDrawerOpen ? "open" : "closed"}
+        className={`fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm ${
+          isDrawerOpen && "z-40"
+        }`}
+        variants={overlayVariants}
+      >
+        <motion.ul
+          variants={{
+            open: {
+              clipPath: "inset(0% 0% 0% 0% round 10px)",
+              transition: {
+                type: "spring",
+                bounce: 0,
+                duration: 0.7,
+                delayChildren: 0.3,
+                staggerChildren: 0.05,
+              },
+            },
+            closed: {
+              clipPath: "inset(10% 50% 90% 50% round 10px)",
+              transition: {
+                type: "spring",
+                bounce: 0,
+                duration: 0.3,
+              },
+            },
+          }}
+          style={{ pointerEvents: isDrawerOpen ? "auto" : "none" }}
+          className="border bg-gray-200 h-[100vh] w-[50%]"
+        >
+          <header dir="ltr" className="text-white p-4 mt-3">
             <div className="flex justify-between">
-              <h3 className="dark:text-white text-black">Menu</h3>
-              <div className="flex">
+              <h3 className="dark:text-white text-black text-[20px]">Menu</h3>
+              <div className="flex gap-2">
                 <div
                   variant="text"
                   size="middle"
@@ -107,11 +146,11 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
                   </FormControl>
                   {/* </span> */}
                 </div>
-                <div
-                  variant="text"
+                <Button
                   size="small"
+                  variant="outlined"
                   id="darkMode-container"
-                  className=" dark:text-white text-black  hover:text-red-500 dark:hover:text-red-500 px-3 mt-1 rounded-lg cursor-pointer"
+                  className=" dark:text-white border-black  text-black  hover:text-red-500 dark:hover:text-red-500   rounded-lg cursor-pointer"
                   onClick={() => {
                     if (resolvedTheme === "dark") {
                       setTheme("light");
@@ -125,32 +164,20 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
                   <span className="text-[12px]">
                     {theme === "dark" ? <LightModeIcon /> : <Brightness2Icon />}
                   </span>
-                </div>
+                </Button>
               </div>
             </div>
             <div className="border dark:border-white border-black w-100 mt-4"></div>
           </header>
-          <div dir={localeActive === "fa" ? "rtl" : "ltr"}>
-            <List className="w-[300px] flex flex-col text-white">
-              {navData.map((item, idx) => {
-                return (
-                  <ListItem
-                    button
-                    onClick={toggleDrawer}
-                    className="hover:bg-red-900 dark:text-white text-black hover:text-white"
-                  >
-                    <Link href={item.href}>
-                      <ListItemText primary={t(item.titleKey)} />
-                    </Link>
-                  </ListItem>
-                );
-              })}
-            </List>
-          </div>
-        </div>
-      </Drawer>
+          <motion.li variants={itemVariants} className="text-white">
+            Item 1{" "}
+          </motion.li>
+          <motion.li variants={itemVariants}>Item 2 </motion.li>
+          <motion.li variants={itemVariants}>Item 3 </motion.li>
+          <motion.li variants={itemVariants}>Item 4 </motion.li>
+          <motion.li variants={itemVariants}>Item 5 </motion.li>
+        </motion.ul>
+      </motion.nav>
     </div>
   );
-};
-
-export default NavDrawer;
+}

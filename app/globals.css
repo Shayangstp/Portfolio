@@ -69,20 +69,34 @@ circle {
   stroke: red;
 }
 
+:root {
+  --scrollbar-bg: rgba(255, 0, 0, 0.2);
+  --scrollbar-thumb-bg: rgb(0, 0, 0);
+  --scrollbar-corner-bg: red;
+}
+
+.dark {
+  --scrollbar-bg: rgba(255, 0, 0, 0.2);
+  --scrollbar-thumb-bg: rgb(255, 255, 255);
+  --scrollbar-corner-bg: darkred;
+}
+
 ::-webkit-scrollbar {
-  height: 5px;
-  width: 10px;
-  background: rgba(255, 0, 0, 0.2);
+  height: 10px;
+  width: 15px;
+  background: var(--scrollbar-bg);
   -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
+  background: var(--scrollbar-thumb-bg);
+}
+::-webkit-scrollbar-thumb:hover {
   -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-  background: red;
+  background: var(--scrollbar-corner-bg);
 }
 
 /* addBanner */
@@ -119,14 +133,75 @@ circle {
     hsl(216, 77%, 38%) 74%,
     hsl(220deg 76% 51%) 100%
   );
-  filter: blur(120px);
+  filter: blur(150px);
 }
 .gradient-02 {
   background-image: linear-gradient(
     270deg,
-    hsl(298, 88%, 51%) -0%,
+    hsl(298, 75%, 41%) -0%,
     hsl(216, 77%, 38%) 80%,
     hsl(187, 76%, 51%) 100%
   );
   filter: blur(120px);
+}
+.gradient-03 {
+  background-image: linear-gradient(
+    270deg,
+    hsl(204, 100%, 50%) 0%,
+    hsl(216, 77%, 38%) 74%,
+    hsl(220deg 76% 51%) 100%
+  );
+  filter: blur(140px);
+}
+.gradient-04 {
+  background-image: linear-gradient(
+    270deg,
+    hsl(59, 88%, 51%) 0%,
+    hsl(281, 77%, 38%) 74%,
+    hsl(220deg 76% 51%) 100%
+  );
+  filter: blur(250px);
+}
+.gradient-05 {
+  background-image: linear-gradient(
+    270deg,
+    hsl(342, 88%, 51%) 0%,
+    hsl(189, 90%, 49%) 74%,
+    hsl(220deg 76% 51%) 100%
+  );
+  filter: blur(250px);
+}
+
+.gradient-06 {
+  background-image: linear-gradient(
+    270deg,
+    hsl(204, 100%, 50%) 0%,
+    hsl(290, 90%, 55%) 100%,
+    hsl(220deg 76% 51%) 100%
+  );
+  filter: blur(120px);
+}
+
+.menu {
+  filter: drop-shadow(1px 1px 1px #4700b3);
+  width: 300px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.301);
+  backdrop-filter: blur(20px);
+  z-index: 999; /* Adjust if necessary to ensure it appears behind the modal */
 }

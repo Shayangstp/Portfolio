@@ -204,3 +204,90 @@ export const darkSelect = {
     borderColor: "#9e1f16", // Border color when focused
   },
 };
+
+export const inputDark = {
+  "& label.Mui-focused": {
+    color: "#914343",
+  },
+  "& label": {
+    fontSize: "13px",
+    color: "white",
+  },
+  "& .MuiInputBase-input": {
+    color: "white",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "blue",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "gray",
+      borderRadius: "15px",
+    },
+    "&:hover fieldset": {
+      borderColor: "white",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#914343",
+    },
+    // "& input[type=number]": {
+    //   "-moz-appearance": "textfield",
+    //   "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+    //     display: "none",
+    //     "-webkit-appearance": "none",
+    //     margin: 0,
+    //   },
+    //   "&::placeholder": {
+    //     color: "gray",
+    //     fontStyle: "italic",
+    //   },
+    // },
+  },
+  "& input": {
+    // Prevent browser from autofilling
+    autoComplete: "off",
+  },
+};
+export const InputLight = {
+  "& label.Mui-focused": {
+    color: "#914343",
+  },
+  "& label": {
+    fontSize: "13px",
+    color: "black",
+  },
+  "& .MuiInputBase-input": {
+    color: "black",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "blue",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "gray",
+      borderRadius: "15px",
+    },
+    "&:hover fieldset": {
+      borderColor: "black",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#914343",
+    },
+    // "& input[type=number]": {
+    //   "-moz-appearance": "textfield",
+    //   "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+    //     display: "none",
+    //     "-webkit-appearance": "none",
+    //     margin: 0,
+    //   },
+    //   "&::placeholder": {
+    //     color: "gray",
+    //     fontStyle: "italic",
+    //   },
+    // },
+  },
+  "& input": {
+    // Prevent browser from autofilling
+    autoComplete: "off",
+  },
+};

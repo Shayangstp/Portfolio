@@ -10,6 +10,7 @@ import {
 } from "../helpers/index";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
+import { fadeIn } from "../helpers/motion";
 
 const SklillsP2 = () => {
   const t = useTranslations("Skills");
@@ -21,6 +22,9 @@ const SklillsP2 = () => {
       dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="relative max-w-[1440px] w-[100%] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
     >
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[10px] left-[900px]  inset-0 gradient-03" />
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[500px] left-[200px]  inset-0 gradient-04" />
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[1300px] left-[800px]  inset-0 gradient-05" />
       <div id="header" className="text-[70px] py-2 px-5">
         <div className="flex items-center">
           <span>
@@ -61,7 +65,7 @@ const SklillsP2 = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="text-[32px] border-b border-gray-900 dark:border-gray-500 py-2"
+                    className="text-[32px] border-b border-red-600  dark:border-red-500 py-2"
                   >
                     {t(item.title)}
                   </motion.div>
