@@ -11,6 +11,9 @@ const initialState = {
   userSubject: "",
   userMessage: "",
   userHireEmail: "",
+  //projects
+  projectsData: [],
+  projectSearch: "",
 };
 
 // export const handleCompaniesList = createAsyncThunk(
@@ -71,6 +74,13 @@ const mainSlices = createSlice({
     RsetUserHireEmail: (state, { payload }) => {
       return { ...state, userHireEmail: payload };
     },
+    //projects
+    RsetProjectsData: (state, { payload }) => {
+      return { ...state, projectsData: payload };
+    },
+    RsetProjectSearch: (state, { payload }) => {
+      return { ...state, projectSearch: payload };
+    },
   },
 });
 
@@ -84,6 +94,8 @@ export const {
   RsetUserSubject,
   RsetUserMessage,
   RsetUserHireEmail,
+  RsetProjectsData,
+  RsetProjectSearch,
 } = mainSlices.actions;
 
 export const selectLoading = (state) => state.main.loading;
@@ -92,10 +104,15 @@ export const selectFormErrors = (state) => state.main.formErrors;
 export const selectOffCanvas = (state) => state.main.offCanvas;
 
 //email
+
 export const selectUserName = (state) => state.main.userName;
 export const selectUserEmail = (state) => state.main.userEmail;
 export const selectUserSubject = (state) => state.main.userSubject;
 export const selectUserMessage = (state) => state.main.userMessage;
 export const selectUserHireEmail = (state) => state.main.userHireEmail;
+
+//projects
+export const selectProjectsData = (state) => state.main.projectsData;
+export const selectProjectSearch = (state) => state.main.projectSearch;
 
 export default mainSlices.reducer;

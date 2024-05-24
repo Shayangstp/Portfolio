@@ -7,9 +7,9 @@ import { navData } from "../helpers/index";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslations, useLocale } from "next-intl";
 import rtlPlugin from "stylis-plugin-rtl";
+import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import { prefixer } from "stylis";
 import { errorMessage, successMessage } from "../utils/msg";
 import { postContactEmail } from "../services/emailContact";
 import {

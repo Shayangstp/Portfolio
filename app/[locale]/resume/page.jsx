@@ -7,7 +7,6 @@ const Page = () => {
   return (
     <div className="flex flex-col items-center ">
       <div className="max-w-[1440px] w-[100%]">
-        <Nav />
         <Resume />
       </div>
     </div>

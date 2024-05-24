@@ -7,6 +7,7 @@ import ThemeProviderNextJs from "../ThemeProviderNextJs";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import MuiThemeProvider from "../MuiThemeProvider";
 import { Toaster } from "react-hot-toast";
+import Nav from "../components/Nav";
 
 config.autoAddCss = false;
 
@@ -27,7 +28,10 @@ const RootLayout = ({ children, params: { locale } }) => {
           <ThemeProviderNextJs>
             <MuiThemeProvider>
               <NextIntlClientProvider messages={messages}>
-                {children}
+                <div className=" bg-white dark:bg-[#161616] flex flex-col items-center justify-center relative">
+                  <Nav />
+                  {children}
+                </div>
               </NextIntlClientProvider>
             </MuiThemeProvider>
           </ThemeProviderNextJs>

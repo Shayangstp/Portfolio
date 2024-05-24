@@ -3,17 +3,20 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import { selectDarkMode } from "../slices/mainSlices";
 import { inputDark, InputLight } from "../helpers";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CacheProvider } from "@emotion/react";
 import { useLocale, useTranslations } from "next-intl";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
+import { selectProjectSearch, RsetProjectSearch } from "../slices/mainSlices";
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
   const t = useTranslations("projectPage");
   const localeActive = useLocale();
   const darkMode = useSelector(selectDarkMode);
+  const projectSearch = useSelector(selectProjectSearch);
   const inputStyle = darkMode === "dark" ? inputDark : InputLight;
 
   const cacheRtl = createCache({
@@ -34,8 +37,12 @@ const SearchBar = () => {
             id="outlined-search"
             label={t("searchFeild")}
             type="search"
-            className="dark:bg-gray-900 bg-gray-200 w-[50%] rounded-xl"
+            className="bg-transparnet w-[50%] rounded-xl"
             sx={{ ...inputStyle, direction: "ltr" }}
+            value={projectSearch}
+            onChange={(e) => {
+              dispatch(RsetProjectSearch(e.target.value));
+            }}
           />
         </CacheProvider>
       </div>

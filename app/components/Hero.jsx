@@ -57,10 +57,7 @@ const Hero = () => {
               textStyles="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black ms-6 lg:ms-0 font-extrabold"
             />
           </motion.div>
-          <div
-            id="imShayan"
-            // className="lg:text-[50px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mb-5 mt-4"
-          >
+          <div id="imShayan">
             <TitleText
               title={t("title2")}
               textStyles="lg:text-[50px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mb-5 mt-4"

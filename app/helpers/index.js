@@ -210,7 +210,7 @@ export const inputDark = {
     color: "#914343",
   },
   "& label": {
-    fontSize: "13px",
+    fontSize: "15px",
     color: "white",
   },
   "& .MuiInputBase-input": {
@@ -253,7 +253,7 @@ export const InputLight = {
     color: "#914343",
   },
   "& label": {
-    fontSize: "13px",
+    fontSize: "15px",
     color: "black",
   },
   "& .MuiInputBase-input": {

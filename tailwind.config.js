@@ -17,6 +17,8 @@ module.exports = {
         socialShadow: "6px 6px 0px rgba(0, 0, 0)",
         socialShadowDark: "6px 6px 0px rgba(255, 255, 255)",
         aboutMeShadow: "6px 6px 10px rgba(255, 255, 255)",
+        projectShadow: "0px 6px 0px rgba(0, 0, 0)",
+        projectShadowDark: "0px 6px 0px rgba(255, 255, 255)",
       },
     },
   },

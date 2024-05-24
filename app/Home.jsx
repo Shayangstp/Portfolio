@@ -26,27 +26,9 @@ const Home = () => {
   return (
     <div
       // ref={ref}
-      className=" bg-white dark:bg-[#161616] flex justify-center relative "
+      className=" bg-white dark:bg-[#161616] flex justify-center relative"
     >
-      {/* <svg
-        id="progress"
-        width="100"
-        height="100"
-        viewBox="0 0 100 100"
-        className="fixed md:inline-block hidden"
-      >
-        <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
-        <motion.circle
-          cx="50"
-          cy="50"
-          r="30"
-          pathLength="1"
-          className="indicator"
-          style={{ pathLength: scrollYProgress }}
-        />
-      </svg> */}
       <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
-        <Nav />
         <Hero />
         <SklillsP2 />
         <Projects />

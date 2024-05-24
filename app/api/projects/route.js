@@ -10,7 +10,7 @@ export async function GET(req, res) {
     const projects = await Projects.find();
     return NextResponse.json({
       code: 200,
-      data: projects,
+      projects: projects,
     });
   } catch (error) {
     console.error("Error fetching projects", error);
@@ -33,15 +33,19 @@ export async function POST(req, res) {
           success: false,
         });
       }
-    } else if (keyword) {
-      projects = await Projects.find({
-        $or: [
-          { title: { $regex: keyword, $options: "i" } },
-          { content: { $regex: keyword, $options: "i" } },
-          { desc: { $regex: keyword, $options: "i" } },
-          { hashtags: { $regex: keyword, $options: "i" } },
-        ],
-      });
+    } else if (keyword !== undefined) {
+      if (keyword === "") {
+        projects = await Projects.find(); // Fetch all projects when keyword is empty
+      } else {
+        projects = await Projects.find({
+          $or: [
+            { title: { $regex: keyword, $options: "i" } },
+            { content: { $regex: keyword, $options: "i" } },
+            { desc: { $regex: keyword, $options: "i" } },
+            { hashtags: { $regex: keyword, $options: "i" } },
+          ],
+        });
+      }
     } else {
       return NextResponse.json({
         code: 400,
@@ -52,7 +56,7 @@ export async function POST(req, res) {
 
     return NextResponse.json({
       code: 200,
-      data: projects,
+      projects: projects,
     });
   } catch (error) {
     console.error("Error fetching projects", error);
