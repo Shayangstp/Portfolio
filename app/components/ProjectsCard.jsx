@@ -30,6 +30,14 @@ import {
   RsetFormErrors,
   selectFormErrors,
 } from "../slices/mainSlices";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import LockIcon from "@mui/icons-material/Lock";
+import { useRouter } from "next/navigation";
+import { postContactEmail } from "../services/emailContact";
 
 const textFeildDark = {
   "& input": {
@@ -92,6 +100,7 @@ const textFeildLight = {
 };
 
 const ProjectsCard = () => {
+  const router = useRouter();
   const localeActive = useLocale();
   const dispatch = useDispatch();
 
@@ -200,94 +209,121 @@ const ProjectsCard = () => {
           return (
             <div
               key={index}
-              id="card"
-              className="border dark:border-gray-400 border-black max-w-[30%] max-h-[800px] rounded-2xl p-5 dark:shadow-projectShadowDark shadow-projectShadow"
+              className="lg:max-w-[31%] md:max-w-[40%] max-w-[80%] rounded-2xl p-5"
             >
-              <div id="image" className="p-5 rounded-t-2xl relative">
-                <Image
-                  src={test}
-                  className="rounded-2xl border-2 border-black shadow"
-                />
-                <div
-                  id="project-name"
-                  className="absolute w-[150px] h-[60px] -bottom-3 left-2 text-white  dark:bg-red-800 bg-red-600 flex justify-center items-center"
-                >
-                  {project.titleEn}
-                </div>
-              </div>
-              <div id="content" className="p-5">
-                <header
-                  id="header"
-                  className="mt-5 dark:text-white text-black font-bold text-[35px]"
-                >
-                  this is Header
-                </header>
-                <div
-                  id="line"
-                  className="border-t dark:border-white border-black mt-3"
-                ></div>
-                <div id="content" className="mt-5 leading-7">
-                  {project.contentEn}
-                  <span className="text-blue-400 hover:text-blue-500 cursor-pointer ms-1">
-                    ...ReadMore
-                  </span>
-                </div>
-                <div id="line" className="border-t border-gray-600 mt-3"></div>
-                <div id="hashtags" className="flex flex-wrap gap-2 mt-3">
-                  {project.hashtags.map((item) => {
-                    return (
-                      <p
-                        className="cursor-pointer  text-blue-400 hover:text-blue-500"
-                        onClick={() => {
-                          dispatch(RsetProjectSearch(item));
-                        }}
-                      >
-                        #{item}
-                      </p>
-                    );
-                  })}
-                </div>
-                {project.isConfidential ? (
-                  <div
-                    id="buttons"
-                    className="flex justify-end gap-3 mt-10"
-                    onClick={() => {
-                      setOpenModal(true);
-                    }}
-                  >
-                    <Button
-                      variant="contained"
-                      className=" dark:text-black text-white dark:bg-white bg-black dark:hover:bg-gray-300 hover:bg-gray-700"
-                      onClick={() => {
-                        setSelectedId(project._id);
-                        setSelectedProject({ title: project.titleEn });
-                      }}
+              <Card
+                sx={{ maxWidth: 400, minHeight: 700 }}
+                className="flex flex-col justify-between bg-transparent border dark:border-gray-400 border-gray-700 p-2 rounded-2xl dark:shadow-projectShadowDark shadow-projectShadow"
+                onClick={() => {
+                  router.push(`/projects/${project._id}`);
+                }}
+              >
+                <CardActionArea className="flex flex-col h-full">
+                  <div id="image" className="p-5 rounded-t-2xl relative">
+                    <Image src={test} className="" />
+                    <div
+                      id="project-name"
+                      className="absolute rounded-2xl w-[150px] h-[60px] -bottom-3 left-2 text-white  dark:bg-red-800 bg-red-600 flex justify-center items-center"
                     >
-                      <span className="me-2">
-                        <GitHubIcon />
-                      </span>
-                      <span className="mt-1">GitHub</span>
-                    </Button>
+                      {project.titleEn}
+                    </div>
                   </div>
-                ) : (
-                  <a
-                    href={project.github}
-                    id="buttons"
-                    className="flex justify-end gap-3 mt-10"
-                    target="_blank"
-                  >
-                    <Button
-                      variant="contained"
-                      className=" dark:text-black text-white dark:bg-white bg-black dark:hover:bg-gray-300 hover:bg-gray-700"
+                  <CardContent className="flex-grow flex flex-col">
+                    {/* <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="div"
+                      className="mt-5 text-black dark:text-white"
                     >
-                      <span className="me-2">
-                        <GitHubIcon />
+                      this is Header
+                    </Typography> */}
+                    <div
+                      id="line"
+                      className="border-t dark:border-white border-black mt-5"
+                    ></div>
+                    <Typography
+                      variant="body2"
+                      className="text-black dark:text-white mt-6 leading-6"
+                    >
+                      {localeActive === "en"
+                        ? project.contentEn
+                        : project.contentFa}
+                      <span className="text-blue-400 hover:text-blue-500 cursor-pointer ms-1 text-[15px] md:text-[13px] lg:text-[15px]">
+                        ...ReadMore
                       </span>
-                      <span className="mt-1">GitHub</span>
-                    </Button>
-                  </a>
-                )}
-              </div>
+                    </Typography>
+                    <div
+                      id="line"
+                      className="border-t dark:border-white border-black mt-10"
+                    ></div>
+                    <Typography
+                      variant="body2"
+                      className="text-black dark:text-white mt-3 flex flex-wrap gap-2"
+                    >
+                      {project.hashtags.map((item) => {
+                        return (
+                          <p
+                            className="cursor-pointer  text-blue-400 hover:text-blue-500 text-[15px] md:text-[13px] lg:text-[15px]"
+                            onClick={() => {
+                              dispatch(RsetProjectSearch(item));
+                            }}
+                          >
+                            #{item}
+                          </p>
+                        );
+                      })}
+                    </Typography>
+                    <div className="flex justify-end">
+                      {project.isConfidential ? (
+                        <div
+                          id="buttons"
+                          className="flex justify-end gap-3 mt-10"
+                          onClick={() => {
+                            setOpenModal(true);
+                          }}
+                        >
+                          <Button
+                            variant="contained"
+                            className=" dark:text-black text-white dark:bg-white bg-black dark:hover:bg-gray-300 hover:bg-gray-700 relative"
+                            onClick={() => {
+                              setSelectedId(project._id);
+                              setSelectedProject({ title: project.titleEn });
+                            }}
+                          >
+                            <span className="me-2">
+                              <GitHubIcon />
+                            </span>
+                            <span className="mt-1">GitHub</span>
+                            <span className="me-2 absolute -top-1 -right-1.5">
+                              <LockIcon
+                                fontSize="small"
+                                className="text-[13px]"
+                              />
+                            </span>
+                          </Button>
+                        </div>
+                      ) : (
+                        <a
+                          href={project.github}
+                          id="buttons"
+                          className="flex justify-end gap-3 mt-10"
+                          target="_blank"
+                        >
+                          <Button
+                            variant="contained"
+                            className=" dark:text-black text-white dark:bg-white bg-black dark:hover:bg-gray-300 hover:bg-gray-700"
+                          >
+                            <span className="me-2">
+                              <GitHubIcon />
+                            </span>
+                            <span className="mt-1">GitHub</span>
+                          </Button>
+                        </a>
+                      )}
+                    </div>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </div>
           );
         })

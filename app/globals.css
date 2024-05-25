@@ -206,4 +206,33 @@ circle {
   z-index: 999; /* Adjust if necessary to ensure it appears behind the modal */
 }
 
+#card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 30%; /* Adjust based on your requirements */
+  margin: 1%; /* Adjust spacing between cards */
+}
 
+#card #image {
+  flex-shrink: 0; /* Prevents image container from shrinking */
+}
+
+#card {
+  flex-grow: 1; /* Ensures the content area takes up available space */
+  overflow: hidden; /* Ensures content doesn't overflow */
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#card #header {
+  margin-top: auto; /* Pushes header to the bottom */
+}

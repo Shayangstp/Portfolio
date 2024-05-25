@@ -28,6 +28,7 @@ const AboutMe = () => {
         <Button
           variant="outlined"
           className="border  border-gray-700 dark:border-gray-400 text-gray-600  dark:text-gray-200  hover:bg-transparent  hover:text-black lg:py-3 py-2.5 px-5 lg:px-6 hover:border-red-500 dark:hover:border-red-500 text-[12px] sm:text-[14px]"
+          href="/projects"
         >
           {t("projectBtn")}
         </Button>

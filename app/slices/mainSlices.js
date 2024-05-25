@@ -14,6 +14,7 @@ const initialState = {
   //projects
   projectsData: [],
   projectSearch: "",
+  projectData: {},
 };
 
 // export const handleCompaniesList = createAsyncThunk(
@@ -78,6 +79,9 @@ const mainSlices = createSlice({
     RsetProjectsData: (state, { payload }) => {
       return { ...state, projectsData: payload };
     },
+    RsetProjectData: (state, { payload }) => {
+      return { ...state, projectData: payload };
+    },
     RsetProjectSearch: (state, { payload }) => {
       return { ...state, projectSearch: payload };
     },
@@ -95,6 +99,7 @@ export const {
   RsetUserMessage,
   RsetUserHireEmail,
   RsetProjectsData,
+  RsetProjectData,
   RsetProjectSearch,
 } = mainSlices.actions;
 
@@ -113,6 +118,7 @@ export const selectUserHireEmail = (state) => state.main.userHireEmail;
 
 //projects
 export const selectProjectsData = (state) => state.main.projectsData;
+export const selectProjectData = (state) => state.main.projectData;
 export const selectProjectSearch = (state) => state.main.projectSearch;
 
 export default mainSlices.reducer;
