@@ -22,6 +22,7 @@ import {
 import { ButtonLoader, ButtonLoader2 } from "../utils/Loader";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const textFeildDark = {
   "& input": {
@@ -137,7 +138,7 @@ const Footer = () => {
         subject: "hireMeSubject",
         message: "hireMeMessage",
       };
-      const postContactEmailRes = await axios.post("api/contactEmail", values);
+      const postContactEmailRes = await axios.post("/api/contactEmail", values);
       if (postContactEmailRes.data.code === 200) {
         setLoading(false);
         successMessage(t("contactSuccessMessage"));

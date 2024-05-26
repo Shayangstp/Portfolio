@@ -186,7 +186,7 @@ const Contact = () => {
       };
       console.log(values);
 
-      const postContactEmailRes = await axios.post("api/contactEmail", values);
+      const postContactEmailRes = await axios.post("/api/contactEmail", values);
 
       if (postContactEmailRes.data.code === 200) {
         dispatch(RsetLoading(false));
