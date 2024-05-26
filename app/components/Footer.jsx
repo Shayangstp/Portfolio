@@ -111,8 +111,6 @@ const Footer = () => {
     return errors;
   };
 
-  console.log(loading);
-
   const style = darkMode === "dark" ? textFeildDark : textFeildLight;
 
   const cacheLtr = createCache({
@@ -160,60 +158,6 @@ const Footer = () => {
     }
   };
 
-  const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
-      <li>
-        <Link
-          href="/"
-          className={`flex items-center ${
-            activeLink === "/" ? "text-[#ff0000]" : "dark:text-white text-black"
-          } hover:text-[#ff0000] text-sm`}
-          onClick={() => handleLinkClick("/")}
-        >
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="#"
-          className={`flex items-center ${
-            activeLink === "#services"
-              ? "text-[#ff0000]"
-              : "dark:text-white text-black"
-          } hover:text-[#ff0000] text-sm`}
-          onClick={() => handleLinkClick("#services")}
-        >
-          Services
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="#"
-          className={`flex items-center ${
-            activeLink === "#AboutUS"
-              ? "text-[#ff0000]"
-              : "dark:text-white text-black"
-          } hover:text-[#ff0000] text-sm`}
-          onClick={() => handleLinkClick("#AboutUS")}
-        >
-          AboutUS
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="#"
-          className={`flex items-center ${
-            activeLink === "#ContactUS"
-              ? "text-[#ff0000]"
-              : "dark:text-white text-black"
-          } hover:text-[#ff0000] text-sm`}
-          onClick={() => handleLinkClick("#ContactUS")}
-        >
-          ContactUS
-        </Link>
-      </li>
-    </ul>
-  );
   return (
     <div
       dir={localeActive === "fa" ? "rtl" : "ltr"}

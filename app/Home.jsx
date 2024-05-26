@@ -12,22 +12,12 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SklillsP2 from "./components/SklillsP2";
 import { useLocale } from "next-intl";
-import { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
 
 const Home = () => {
-  const dispatch = useDispatch();
   const localeActive = useLocale();
-  // const ref = useRef(null);
-  // const { scrollYProgress } = useScroll({ container: ref });
-  console.log(localeActive);
 
-  // can return cookies for dir
   return (
-    <div
-      // ref={ref}
-      className=" bg-white dark:bg-[#161616] flex justify-center relative"
-    >
+    <div className=" bg-white dark:bg-[#161616] flex justify-center relative">
       <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
         <Hero />
         <SklillsP2 />

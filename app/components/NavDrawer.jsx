@@ -140,8 +140,8 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
                     onClick={toggleDrawer}
                     className="hover:bg-red-900 dark:text-white text-black hover:text-white"
                   >
-                    <Link href={item.href}>
-                      <ListItemText primary={t(item.titleKey)} />
+                    <Link key={idx} href={item.href}>
+                      <ListItemText key={idx} primary={t(item.titleKey)} />
                     </Link>
                   </ListItem>
                 );

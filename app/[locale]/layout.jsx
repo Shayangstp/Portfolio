@@ -1,15 +1,11 @@
 import { Inter, Poppins } from "next/font/google";
 import "../globals.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import StoreProvider from "../StoreProvider";
 import ThemeProviderNextJs from "../ThemeProviderNextJs";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import MuiThemeProvider from "../MuiThemeProvider";
 import { Toaster } from "react-hot-toast";
 import Nav from "../components/Nav";
-
-config.autoAddCss = false;
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 

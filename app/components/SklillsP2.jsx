@@ -129,10 +129,10 @@ const SklillsP2 = () => {
                                 {t(item.title)}
                               </span>
                             </span>
-                            <div className="flex flex-wrap gap-2">
+                            <div key={idx} className="flex flex-wrap gap-2">
                               {item.skills.map((skill, idx) => {
                                 return (
-                                  <div>
+                                  <div key={idx}>
                                     <span className="text-[12px] md:text-[14px]">
                                       {skill.title}
                                     </span>
