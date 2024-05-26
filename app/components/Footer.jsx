@@ -125,9 +125,9 @@ const Footer = () => {
 
   const handelContactEmail = async (e) => {
     e.preventDefault();
-    if (userEmailIsValid && !userEmailFormatIsValid) {
-      errorMessage(t("contactEmailFormat"));
-    }
+    // if (userEmailIsValid && !userEmailFormatIsValid) {
+    //   errorMessage(t("contactEmailFormat"));
+    // }
 
     if (userEmailIsValid && userEmailFormatIsValid) {
       setLoading(true);
