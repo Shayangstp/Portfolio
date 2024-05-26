@@ -60,7 +60,7 @@ const SklillsP2 = () => {
           >
             {skillsDesc.map((item, idx) => {
               return (
-                <div className=" p-10 rounded-2xl">
+                <div key={idx} className=" p-10 rounded-2xl">
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -87,7 +87,10 @@ const SklillsP2 = () => {
                     {item.title === "frontEnd" &&
                       frontSkills.map((item, idx) => {
                         return (
-                          <div className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5">
+                          <div
+                            key={idx}
+                            className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5"
+                          >
                             <span className="dark:text-red-600 text-red-900">
                               <RadioButtonCheckedIcon fontSize="small" />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
@@ -97,7 +100,7 @@ const SklillsP2 = () => {
                             <div className="flex flex-wrap gap-2">
                               {item.skills.map((skill, idx) => {
                                 return (
-                                  <div>
+                                  <div key={idx}>
                                     <span className="text-[12px] md:text-[14px]">
                                       {skill.title}
                                     </span>
@@ -116,7 +119,10 @@ const SklillsP2 = () => {
                     {item.title === "backEnd" &&
                       backendSkills.map((item, idx) => {
                         return (
-                          <div className="border-b border-gray-600 pb-3  md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5">
+                          <div
+                            key={idx}
+                            className="border-b border-gray-600 pb-3  md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5"
+                          >
                             <span className="dark:text-red-600 text-red-900">
                               <RadioButtonCheckedIcon fontSize="small" />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
@@ -145,7 +151,10 @@ const SklillsP2 = () => {
                     {item.title === "other" &&
                       otherSkills.map((item, idx) => {
                         return (
-                          <div className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5">
+                          <div
+                            key={idx}
+                            className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5"
+                          >
                             <span className="dark:text-red-600 text-red-900">
                               <RadioButtonCheckedIcon fontSize="small" />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
@@ -155,7 +164,7 @@ const SklillsP2 = () => {
                             <div className="flex flex-wrap gap-2">
                               {item.skills.map((skill, idx) => {
                                 return (
-                                  <div>
+                                  <div key={idx}>
                                     <span className="text-[12px] md:text-[14px]">
                                       {skill.title}
                                     </span>
@@ -176,37 +185,6 @@ const SklillsP2 = () => {
               );
             })}
           </div>
-
-          {/* <div id="other_skills" className="flex flex-col mt-24 rounded-2xl">
-            <div className="border border-dashed border-gray-500 p-5 rounded-2xl ">
-              <header className="text-[20px] border-b p-2">
-                {skillsDesc[2].title}
-              </header>
-              <p className="mt-3">{skillsDesc[2].desc}</p>
-              {otherSkills.map((item, idx) => {
-                return (
-                  <div className="border-b-2 p-2 flex gap-5 justify-between mt-5">
-                    <span className="text-red-600">
-                      <RadioButtonCheckedIcon fontSize="small" />{" "}
-                      <span className="ms-2 mt-1">{item.title}</span>
-                    </span>
-                    <div className="flex">
-                      {item.skills.map((skill, idx) => {
-                        return (
-                          <div>
-                            <span>{skill.title}</span>
-                            <span className="me-1 ms-1">
-                              {idx !== item.skills.length - 1 ? "/" : ""}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

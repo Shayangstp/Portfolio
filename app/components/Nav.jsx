@@ -99,6 +99,7 @@ const Nav = () => {
                 return (
                   <li>
                     <Link
+                      key={idx}
                       href={` /${localeActive}/${item.href}`}
                       className={`flex items-center ${
                         isActive

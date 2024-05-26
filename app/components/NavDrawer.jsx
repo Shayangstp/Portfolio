@@ -135,6 +135,7 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
               {navData.map((item, idx) => {
                 return (
                   <ListItem
+                    key={idx}
                     button
                     onClick={toggleDrawer}
                     className="hover:bg-red-900 dark:text-white text-black hover:text-white"

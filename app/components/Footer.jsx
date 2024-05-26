@@ -280,6 +280,7 @@ const Footer = () => {
                 return (
                   <Link
                     href={item.href}
+                    key={idx}
                     className={`flex items-center ${
                       activeLink === item.href
                         ? "text-[#ff0000]"
