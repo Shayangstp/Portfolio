@@ -137,7 +137,7 @@ const Footer = () => {
         subject: "hireMeSubject",
         message: "hireMeMessage",
       };
-      const postContactEmailRes = await postContactEmail(values);
+      const postContactEmailRes = await axios.post("api/contactEmail", values);
       if (postContactEmailRes.data.code === 200) {
         setLoading(false);
         successMessage(t("contactSuccessMessage"));
