@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Button } from "@mui/material";
+import { Button } from "@material-tailwind/react";
 
 const AboutMe = () => {
   const t = useTranslations("Hero");

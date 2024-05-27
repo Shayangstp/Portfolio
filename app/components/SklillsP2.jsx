@@ -20,11 +20,11 @@ const SklillsP2 = () => {
     <div
       id="skill-section"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="relative max-w-[1440px] w-[100%] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
+      className="relative max-w-[1440px] w-[100vw] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
     >
-      <div className="absolute w-[40%] h-[40%] opacity-20 top-[10px] left-[900px]  inset-0 gradient-03" />
+      {/* <div className="absolute w-[40%] h-[40%] opacity-20 top-[10px] left-[900px]  inset-0 gradient-03" />
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[500px] left-[200px]  inset-0 gradient-04" />
-      <div className="absolute w-[40%] h-[40%] opacity-20 top-[1300px] left-[800px]  inset-0 gradient-05" />
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[1300px] left-[800px]  inset-0 gradient-05" /> */}
       <div id="header" className="text-[70px] py-2 px-5">
         <div className="flex items-center">
           <span>

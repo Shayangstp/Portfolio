@@ -88,7 +88,7 @@ const Projects = () => {
 
   console.log(selectedId);
   return (
-    <div className="relative max-w-[1440px] w-[100%] mt-40 mb-20 md:mt-16 p-2">
+    <div className="relative max-w-[1440px] w-[100vw] mt-40 mb-20 md:mt-16 p-2">
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[100px]  inset-0 gradient-06" />
       <div
         dir={localeActive === "fa" ? "rtl" : "ltr"}

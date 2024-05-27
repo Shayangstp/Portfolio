@@ -17,15 +17,15 @@ const Hero = () => {
   return (
     <div
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="lg:grid grid-cols-6 relative max-w-[1440px] w-[100%] "
+      className="lg:grid grid-cols-6 relative max-w-[1440px] w-[100vw]"
     >
       {/* blur bg */}
-      <div className="absolute w-[40%] h-[40%] opacity-20 top-[100px]  inset-0 gradient-01" />
+      {/* <div className="absolute w-[40%] h-[40%] opacity-20 top-[100px]  inset-0 gradient-01" />
       <div
         className={`absolute w-[40%] h-[40%] opacity-20 top-[300px] ${
           localeActive === "fa" ? "right-[1000px]" : "left-[1000px]"
         }  inset-0 gradient-02`}
-      />
+      /> */}
       <div
         id="leftHero"
         className="col-span-1 flex-col items-center lg:justify-between justify-center relative hidden lg:flex mt-20"

@@ -13,3 +13,5 @@ export const config = {
   // matcher: ["/", "/((?!api).*)", "/:path*", "/(fa|en)/:path*"],
   matcher: ["/((?!api).*)", "/(fa|en)/:path*", "/"],
 };
+
+

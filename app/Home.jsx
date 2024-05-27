@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div className=" bg-white dark:bg-[#161616] flex justify-center relative">
-      <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
+      <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100%]">
         <Hero />
         <SklillsP2 />
         <Projects />

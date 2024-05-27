@@ -5,20 +5,20 @@ const AddvertisedBanner = () => {
   const localeActive = useLocale();
 
   return (
-    <section dir="ltr" className="relative">
-      <div className="max-w-[1440px] absolute rotate-[-3deg]">
-        <ParallaxText baseVelocity={2}>
-          <span className="text-red-500 md:text-[50px] text-[30px]">
-            * FrontEnd * Backend * FullStack
-          </span>
-        </ParallaxText>
-      </div>
-      <div className="flex rotate-3 ">
+    <section dir="ltr" className="relative max-w-[1440px] w-[100vw]">
+      <div className="flex">
         <ParallaxText baseVelocity={-5}>
           <span className="md:text-[65px] text-[45px]">Shayan-Gstp</span>
         </ParallaxText>
         <ParallaxText baseVelocity={-5}>
           <span className="md:text-[65px] text-[45px]">wolfi</span>
+        </ParallaxText>
+      </div>
+      <div className="max-w-[1440px]">
+        <ParallaxText baseVelocity={2}>
+          <span className="text-red-500 md:text-[50px] text-[30px]">
+            * FrontEnd * Backend * FullStack
+          </span>
         </ParallaxText>
       </div>
     </section>

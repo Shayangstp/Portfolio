@@ -212,7 +212,7 @@ const Contact = () => {
     <div
       id="email"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="h-[85vh] relative max-w-[1440px] w-[100%] mt-16 md:mt-32 p-2"
+      className="h-[85vh] relative max-w-[1440px] w-[100vw] mt-16 md:mt-32 p-2"
     >
       <div className="absolute w-[90%] h-[80%] opacity-[10%] top-[100px]   inset-0 gradient-06" />
 
