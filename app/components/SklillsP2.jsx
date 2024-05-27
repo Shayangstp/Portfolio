@@ -20,11 +20,11 @@ const SklillsP2 = () => {
     <div
       id="skill-section"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="relative max-w-[1440px] w-[100vw] mt-40 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
+      className="relative max-w-[1440px] w-[100vw] md:mt-28 mt-20 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
     >
-      {/* <div className="absolute w-[40%] h-[40%] opacity-20 top-[10px] left-[900px]  inset-0 gradient-03" />
-      <div className="absolute w-[40%] h-[40%] opacity-20 top-[500px] left-[200px]  inset-0 gradient-04" />
-      <div className="absolute w-[40%] h-[40%] opacity-20 top-[1300px] left-[800px]  inset-0 gradient-05" /> */}
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[10px] left-auto inset-0 gradient-03" />
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[500px] inset-0 gradient-04" />
+      <div className="absolute w-[40%] h-[40%] opacity-20 top-[1300px] inset-0 gradient-05" />
       <div id="header" className="text-[70px] py-2 px-5">
         <div className="flex items-center">
           <span>
@@ -52,7 +52,7 @@ const SklillsP2 = () => {
           )}
         </div>
       </div>
-      <div id="skills_list" className="grid grid-cols-6 mt-10">
+      <div id="skills_list" className="grid grid-cols-6 md:mt-8 mt-3">
         <div id="skill_detail" className="col-span-6">
           <div
             id="FrontEnd_Skills"
@@ -70,7 +70,7 @@ const SklillsP2 = () => {
                     {t(item.title)}
                   </motion.div>
                   <motion.div
-                    initial={{ x: 100 }}
+                    initial={{ x: -100 }}
                     whileInView={{ x: 0 }}
                     viewport={{ once: true }}
                     className="mt-5 md:text-[15px] text-[13px]"
@@ -91,9 +91,12 @@ const SklillsP2 = () => {
                             key={idx}
                             className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5"
                           >
-                            <span className="dark:text-red-600 text-red-900">
-                              <RadioButtonCheckedIcon fontSize="small" />{" "}
-                              <span className="ms-2 mt-1 text-[14px]">
+                            <span>
+                              <RadioButtonCheckedIcon
+                                fontSize="small"
+                                sx={{ color: "red" }}
+                              />{" "}
+                              <span className="ms-2 mt-1 text-[14px] text-red-800 dark:text-red-100">
                                 {t(item.title)}
                               </span>
                             </span>

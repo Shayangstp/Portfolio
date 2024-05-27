@@ -153,7 +153,7 @@ const Projects = () => {
             },
           }}
         >
-          {/* {items.map((item, index) => {
+          {items.map((item, index) => {
             return (
               <SwiperSlide
                 key={index}
@@ -228,7 +228,7 @@ const Projects = () => {
                 </AnimatePresence>
               </SwiperSlide>
             );
-          })} */}
+          })}
           {items.map((item, index) => (
             <SwiperSlide
               key={index}

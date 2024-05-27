@@ -183,10 +183,10 @@ export const lightSelect = {
     borderColor: "gray", // Default border color
   },
   "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#9e1f16", // Border color on hover
+    borderColor: "black", // Border color on hover
   },
   "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#9e1f16", // Border color when focused
+    borderColor: "black", // Border color when focused
   },
 };
 
@@ -198,10 +198,10 @@ export const darkSelect = {
     borderColor: "gray", // Default border color
   },
   "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#9e1f16", // Border color on hover
+    borderColor: "white", // Border color on hover
   },
   "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#9e1f16", // Border color when focused
+    borderColor: "white", // Border color when focused
   },
 };
 

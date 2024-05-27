@@ -11,13 +11,13 @@ import {
   List,
   ListItem,
   ListItemText,
-  Button,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
+import { Button } from "@material-tailwind/react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
 import Brightness2Icon from "@mui/icons-material/Brightness2";
@@ -65,7 +65,7 @@ const Nav = () => {
   };
 
   const dropdownStyle = {
-    backgroundColor: theme === "dark" ? "#226e8f" : "white",
+    backgroundColor: theme === "dark" ? "#262626" : "white",
   };
 
   return (
@@ -102,9 +102,9 @@ const Nav = () => {
                       href={` /${localeActive}/${item.href}`}
                       className={`flex items-center ${
                         isActive
-                          ? "text-[#ff0000]"
+                          ? "dark:text-[#ff7070] text-blue-500"
                           : "dark:text-white text-black"
-                      } hover:text-[#ff0000] dark:hover:text-[#ff0000] text-sm`}
+                      } hover:text-blue-500 dark:hover:text-[#ff0000] text-sm`}
                     >
                       {t(item.titleKey)}
                     </Link>
@@ -119,7 +119,7 @@ const Nav = () => {
             <Button
               variant="outlined"
               size="small"
-              className="hidden lg:inline-block text-white border border-gray-500 hover:border-red-600 hover:bg-transparent px-4 rounded-lg py-1.5"
+              className="hidden lg:inline-block border-2 text-white border-black dark:border-white hover:border-gray-900 hover:bg-transparent px-4 rounded-lg py-1.5"
               onClick={() => {
                 if (resolvedTheme === "dark") {
                   setTheme("light");
@@ -131,7 +131,7 @@ const Nav = () => {
               }}
             >
               <span className="text-[12px] dark:text-white text-black">
-                {theme === "dark" ? (
+                {resolvedTheme === "dark" ? (
                   <LightModeIcon fontSize="small" />
                 ) : (
                   <Brightness2Icon fontSize="small" />
@@ -147,7 +147,7 @@ const Nav = () => {
             <FormControl id="locale" className="hidden lg:inline-block">
               <InputLabel
                 id="demo-simple-select-label"
-                className={`text-black dark:text-white  flex items-center`}
+                className={`text-black dark:text-white flex items-center`}
               >
                 <GTranslateIcon fontSize="small" />
               </InputLabel>

@@ -5,18 +5,26 @@ const AddvertisedBanner = () => {
   const localeActive = useLocale();
 
   return (
-    <section dir="ltr" className="relative max-w-[1440px] w-[100vw]">
-      <div className="flex">
-        <ParallaxText baseVelocity={-5}>
+    <section
+      dir="ltr"
+      className="relative max-w-[1440px] w-[100vw] py-3 border-t-2 border-b-2 dark:border-white border-black"
+    >
+      <div className=" flex max-w-[1440px]">
+        {/* <ParallaxText baseVelocity={-2}>
           <span className="md:text-[65px] text-[45px]">Shayan-Gstp</span>
+        </ParallaxText> */}
+        <ParallaxText baseVelocity={-2}>
+          <span className="dark:text-white text-black md:text-[70px] text-[40px] mt-1">
+            Shayan-Gstp &nbsp; Shayan-Gstp
+          </span>
         </ParallaxText>
-        <ParallaxText baseVelocity={-5}>
+        {/* <ParallaxText baseVelocity={-5}>
           <span className="md:text-[65px] text-[45px]">wolfi</span>
-        </ParallaxText>
+        </ParallaxText> */}
       </div>
       <div className="max-w-[1440px]">
         <ParallaxText baseVelocity={2}>
-          <span className="text-red-500 md:text-[50px] text-[30px]">
+          <span className="dark:text-red-500 text-blue-500 md:text-[50px] text-[30px] mt-1">
             * FrontEnd * Backend * FullStack
           </span>
         </ParallaxText>
