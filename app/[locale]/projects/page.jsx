@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "@/app/components/SearchBar";
-import ProjectsCard from "@/app/components/ProjectsCard";
+// import ProjectsCard from "@/app/components/ProjectsCard";
 
 const page = () => {
   return (
