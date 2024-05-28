@@ -11,6 +11,7 @@ import {
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import { fadeIn } from "../helpers/motion";
+import theme from "@material-tailwind/react/theme";
 
 const SklillsP2 = () => {
   const t = useTranslations("Skills");
@@ -43,7 +44,7 @@ const SklillsP2 = () => {
           </span>
           {localeActive === "en" && (
             <span
-              className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+              className={`text-[20px] md:text-[30px] text-blue-500 dark:text-red-600 md:mt-7  ${
                 localeActive === "fa" ? "mt-0" : "mt-5"
               }`}
             >
@@ -65,7 +66,7 @@ const SklillsP2 = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="text-[32px] border-b border-red-600  dark:border-red-500 py-2"
+                    className="text-[32px] border-b border-blue-500  dark:border-red-500 py-2"
                   >
                     {t(item.title)}
                   </motion.div>
@@ -94,9 +95,11 @@ const SklillsP2 = () => {
                             <span>
                               <RadioButtonCheckedIcon
                                 fontSize="small"
-                                sx={{ color: "red" }}
+                                sx={{
+                                  color: `${theme === "dark" ? "red" : "blue"}`,
+                                }}
                               />{" "}
-                              <span className="ms-2 mt-1 text-[14px] text-red-800 dark:text-red-100">
+                              <span className="ms-2 mt-1 text-[14px] text-blue-700 dark:text-red-100">
                                 {t(item.title)}
                               </span>
                             </span>
@@ -126,8 +129,13 @@ const SklillsP2 = () => {
                             key={idx}
                             className="border-b border-gray-600 pb-3  md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5"
                           >
-                            <span className="dark:text-red-600 text-red-900">
-                              <RadioButtonCheckedIcon fontSize="small" />{" "}
+                            <span className="ms-2 mt-1 text-[14px] text-blue-700 dark:text-red-100">
+                              <RadioButtonCheckedIcon
+                                fontSize="small"
+                                sx={{
+                                  color: `${theme === "dark" ? "red" : "blue"}`,
+                                }}
+                              />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
                                 {t(item.title)}
                               </span>
@@ -158,8 +166,13 @@ const SklillsP2 = () => {
                             key={idx}
                             className="border-b border-gray-600 pb-3 md:p-3 flex md:flex-row flex-col md:gap-10 gap-5 md:justify-between sm:justify-normal mt-5"
                           >
-                            <span className="dark:text-red-600 text-red-900">
-                              <RadioButtonCheckedIcon fontSize="small" />{" "}
+                            <span className="ms-2 mt-1 text-[14px] text-blue-700 dark:text-red-100">
+                              <RadioButtonCheckedIcon
+                                fontSize="small"
+                                sx={{
+                                  color: `${theme === "dark" ? "red" : "blue"}`,
+                                }}
+                              />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
                                 {t(item.title)}
                               </span>

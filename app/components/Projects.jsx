@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 //mui
-import { Button, CardActions, CardContent } from "@mui/material";
+import { CardActions, CardContent } from "@mui/material";
+import { Button } from "@material-tailwind/react";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -15,6 +16,7 @@ import { useTheme } from "next-themes";
 import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useRouter } from "next/navigation";
 
 const blogData = [
   {
@@ -63,6 +65,7 @@ const blogData = [
 
 const Projects = () => {
   const { theme } = useTheme();
+  const router = useRouter();
   const [items, setItems] = useState(blogData);
   const t = useTranslations("projects");
   const localeActive = useLocale();
@@ -88,7 +91,7 @@ const Projects = () => {
 
   console.log(selectedId);
   return (
-    <div className="relative max-w-[1440px] w-[100vw] mt-40 mb-20 md:mt-16 p-2">
+    <div className="relative max-w-[1440px] w-[100vw] mt-28 mb-20 md:mt-16 p-2">
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[100px]  inset-0 gradient-06" />
       <div
         dir={localeActive === "fa" ? "rtl" : "ltr"}
@@ -112,7 +115,7 @@ const Projects = () => {
           </span>
           {localeActive === "en" && (
             <span
-              className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+              className={`text-[20px] md:text-[30px] dark:text-red-600 text-blue-500  md:mt-7  ${
                 localeActive === "fa" ? "mt-2" : "mt-5"
               }`}
             >
@@ -122,19 +125,16 @@ const Projects = () => {
         </div>
       </div>
       <div className="flex justify-center mt-20 max-w-[80vw] mx-auto">
-        <Button
+        <button
           variant="outlined"
           size="small"
-          className=" dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl me-2"
-          // onClick={() => {
-          //   swiper.slideNext();
-          // }}
+          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl me-2 flex items-center justify-center"
           onClick={slidePrev}
         >
           <span className="text-[13px]">
             <ArrowCircleLeftOutlinedIcon className="text-[50px]" />
           </span>
-        </Button>
+        </button>
         <Swiper
           // navigation={true}
           spaceBetween={10}
@@ -191,7 +191,7 @@ const Projects = () => {
                     <Button
                       size="small"
                       variant="contained"
-                      className="sm:text-[12px] text-[9px] flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-5"
+                      className="sm:text-[12px] text-[9px] flex items-center gap-2 bg-gray-800 hover:bg-gray-700 py-2 px-4"
                       onClick={() => {
                         console.log("hi");
                       }}
@@ -204,7 +204,7 @@ const Projects = () => {
                     <Button
                       size="small"
                       variant="outlined"
-                      className="dark:text-white text-black md:text-[12px] text-[9px] ms-2 px-5 border-gray-600 hover:border-red-600"
+                      className="dark:text-white text-black md:text-[12px] text-[9px] ms-2 py-2.5 px-4 border-gray-600 hover:border-red-600"
                     >
                       <span className="mt-1 mb-1">{t("readMoreBtn")}</span>
                     </Button>
@@ -268,7 +268,7 @@ const Projects = () => {
                   <Button
                     size="small"
                     variant="contained"
-                    className="sm:text-[12px] text-[9px] flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-5"
+                    className="md:text-[12px] text-[9px] flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-5"
                     onClick={() => {
                       console.log("hi");
                     }}
@@ -329,16 +329,14 @@ const Projects = () => {
             </>
           )}
         </AnimatePresence>
-        <Button
-          variant="outlined"
-          size="small"
-          className=" dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl ms-2"
-          onClick={slideNext}
+        <button
+          className="border dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl ms-2 px-1 flex items-center justify-center"
+          onClick={() => slideNext()}
         >
           <span className="text-[13px]">
             <ArrowCircleRightOutlinedIcon className="text-[50px]" />
           </span>
-        </Button>
+        </button>
       </div>
       <div
         dir={`${localeActive === "fa" ? "rtl" : "ltr"}`}
@@ -350,11 +348,13 @@ const Projects = () => {
           variant="outlined"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          href={` /${localeActive}/projects`}
+          onClick={() => {
+            router.push(`/${localeActive}/projects`);
+          }}
         >
           <span className="">{t("seeMore")}</span>{" "}
           <span
-            className={`ms-2   transition-all ease-linear ${
+            className={`ms-2 transition-all ease-linear ${
               isHovered && localeActive === "fa" && "-translate-x-1"
             } ${localeActive === "en" && isHovered && "translate-x-1"}`}
           >

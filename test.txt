@@ -1,0 +1,66 @@
+import { createApi , fetchBaseQuery } from "reduxjs/toolkit/query/react"
+
+
+export const apiSlice = createApi({
+    reducePath : api , 
+    baseQuery : fetchBaseQuery({ baseQuery : "http://localhost:9090})
+    endpoinds : (builder) => ({
+        getProjects : builder.query({
+            query :() => "/projects"
+        }) , 
+        addProjects : builder.mutation({
+            query : (todo) => ({
+                url : "/projects" , 
+                method : "POST" , 
+                body: projects 
+            })
+        }) , 
+        updateProjects : builder.mutation({
+            query : (todo) => ({
+                url : "/projects/${project.id}" , 
+                method : "PATCH" , 
+                body: projects 
+            })
+        }),
+        deleteProjects : builder.mutation({
+            query : (todo) => ({
+                url : "/projects/${id}" , 
+                method : "delete" , 
+                body: projects 
+            })
+        })
+    })
+})
+
+
+
+//state with use and query and mutation
+export const {
+    useGetProjectsQuery , 
+    useAddProjectsMutation , 
+    use ... 
+} = apiSlice
+
+
+we have to provide to the root 
+<ApiProvider api={apiSlice}> 
+apiSlice 
+wrap this too the root 
+
+
+then you can use hook in you component 
+
+
+
+const { 
+    data : projects , 
+    isLoading , 
+    isSuccess , 
+    isError , 
+    errro 
+} = useGetProjectsQuery 
+
+
+//now these are functions just pass the value to it and all handle
+const [addProject] = useAddProjectMutation() 
+

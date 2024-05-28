@@ -6,7 +6,8 @@ const page = () => {
   return (
     <div className="max-w-[1440px] min-h-[100vh] w-[100%]">
       <SearchBar />
-      <ProjectsCard />
+      {/* <ProjectsCard /> */}
+      projectCard
     </div>
   );
 };

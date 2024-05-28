@@ -70,9 +70,9 @@ circle {
 }
 
 :root {
-  --scrollbar-bg: rgba(255, 0, 0, 0.2);
+  --scrollbar-bg: rgba(0, 132, 255, 0.2);
   --scrollbar-thumb-bg: rgb(0, 0, 0);
-  --scrollbar-corner-bg: red;
+  --scrollbar-corner-bg: rgb(0, 174, 255);
 }
 
 .dark {

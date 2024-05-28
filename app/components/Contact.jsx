@@ -1,5 +1,6 @@
 import React from "react";
-import { TextField, Button, createTheme } from "@mui/material";
+import { TextField, createTheme } from "@mui/material";
+import { Button } from "@material-tailwind/react";
 import { alpha, styled } from "@mui/material/styles";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import MarkunreadOutlinedIcon from "@mui/icons-material/MarkunreadOutlined";
@@ -34,7 +35,7 @@ import { ThreeDots } from "react-loader-spinner";
 
 const inputDark = {
   "& label.Mui-focused": {
-    color: "#914343",
+    color: "white",
   },
   "& label": {
     fontSize: "13px",
@@ -55,7 +56,7 @@ const inputDark = {
       borderColor: "white",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#914343",
+      borderColor: "red",
     },
     // "& input[type=number]": {
     //   "-moz-appearance": "textfield",
@@ -77,7 +78,7 @@ const inputDark = {
 };
 const InputLight = {
   "& label.Mui-focused": {
-    color: "#914343",
+    color: "black",
   },
   "& label": {
     fontSize: "13px",
@@ -98,7 +99,7 @@ const InputLight = {
       borderColor: "black",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#914343",
+      borderColor: "blue",
     },
     // "& input[type=number]": {
     //   "-moz-appearance": "textfield",
@@ -212,7 +213,7 @@ const Contact = () => {
     <div
       id="email"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="h-[85vh] relative max-w-[1440px] w-[100vw] mt-16 md:mt-32 p-2"
+      className="h-[85vh] relative max-w-[1440px] w-[100vw] mt-10 md:mt-28 p-2"
     >
       <div className="absolute w-[90%] h-[80%] opacity-[10%] top-[100px]   inset-0 gradient-06" />
 
@@ -238,7 +239,7 @@ const Contact = () => {
           </span>
           {localeActive === "en" && (
             <span
-              className={`text-[20px] md:text-[30px] text-red-600 md:mt-7  ${
+              className={`text-[20px] md:text-[30px] dark:text-red-600 text-blue-500 md:mt-7  ${
                 localeActive === "fa" ? "mt-2" : "mt-5"
               }`}
             >
@@ -247,7 +248,7 @@ const Contact = () => {
           )}
         </div>
       </div>
-      <div className="md:flex md:justify-center md:items-center mt-24 max-w-[100%]">
+      <div className="md:flex md:justify-center md:items-center mt-10 md:mt-14 max-w-[100%]">
         <form
           id="contact"
           className="flex flex-col gap-5 md:w-[50%] p-5 md:p-0"
@@ -309,14 +310,17 @@ const Contact = () => {
           </CacheProvider>
           <Button
             variant="outlined"
-            className="rounded-xl py-4 border border-red-600 dark:text-white text-black hover:border-red-500"
+            className={`rounded-xl ${
+              loading === false ? "py-4" : ""
+            } border dark:border-red-600 border-blue-500 dark:text-white text-black dark:hover:border-red-500 hover:border-blue-300 flex items-center justify-center`}
             onClick={handelContactEmail}
+            style={{ zIndex: 1 }}
           >
             {loading === false ? (
               t("submitBtn")
             ) : (
               <ButtonLoader1
-                height={25}
+                height={30}
                 width={50}
                 color={theme === "dark" ? "white" : "black"}
               />

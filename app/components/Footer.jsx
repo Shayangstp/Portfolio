@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { socials } from "../helpers/index";
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
+import { Button } from "@material-tailwind/react";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { navData } from "../helpers/index";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,7 +36,7 @@ const textFeildDark = {
     borderBottomColor: "white",
   },
   "& label.Mui-focused": {
-    color: "red",
+    color: "white",
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "red",
@@ -66,10 +67,10 @@ const textFeildLight = {
     borderBottomColor: "black",
   },
   "& label.Mui-focused": {
-    color: "red",
+    color: "black",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "red",
+    borderBottomColor: "blue",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -162,7 +163,7 @@ const Footer = () => {
   return (
     <div
       dir={localeActive === "fa" ? "rtl" : "ltr"}
-      className="w-[100vw] p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-red-200 bg-opacity-80"
+      className="w-[100vw] p-16 bg-gradient-to-b dark:from-[#161616] from-[#fff] dark:to-[#260b0b] to-blue-200 bg-opacity-80"
     >
       <div clas>
         <div
@@ -247,7 +248,7 @@ const Footer = () => {
                     whileHover={{ scale: [null, 1.5, 1.4] }}
                     transition={{ duration: 0.3 }}
                     key={idx}
-                    className="hover:text-red-600 hover:dark:text-red-400 cursor-pointer dark:text-gray-300"
+                    className="hover:text-blue-600 hover:dark:text-red-400 cursor-pointer dark:text-gray-300"
                   >
                     <a
                       href={`${item.href}`}
