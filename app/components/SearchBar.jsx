@@ -37,7 +37,7 @@ const SearchBar = () => {
             id="outlined-search"
             label={t("searchFeild")}
             type="search"
-            className="bg-transparnet w-[50%] rounded-xl"
+            className="bg-transparnet md:w-[50%] w-[80%] rounded-xl"
             sx={{ ...inputStyle, direction: "ltr" }}
             value={projectSearch}
             onChange={(e) => {

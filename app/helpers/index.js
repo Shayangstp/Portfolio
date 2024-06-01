@@ -154,10 +154,10 @@ export const navData = [
     titleKey: "contactMe",
     href: "#email",
   },
-  {
-    titleKey: "blog",
-    href: "/blog",
-  },
+  // {
+  //   titleKey: "blog",
+  //   href: "/blog",
+  // },
 ];
 
 export const skillsDesc = [

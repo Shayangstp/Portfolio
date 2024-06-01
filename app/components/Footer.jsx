@@ -90,7 +90,7 @@ const Footer = () => {
   const { theme } = useTheme();
 
   const [activeLink, setActiveLink] = useState("/");
-  const [loading, setLoading] = useState(false);
+  const [loadingFooter, setLoadingFooter] = useState(false);
 
   const t = useTranslations("footer");
   const localeActive = useLocale();
@@ -132,7 +132,7 @@ const Footer = () => {
     // }
 
     if (userEmailIsValid && userEmailFormatIsValid) {
-      setLoading(true);
+      setLoadingFooter(true);
       const values = {
         name: "userHireMe",
         email: userEmail,
@@ -141,12 +141,12 @@ const Footer = () => {
       };
       const postContactEmailRes = await axios.post("/api/contactEmail", values);
       if (postContactEmailRes.data.code === 200) {
-        setLoading(false);
+        setLoadingFooter(false);
         successMessage(t("contactSuccessMessage"));
         dispatch(RsetUserHireEmail(""));
         dispatch(RsetFormErrors(""));
       } else {
-        setLoading(false);
+        setLoadingFooter(false);
         errorMessage(t("contactErrorMessage"));
       }
     } else {
@@ -197,7 +197,7 @@ const Footer = () => {
               onClick={handelContactEmail}
             >
               <span>
-                {loading === false ? (
+                {loadingFooter === false ? (
                   t("hireMeBtn")
                 ) : (
                   <div className="px-3">
