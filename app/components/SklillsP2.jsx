@@ -11,12 +11,15 @@ import {
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import { fadeIn } from "../helpers/motion";
-import theme from "@material-tailwind/react/theme";
+import { useTheme } from "next-themes";
 
 const SklillsP2 = () => {
+  const { theme } = useTheme();
   const t = useTranslations("Skills");
   const localeActive = useLocale();
   const scrollRef = useRef(null);
+
+  const bulletColor = "white";
   return (
     <div
       id="skill-section"
@@ -96,7 +99,7 @@ const SklillsP2 = () => {
                               <RadioButtonCheckedIcon
                                 fontSize="small"
                                 sx={{
-                                  color: `${theme === "dark" ? "red" : "blue"}`,
+                                  color: bulletColor,
                                 }}
                               />{" "}
                               <span className="ms-2 mt-1 text-[14px] text-blue-700 dark:text-red-100">
@@ -133,7 +136,7 @@ const SklillsP2 = () => {
                               <RadioButtonCheckedIcon
                                 fontSize="small"
                                 sx={{
-                                  color: `${theme === "dark" ? "red" : "blue"}`,
+                                  color: bulletColor,
                                 }}
                               />{" "}
                               <span className="ms-2 mt-1 text-[14px]">
@@ -170,7 +173,7 @@ const SklillsP2 = () => {
                               <RadioButtonCheckedIcon
                                 fontSize="small"
                                 sx={{
-                                  color: `${theme === "dark" ? "red" : "blue"}`,
+                                  color: bulletColor,
                                 }}
                               />{" "}
                               <span className="ms-2 mt-1 text-[14px]">

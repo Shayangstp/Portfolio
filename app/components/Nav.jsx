@@ -144,61 +144,68 @@ const Nav = () => {
               className="hidden lg:inline-block text-white border border-gray-500 hover:border-red-600 hover:bg-transparent px-4 rounded-lg py-1.5"
             > */}
             {/* <span className="text-[12px] dark:text-white text-black"> */}
-            <FormControl id="locale" className="hidden lg:inline-block">
-              <InputLabel
-                id="demo-simple-select-label"
-                className={`text-black dark:text-white flex items-center`}
-              >
-                <GTranslateIcon fontSize="small" />
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                style={{
-                  width: "100px", // Change the background color here
-                  height: "40px",
-                }}
-                // onFocus={() => setIsSelectFocused(true)}
-                // onBlur={() => setIsSelectFocused(false)}
-                onChange={(e) => {
-                  handleLocaleSelect(e);
-                  document.documentElement.lang = e.target.value;
-                }}
-                value={localeActive}
-                defaultValue={localeActive}
-                label="Age"
-                MenuProps={{
-                  PaperProps: {
-                    style: dropdownStyle,
-                  },
-                }}
-                sx={selectStyle}
-                // onChange={handleChange}
-              >
-                <MenuItem value={"fa"}>
-                  <div className="flex items-center">
-                    <span className="text-[12px] text-black dark:text-white">
-                      {" "}
-                      IR -{" "}
-                    </span>
-                    <span className="ms-2">
-                      <Image src={iran} alt="IR Flag" width={20} height={20} />
-                    </span>{" "}
-                  </div>
-                </MenuItem>
-                <MenuItem value={"en"}>
-                  <div className="flex items-center">
-                    <span className="text-black dark:text-white text-[12px]">
-                      {" "}
-                      US -{" "}
-                    </span>
-                    <span className="ms-1">
-                      <Image src={us} alt="US Flag" width={20} />
-                    </span>
-                  </div>
-                </MenuItem>
-              </Select>
-            </FormControl>
+            <div className="hidden lg:inline-block">
+              <FormControl id="locale">
+                <InputLabel
+                  id="demo-simple-select-label"
+                  className={`text-black dark:text-white flex items-center`}
+                >
+                  <GTranslateIcon fontSize="small" />
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  style={{
+                    width: "100px", // Change the background color here
+                    height: "40px",
+                  }}
+                  // onFocus={() => setIsSelectFocused(true)}
+                  // onBlur={() => setIsSelectFocused(false)}
+                  onChange={(e) => {
+                    handleLocaleSelect(e);
+                    document.documentElement.lang = e.target.value;
+                  }}
+                  value={localeActive}
+                  defaultValue={localeActive}
+                  label="Age"
+                  MenuProps={{
+                    PaperProps: {
+                      style: dropdownStyle,
+                    },
+                  }}
+                  sx={selectStyle}
+                  // onChange={handleChange}
+                >
+                  <MenuItem value={"fa"}>
+                    <div className="flex items-center">
+                      <span className="text-[12px] text-black dark:text-white">
+                        {" "}
+                        IR -{" "}
+                      </span>
+                      <span className="ms-2">
+                        <Image
+                          src={iran}
+                          alt="IR Flag"
+                          width={20}
+                          height={20}
+                        />
+                      </span>{" "}
+                    </div>
+                  </MenuItem>
+                  <MenuItem value={"en"}>
+                    <div className="flex items-center">
+                      <span className="text-black dark:text-white text-[12px]">
+                        {" "}
+                        US -{" "}
+                      </span>
+                      <span className="ms-1">
+                        <Image src={us} alt="US Flag" width={20} />
+                      </span>
+                    </div>
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </div>
             {/* the drwer */}
             <div id="drwer" className="col-span-5 lg:col-span-0">
               <div className="bg-transparent lg:hidden flex justify-between w-[95vw]">
