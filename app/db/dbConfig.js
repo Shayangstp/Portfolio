@@ -25,11 +25,11 @@
 import mongoose from "mongoose";
 
 export async function dbConnect() {
-  const url =
-    "mongodb+srv://shayanGstp:Shayan5262@shayangstp.lk8wplv.mongodb.net/portfolio?retryWrites=true&w=majority&appName=ShayanGstp";
+  // const url =
+  //   "mongodb+srv://shayanGstp:Shayan5262@shayangstp.lk8wplv.mongodb.net/portfolio?retryWrites=true&w=majority&appName=ShayanGstp";
 
   try {
-    await mongoose.connect(url);
+    await mongoose.connect(process.env.MONGO_URL);
 
     console.log("MongoDB connected successfully");
 
