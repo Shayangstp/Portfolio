@@ -20,7 +20,7 @@ const Resume = () => {
         </span>
         <span className="text-[70px] ms-2">{t("resumeTitle1")}</span>
         {localeActive === "en" && (
-          <span className="text-[20px] md:text-[30px] text-red-600 md:mt-7 ms-2">
+          <span className="text-[20px] md:text-[30px] text-red-600 mt-7 ms-2">
             {t("resumeTitle2")}
           </span>
         )}
