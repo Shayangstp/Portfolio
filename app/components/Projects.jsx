@@ -344,7 +344,7 @@ const Projects = () => {
         className="flex justify-end max-w-[80vw] mt-5 mx-auto"
       >
         <Button
-          className={`py-2 px-4 dark:border-gray-500 border-gray-600  dark:text-white text-black text-[13px] hover:border-black dark:hover:border-white`}
+          className={`py-2 px-4 dark:border-gray-500 border-gray-600  dark:text-white text-black md:text-[13px] text-[10px] hover:border-black dark:hover:border-white`}
           variant="outlined"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

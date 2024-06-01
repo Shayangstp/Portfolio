@@ -9,7 +9,7 @@ import {
   ListItemText,
   Button,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import us from "../assets/us.jpg";
 import iran from "../assets/iran.jpg";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -23,6 +23,8 @@ import { navData } from "../helpers/index";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
   const dispatch = useDispatch();
@@ -30,6 +32,10 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
   const [selectedValue, setSelectedValue] = useState("");
   const t = useTranslations("Nav");
   const localeActive = useLocale();
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  const pathname = usePathname();
+
 
   const darkMode = useSelector(selectDarkMode);
   const selectStyle = darkMode === "dark" ? darkSelect : lightSelect;
@@ -38,6 +44,18 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const handleLocaleSelect = (e) => {
+    startTransition(() => {
+      router.replace(
+        `/${e.target.value}/${pathname.replace(/^\/(en|fa)/, "")}`
+      );
+    });
+  };
+
+  const dropdownStyle = {
+    backgroundColor: theme === "dark" ? "#262626" : "white",
   };
 
   return (
@@ -69,37 +87,50 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       style={{
-                        width: "60px", // Change the background color here
+                        width: "100px", // Change the background color here
                         height: "40px",
                       }}
-                      onFocus={() => setIsSelectFocused(true)}
-                      onBlur={() => setIsSelectFocused(false)}
+                      // onFocus={() => setIsSelectFocused(true)}
+                      // onBlur={() => setIsSelectFocused(false)}
                       onChange={(e) => {
-                        setSelectedValue(e.target.value);
+                        handleLocaleSelect(e);
+                        document.documentElement.lang = e.target.value;
                       }}
-                      value={selectedValue}
+                      value={localeActive}
+                      defaultValue={localeActive}
                       label="Age"
                       MenuProps={{
                         PaperProps: {
-                          style: {
-                            backgroundColor: "gray", // Change the background color here
-                          },
+                          style: dropdownStyle,
                         },
                       }}
                       sx={selectStyle}
                       // onChange={handleChange}
                     >
-                      <MenuItem value={10}>
+                      <MenuItem value={"fa"}>
                         <div className="flex items-center">
                           <span className="text-[12px] text-black dark:text-white">
-                            IR
+                            {" "}
+                            IR -{" "}
                           </span>
+                          <span className="ms-2">
+                            <Image
+                              src={iran}
+                              alt="IR Flag"
+                              width={20}
+                              height={20}
+                            />
+                          </span>{" "}
                         </div>
                       </MenuItem>
-                      <MenuItem value={20}>
+                      <MenuItem value={"en"}>
                         <div className="flex items-center">
                           <span className="text-black dark:text-white text-[12px]">
-                            US
+                            {" "}
+                            US -{" "}
+                          </span>
+                          <span className="ms-1">
+                            <Image src={us} alt="US Flag" width={20} />
                           </span>
                         </div>
                       </MenuItem>
@@ -134,16 +165,16 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
             <List className="w-[300px] flex flex-col text-white">
               {navData.map((item, idx) => {
                 return (
-                  <ListItem
+                  <div
                     key={idx}
                     button
                     onClick={toggleDrawer}
-                    className="hover:bg-red-900 dark:text-white text-black hover:text-white"
+                    className="hover:bg-red-900 dark:text-white text-black hover:text-white px-4 py-2"
                   >
                     <Link key={idx} href={item.href}>
                       <ListItemText key={idx} primary={t(item.titleKey)} />
                     </Link>
-                  </ListItem>
+                  </div>
                 );
               })}
             </List>

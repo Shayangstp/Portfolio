@@ -37,7 +37,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [500, 0], rotate: 270 }}
           transition={{ ease: "easeInOut", duration: 1 }}
-          className="leading-5 translate-y-[-5000px] bg-gradient-to-r dark:from-red-500 from-blue-600 dark:to-white to-black bg-clip-text text-transparent my-auto  w-[500px] p-2 h-[50px] relative"
+          className="leading-5 translate-y-[-5000px] bg-gradient-to-l dark:from-red-500 from-blue-600 dark:to-white to-black bg-clip-text text-transparent my-auto  w-[500px] p-2 h-[50px] relative"
         >
           <p className="me-10">
             <span className="font-bold text-[40px] text-center tracking-widest">

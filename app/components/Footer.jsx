@@ -193,7 +193,7 @@ const Footer = () => {
             </CacheProvider>
             <Button
               size="small"
-              className="dark:text-black text-white border-black px-3 py-3 rounded-xl dark:bg-white bg-gray-900 sm:text-[12px] text-[10px] hover:dark:bg-gray-200 hover:bg-gray-800"
+              className="flex items-center dark:text-black text-white border-black px-3 py-3 rounded-xl dark:bg-white bg-gray-900 sm:text-[12px] text-[10px] hover:dark:bg-gray-200 hover:bg-gray-800"
               onClick={handelContactEmail}
             >
               <span>

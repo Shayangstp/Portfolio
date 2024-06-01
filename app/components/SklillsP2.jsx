@@ -12,14 +12,21 @@ import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import { fadeIn } from "../helpers/motion";
 import { useTheme } from "next-themes";
+import { useSelector } from "react-redux";
+import { selectDarkMode } from "../slices/mainSlices";
 
 const SklillsP2 = () => {
   const { theme } = useTheme();
   const t = useTranslations("Skills");
   const localeActive = useLocale();
   const scrollRef = useRef(null);
+  const darkMode = useSelector(selectDarkMode);
 
-  const bulletColor = "white";
+  const bulletColor = darkMode === "dark" ? "white" : "black";
+  
+
+  console.log(bulletColor)
+
   return (
     <div
       id="skill-section"
