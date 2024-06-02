@@ -211,12 +211,12 @@ const Nav = () => {
               <div className="bg-transparent lg:hidden flex justify-between w-[95vw]">
                 <Link
                   href="/"
-                  className="text-center ms-10 mr-4 cursor-pointer py-1.5 dark:text-white text-black"
+                  className="text-center ms-3 cursor-pointer py-1.5 dark:text-white text-black"
                 >
                   Shayan_Gstp
                 </Link>
                 <IconButton
-                  className="dark:text-white text-black me-5 relative"
+                  className="dark:text-white text-black me-3 relative"
                   edge="start"
                   color="inherit"
                   aria-label="menu"

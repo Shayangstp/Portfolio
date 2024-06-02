@@ -25,7 +25,7 @@ const AddvertisedBanner = () => {
       <div className="max-w-[1440px]">
         <ParallaxText baseVelocity={2}>
           <span className="dark:text-red-500 text-blue-500 md:text-[50px] text-[30px] mt-1">
-            * FrontEnd * Backend * FullStack
+            * FrontEnd * Backend * SoftwareDeveloper
           </span>
         </ParallaxText>
       </div>

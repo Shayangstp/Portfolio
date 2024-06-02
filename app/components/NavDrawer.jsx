@@ -36,7 +36,6 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-
   const darkMode = useSelector(selectDarkMode);
   const selectStyle = darkMode === "dark" ? darkSelect : lightSelect;
 
@@ -168,12 +167,15 @@ const NavDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
                   <div
                     key={idx}
                     button
-                    onClick={toggleDrawer}
-                    className="hover:bg-red-900 dark:text-white text-black hover:text-white px-4 py-2"
+                    onClick={() => {
+                      toggleDrawer();
+                      router.push(item.href);
+                    }}
+                    className="hover:bg-red-900 dark:text-white text-black hover:text-white px-4 py-4 cursor-pointer"
                   >
-                    <Link key={idx} href={item.href}>
+                    <div key={idx}>
                       <ListItemText key={idx} primary={t(item.titleKey)} />
-                    </Link>
+                    </div>
                   </div>
                 );
               })}

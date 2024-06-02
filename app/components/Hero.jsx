@@ -32,7 +32,7 @@ const Hero = () => {
       />
       <div
         id="leftHero"
-        className="col-span-1 flex-col items-center lg:justify-between justify-center relative hidden lg:flex mt-20"
+        className="col-span-1 flex-col items-center lg:justify-between justify-center relative hidden lg:flex mt-16"
       >
         <motion.div
           animate={{ y: [500, 0], rotate: 270 }}
@@ -49,27 +49,29 @@ const Hero = () => {
       </div>
       <div
         id="mainHero"
-        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-0"
+        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-5"
       >
-        <div id="hero-text" className="lg:mt-28">
+        <div id="hero-text">
           <motion.div id="Hi">
             <TypingText
               title={t("title1") + "''"}
-              textStyles="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black ms-6 lg:ms-0 font-extrabold mt-5"
+              textStyles="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black ms-10 lg:ms-0 font-extrabold mt-5"
             />
           </motion.div>
           <div id="imShayan">
             <TitleText
               title={t("title2")}
-              textStyles={`lg:text-[50px] sm:text-[40px] text-[25px] ms-6 lg:ms-0 mt-4  ${
+              textStyles={`lg:text-[50px] sm:text-[40px] text-[25px] ms-10 lg:ms-0 mt-4  ${
                 localeActive === "fa" ? "" : "font-bold"
               }`}
             />
           </div>
           <motion.div
-            animate={{ x: [200, 0] }}
+            dir="ltr"
+            animate={{ x: [-200, 0], opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 1 }}
-            className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent lg:hidden mt-2  ms-6 "
+            initial={{ opacity: 0 }}
+            className="leading-5 bg-gradient-to-r from-red-500 dark:to-white to-black bg-clip-text text-transparent lg:hidden mt-4 ms-10"
           >
             <p className="me-10">
               <span className="font-bold sm:text-[15px] ">Software.</span>
@@ -85,7 +87,7 @@ const Hero = () => {
               delay: 0.5,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="max-w-[700px] mt-10 border border-x-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl  sm:ms-6  mx-5 lg:hidden"
+            className="max-w-[700px] mt-5 border border-x-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl  sm:ms-6  mx-5 lg:hidden"
           >
             <AboutMe />
           </motion.div>
@@ -94,7 +96,11 @@ const Hero = () => {
             className="text-white text-end flex justify-end lg:hidden me-5"
           >
             <motion.div
-              animate={{ x: [400, 0] }}
+              animate={{
+                x: [localeActive === "en" ? 400 : -400, 0],
+                opacity: 1,
+              }}
+              initial={{ opacity: 0 }}
               transition={{ ease: "easeInOut", duration: 1 }}
               className="flex gap-4 z-1 translate-x-[2000] justify-center items-center  border  px-3 py-2 pb-3 rounded-2xl  dark:bg-transparent mt-5 dark:shadow-socialShadowDark shadow-socialShadow"
             >
@@ -127,7 +133,7 @@ const Hero = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="w-[700px]  mt-5 border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block"
+          className="mt-5 border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block"
         >
           <AboutMe />
         </motion.div>

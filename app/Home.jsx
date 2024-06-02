@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SklillsP2 from "./components/SklillsP2";
 import { useLocale } from "next-intl";
+import PageReLoader from "./components/PageReLoader";
 
 const Home = () => {
   const localeActive = useLocale();
@@ -19,6 +20,7 @@ const Home = () => {
   return (
     <div className=" bg-white dark:bg-[#161616] flex justify-center relative">
       <div className="bg-cover bg-center min-h-[100vh] flex flex-col justify-center items-center w-[100vw]">
+        {/* <PageReLoader /> */}
         <Hero />
         <SklillsP2 />
         <Projects />

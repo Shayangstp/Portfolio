@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PDFDownload from "./PDFDownload";
 import PDFViewer from "./PDFViewer";
 import { useLocale, useTranslations } from "next-intl";
 import DescriptionIcon from "@mui/icons-material/Description";
+import PageReLoader from "./PageReloader";
 
 const Resume = () => {
   const t = useTranslations("resume");
   const localeActive = useLocale();
 
+  // const [preLoader, setPreloader] = useState(true);
+
+  // useEffect(() => {
+  //   setPreloader((pre) => !pre);
+  // }, [preLoader]);
+
   return (
     <div dir={localeActive === "en" ? "ltr" : "rtl"}>
+      {/* <PageReLoader /> */}
       <div id="header" className="md:ms-16 ms-2 mt-10 flex items-center">
         <span>
           <DescriptionIcon
