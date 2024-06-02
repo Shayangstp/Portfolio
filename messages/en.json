@@ -23,13 +23,13 @@
     "title2": "development",
 
     "frontEnd": "FrontEnd",
-    "frontEndDesc": "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+    "frontEndDesc": "I began my journey in the front-end field and have developed strong skills in React and Next.js. I am also proficient in using Bootstrap and Tailwind CSS for styling. Additionally, I am an expert with state management tools and have a good understanding of TypeScript.",
     "frontBasic": "Basic",
     "frontFrameWork": "Frameworks",
     "frontCssFrameWorks": "CSS Frameworks",
 
     "backEnd": "BackEnd",
-    "backEndDesc": "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+    "backEndDesc": "As my front-end coding skills improved, I began learning about APIs and databases. I have good knowledge of SQL Server, including stored procedures, tables, and relationships. For my APIs, I use either Next.js or Express, and I have experience with MongoDB, although I prefer SQL.",
     "backBasic": "Basics",
     "backFrameWork": "FrameWorks",
     "backDataBase": "DataBases",

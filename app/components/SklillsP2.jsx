@@ -23,20 +23,22 @@ const SklillsP2 = () => {
   const darkMode = useSelector(selectDarkMode);
 
   const bulletColor = darkMode === "dark" ? "white" : "black";
-  
 
-  console.log(bulletColor)
+  console.log(bulletColor);
 
   return (
     <div
       id="skill-section"
-      dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="relative max-w-[1440px] w-[100vw] md:mt-28 mt-20 md:mb-20 mb-0 md:p-16 sm:p-2 p-0"
     >
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[10px] left-auto inset-0 gradient-03" />
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[500px] inset-0 gradient-04" />
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[1300px] inset-0 gradient-05" />
-      <div id="header" className="text-[70px] py-2 px-5">
+      <div
+        id="header"
+        className="text-[70px] py-2 px-5"
+        dir={`${localeActive === "fa" ? "rtl" : "ltr"}`}
+      >
         <div className="flex items-center">
           <span>
             <HandymanOutlinedIcon

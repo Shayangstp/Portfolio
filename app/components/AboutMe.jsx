@@ -39,11 +39,6 @@ const AboutMe = () => {
             router.push("/projects");
           }}
           style={{ zIndex: 1 }}
-          // color="primary"
-          // sx={{
-          //   borderColor: "white",
-
-          // }}
         >
           {t("projectBtn")}
         </Button>
