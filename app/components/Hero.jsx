@@ -21,6 +21,15 @@ const Hero = () => {
       dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="lg:grid grid-cols-6 relative max-w-[1440px] w-[100vw]"
     >
+      <meta
+        name="description"
+        content="I am a software developer who is passionate about working with the latest technologies and tools to create applications that meet users' needs. I love to interact with users and integrate their feedback into my apps, ensuring a seamless and enjoyable experience. I am dedicated to solving problems and addressing issues in any situation, and I am always eager to learn and expand my knowledge.As a self-taught professional in the software development field, I thrive on the joy of continuous learning. I hold a Bachelor's degree in Industrial Engineering, which has provided me with valuable experience in management and planning, enhancing my ability to work efficiently. I am ready for any challenge and committed to delivering high-quality solutions . I am dedicated to solving problems and addressing issues in any situation, and I am always eager to learn and expand my knowledge.As a self-taught professional in the software development field, I thrive on the joy of continuous learning. I hold a Bachelor's degree in Industrial Engineering, which has provided me with valuable experience in management and planning, enhancing my ability to work efficiently. I am ready for any challenge and committed to delivering high-quality solutions."
+      />
+      <meta
+        name="keywords"
+        content="Shayangstp , shayan golestanipour , software developer, web development, latest technologies, user-friendly applications, problem-solving , backend developer , fullstack developer , portfolio"
+      />
+      <meta name="author" content="John Doe" />
       {/* blur bg */}
       <div
         style={{ zIndex: 0 }}
@@ -60,6 +69,10 @@ const Hero = () => {
           </motion.div>
           <div id="imShayan">
             <TitleText
+              style={{
+                fontFamily: "Titillium Web, sans-serif",
+                fontWeight: "700",
+              }}
               title={t("title2")}
               textStyles={`lg:text-[50px] sm:text-[40px] text-[25px] ms-10 lg:ms-0 mt-4  ${
                 localeActive === "fa" ? "" : "font-bold"

@@ -1,4 +1,4 @@
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Montserrat } from "next/font/google";
 import "../globals.css";
 import StoreProvider from "../StoreProvider";
 import ThemeProviderNextJs from "../ThemeProviderNextJs";
@@ -7,7 +7,8 @@ import MuiThemeProvider from "../MuiThemeProvider";
 import { Toaster } from "react-hot-toast";
 import Nav from "../components/Nav";
 
-const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+// const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "Shayan_gstp",
@@ -19,7 +20,7 @@ const RootLayout = ({ children, params: { locale } }) => {
   return (
     <html lang={locale} className="dark" suppressHydrationWarning>
       <StoreProvider>
-        <body className={`${poppins.className}`}>
+        <body className={`${montserrat.className}`}>
           <Toaster />
           <ThemeProviderNextJs>
             <MuiThemeProvider>

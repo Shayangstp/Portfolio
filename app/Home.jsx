@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import SklillsP2 from "./components/SklillsP2";
 import { useLocale } from "next-intl";
 import PageReLoader from "./components/PageReLoader";
+import Head from 'next/head';
 
 const Home = () => {
   const localeActive = useLocale();
