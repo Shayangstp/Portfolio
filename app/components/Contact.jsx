@@ -211,7 +211,6 @@ const Contact = () => {
 
   return (
     <div
-      id="email"
       dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="h-[85vh] relative max-w-[1440px] w-[100vw] mt-10 md:mt-28 p-2"
     >

@@ -216,7 +216,7 @@ const Projects = () => {
                     </p>
                   </CardContent>
                   <div className="border border-gray-500 w-[80%] ms-2"></div>
-                  <CardActions className="ms-2 mb-2 py-5">
+                  <div className="ms-4 mb-2 py-5 flex">
                     <Button
                       size="small"
                       variant="contained"
@@ -237,7 +237,7 @@ const Projects = () => {
                     >
                       <span className="mt-1 mb-1">{t("readMoreBtn")}</span>
                     </Button>
-                  </CardActions>
+                  </div>
                 </div>
                 {/* <AnimatePresence initial={false}>
                   {selectedId === index && (
