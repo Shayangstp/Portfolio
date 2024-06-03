@@ -21,45 +21,52 @@ import { useRouter } from "next/navigation";
 const blogData = [
   {
     id: 1,
-    title: "Top 5 things web sites must have !! 1",
+    title: "Order Tracking",
     titleColor: "#4c695b",
     content:
-      "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
+      "The order tracking app is designed for both customers and factory staff to track orders that design and coded as front and back by my self. It allows staff to manage the current location of each order and monitor the quantities loaded onto pallets or vehicles. The app also tracks the loading time for each warehouse vehicle. It covers the entire process from order submission to delivery, enabling staff to oversee every step and allowing managers to monitor the entire workflow. This app is built for four factories and warehouses.",
   },
   {
     id: 2,
-    title: "How buy Domain ?? 2",
+    title: "AVL",
     titleColor: "#4c5a69",
     content:
-      "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
+      "The AVL (Automatic Vehicle Location) app gathers data from the GPS devices installed in each company vehicle, allowing us to track their location and speed. The app also provides information on how many hours the vehicles are on the road or stopped. It includes a driver management panel and a user management panel, enabling efficient management of GPS devices and other tasks. This app simplifies these processes for our users.",
   },
   {
     id: 3,
-    title: "How start to be programmer the mindset 3",
+    title: "Automation",
     titleColor: "#694c69",
     content:
-      "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
+      "The automation app transforms the entire company into a paperless environment, streamlining tasks for our personnel. This comprehensive application allows employees to manage their work efficiently. With this app, users can check paychecks, request leave, obtain mission tickets, and view personnel details. Additionally, factories can process work requests from customers or staff, and manage vehicles and machines based on these requests. The app also includes warehouse management and facilitates requests from the warehouse.",
   },
   {
     id: 4,
-    title: "How start to be programmer the mindset 4",
+    title: "SAAS",
     titleColor: "#68694c",
     content:
-      "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
+      "The SaaS application is designed to provide software services to clients. The main idea behind this web app is to offer software as a service. It includes custom-built authentication, developed using Next.js and MongoDB. The application also features a ticketing system for user issues, which are managed through messaging. Additionally, there is an admin panel to manage user needs and a download panel for app versions",
   },
   {
     id: 5,
-    title: "How start to be programmer the mindset 5",
+    title: "Ecommerce",
     titleColor: "#694c4c",
     content:
-      "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
+      "My e-commerce application, inspired by Amazon, is built using Next.js and MongoDB. It includes all the essential features of an e-commerce platform, such as adding items to the cart, instant purchases, wishlists, order lists, and user profiles. User authentication is secured with email verification. Additionally, the app features an admin panel for managing orders and purchased products, creating product cards, and uploading new products. A comprehensive search functionality is also integrated into the web app",
   },
   {
     id: 6,
-    title: "How start to be programmer the mindset 6",
+    title: "BFIT",
     titleColor: "#574c69",
     content:
-      "design efficient solutions, and implement robust software systems. Effective communication and teamwork are key strengths of the team, as they frequently collaborate, share are key",
+      "Welcome to our fitness application! Our primary goal is to ensure that you perform every gym exercise correctly. With over a decade of personal experience in fitness sports, I've meticulously curated a collection of instructional GIFs and integrated YouTube APIs for each exercise. This resource empowers users to execute movements with precision, maximizing the effectiveness of their workouts.Please note that our app utilizes third-party APIs, which are subject to limitations. Currently, access is capped at 500 requests per month. This restriction ensures optimal performance and availability for all users. Thank you for choosing our platform to enhance your fitness journey.",
+  },
+  {
+    id: 7,
+    title: "Koreh managment",
+    titleColor: "#1c3f75",
+    content:
+      "Introducing Koreh Management, an application designed to empower users in efficiently managing koreh in factory settings. In the company where I work, we manufacture glasses that necessitate koreh for melting. Koreh production is a daily task, coupled with periodic maintenance requirements. This application streamlines the management of all relevant data and Primary Maintenance (PM) for each koreh.With Koreh Management, users gain the capability to oversee at least 50 koreh across all factories effortlessly. This comprehensive tool enhances operational efficiency and ensures smooth handling of critical manufacturing processes.",
   },
 ];
 
@@ -89,7 +96,16 @@ const Projects = () => {
     }
   };
 
-  console.log(selectedId);
+  const truncateText = (text, maxWords) => {
+    const wordsArray = text.split(" ");
+    console.log(wordsArray);
+    if (wordsArray.length <= maxWords) {
+      return text;
+    }
+    const wordsTruncate = wordsArray.slice(0, maxWords).join(" ") + "...";
+    return wordsTruncate;
+  };
+
   return (
     <div className="relative max-w-[1440px] w-[100vw] mt-28 mb-20 md:mt-16 p-2">
       <div className="absolute w-[40%] h-[40%] opacity-20 top-[100px]  inset-0 gradient-06" />
@@ -101,7 +117,8 @@ const Projects = () => {
         <div className="flex items-center">
           <span>
             <ViewCompactAltOutlinedIcon
-              className={`me-2 text-[50px] ${
+              fontSize="large"
+              className={`me-2 ${
                 localeActive === "fa" ? "text-red-500 mt-6" : ""
               }`}
             />
@@ -124,12 +141,15 @@ const Projects = () => {
           )}
         </div>
       </div>
-      <div className="flex justify-center mt-20 max-w-[80vw] mx-auto">
+      <div className="flex justify-center  mt-20 max-w-[80vw] mx-auto">
         <button
           variant="outlined"
           size="small"
-          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl me-2 flex items-center justify-center"
+          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-blue-700 rounded-xl me-2 flex items-center justify-center"
           onClick={slidePrev}
+          style={{
+            zIndex: 1,
+          }}
         >
           <span className="text-[13px]">
             <ArrowCircleLeftOutlinedIcon className="text-[50px]" />
@@ -169,7 +189,7 @@ const Projects = () => {
                   }}
                 >
                   <div
-                    className={`p-4 rounded-t-xl border-b border-gray-400 h-[100px] slider-item bg-red-900 ${
+                    className={`p-4 rounded-t-xl border-b border-gray-400 slider-item bg-red-900 ${
                       index === 1 ? "active" : ""
                     }`}
                     style={{
@@ -182,12 +202,13 @@ const Projects = () => {
                       {item.title}
                     </div>
                   </div>
-                  <CardContent>
+                  <CardContent className="h-[200px]">
                     <p className="dark:text-gray-300 text-gray-800 md:text-[15px] text-[12px]">
-                      {item.content}
+                      {truncateText(item.content, 50)}
                     </p>
                   </CardContent>
-                  <CardActions className="ms-2 mb-2">
+                  <div className="border border-gray-500 w-[80%] ms-2"></div>
+                  <CardActions className="ms-2 mb-2 py-5">
                     <Button
                       size="small"
                       variant="contained"
@@ -204,13 +225,13 @@ const Projects = () => {
                     <Button
                       size="small"
                       variant="outlined"
-                      className="dark:text-white text-black md:text-[12px] text-[9px] ms-2 py-2.5 px-4 border-gray-600 hover:border-red-600"
+                      className="dark:text-red-300 text-black md:text-[12px] text-[9px] ms-2 py-2.5 px-4 border-gray-600 hover:dark:border-white hover:dark:text-red-200"
                     >
                       <span className="mt-1 mb-1">{t("readMoreBtn")}</span>
                     </Button>
                   </CardActions>
                 </div>
-                <AnimatePresence initial={false}>
+                {/* <AnimatePresence initial={false}>
                   {selectedId === index && (
                     <motion.div
                       key="modal"
@@ -225,11 +246,11 @@ const Projects = () => {
                       <motion.button onClick={() => setSelectedId(null)} />
                     </motion.div>
                   )}
-                </AnimatePresence>
+                </AnimatePresence> */}
               </SwiperSlide>
             );
           })}
-          {items.map((item, index) => (
+          {/* {items.map((item, index) => (
             <SwiperSlide
               key={index}
               virtualIndex={index}
@@ -288,9 +309,9 @@ const Projects = () => {
                 </CardActions>
               </div>
             </SwiperSlide>
-          ))}
+          ))} */}
         </Swiper>
-        <AnimatePresence>
+        {/* <AnimatePresence>
           {selectedId && (
             <>
               <motion.div
@@ -328,9 +349,9 @@ const Projects = () => {
               </motion.div>
             </>
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
         <button
-          className="border dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-red-300 hover:border-red-700 rounded-xl ms-2 px-1 flex items-center justify-center"
+          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-blue-700 rounded-xl ms-2 flex items-center justify-center"
           onClick={() => slideNext()}
         >
           <span className="text-[13px]">
@@ -352,7 +373,7 @@ const Projects = () => {
             router.push(`/${localeActive}/projects`);
           }}
         >
-          <span className="">{t("seeMore")}</span>{" "}
+          <span className="">{t("seeMore")}</span>
           <span
             className={`ms-2 transition-all ease-linear ${
               isHovered && localeActive === "fa" && "-translate-x-1"

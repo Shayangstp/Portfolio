@@ -224,7 +224,8 @@ const Contact = () => {
         <div className="flex items-center">
           <span>
             <MarkunreadOutlinedIcon
-              className={`me-2 text-[50px] ${
+              fontSize="large"
+              className={`me-2 ${
                 localeActive === "fa" ? "text-red-500 mt-6" : ""
               }`}
             />

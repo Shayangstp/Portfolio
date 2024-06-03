@@ -42,7 +42,8 @@ const SklillsP2 = () => {
         <div className="flex items-center">
           <span>
             <HandymanOutlinedIcon
-              className={`me-2 text-[50px] ${
+              fontSize="large"
+              className={`me-2 ${
                 localeActive === "fa" ? "text-red-500 mt-6" : ""
               }`}
             />

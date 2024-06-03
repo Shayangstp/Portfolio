@@ -35,7 +35,7 @@
     "backDataBase": "DataBases",
 
     "other": "Other",
-    "otherDesc": "I am a FrontEnd developer with a passion for creating visually appealing and functional web applications. I have experience with HTML, CSS, JavaScript, and frameworks like React, NextJs, and TypeScript.",
+    "otherDesc": "Additionally, I am familiar with Docker and GraphQL, and I use Figma for design. I also have experience with Git and GitHub for version control.",
     "otherSkills": "Other Skills"
   },
 
@@ -44,7 +44,7 @@
     "title2": "Projects",
 
     "githubBtn": "GITHUB",
-    "readMoreBtn": "More",
+    "readMoreBtn": "More...",
 
     "seeMore": "See More"
   },

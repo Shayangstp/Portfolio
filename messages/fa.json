@@ -39,9 +39,9 @@
     "backFrameWork": "FrameWorks",
     "backDataBase": "DataBases",
 
-    "other": "دیگر مهارت ها",
-    "otherDesc": ".توسعه از ابزارهای اسکریپت و استفاده از اینها به منسشمنیا مشاسیمنامشس منبکگخگیخضچصی جحخچصخض ",
-    "otherSkills": "دیگر مهارت ها"
+    "other": "Other",
+    "otherDesc": "Additionally, I am familiar with Docker and GraphQL, and I use Figma for design. I also have experience with Git and GitHub for version control.",
+    "otherSkills": "Other Skills"
   },
 
   "projects": {
@@ -51,7 +51,7 @@
     "githubBtn": "گیت هاب",
     "readMoreBtn": "بیشتر",
 
-    "seeMore": "بیشتر"
+    "seeMore": "بیشتر..."
   },
   "contactMe": {
     "title1": "تماس با من",
