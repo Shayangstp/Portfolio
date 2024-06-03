@@ -36,6 +36,7 @@ export async function POST(req, res) {
     } else if (keyword !== undefined) {
       if (keyword === "") {
         projects = await Projects.find(); // Fetch all projects when keyword is empty
+        console.log("projects =====>" + projects);
       } else {
         projects = await Projects.find({
           $or: [

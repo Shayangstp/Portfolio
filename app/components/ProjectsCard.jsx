@@ -258,7 +258,7 @@ const ProjectsCard = () => {
                       id="line"
                       className="border-t dark:border-white border-black mt-10"
                     ></div>
-                    <Typography
+                    <div
                       variant="body2"
                       className="text-black dark:text-white mt-3 flex flex-wrap gap-2"
                     >
@@ -275,7 +275,7 @@ const ProjectsCard = () => {
                           </p>
                         );
                       })}
-                    </Typography>
+                    </div>
                     <div className="flex justify-end">
                       {project.isConfidential ? (
                         <div

@@ -17,6 +17,7 @@ const initialState = {
   projectData: {},
 };
 
+
 // export const handleCompaniesList = createAsyncThunk(
 //   "main/handleCompaniesList",
 //   async (obj, { dispatch, getState }) => {
