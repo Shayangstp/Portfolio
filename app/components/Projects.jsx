@@ -42,17 +42,17 @@ const blogData = [
   },
   {
     id: 4,
-    title: "SAAS",
+    title: "VPN-Support",
     titleColor: "#68694c",
     content:
       "The SaaS application is designed to provide software services to clients. The main idea behind this web app is to offer software as a service. It includes custom-built authentication, developed using Next.js and MongoDB. The application also features a ticketing system for user issues, which are managed through messaging. Additionally, there is an admin panel to manage user needs and a download panel for app versions",
   },
   {
     id: 5,
-    title: "Ecommerce",
+    title: "BOTIK",
     titleColor: "#694c4c",
     content:
-      "My e-commerce application, inspired by Amazon, is built using Next.js and MongoDB. It includes all the essential features of an e-commerce platform, such as adding items to the cart, instant purchases, wishlists, order lists, and user profiles. User authentication is secured with email verification. Additionally, the app features an admin panel for managing orders and purchased products, creating product cards, and uploading new products. A comprehensive search functionality is also integrated into the web app",
+      "My E-commerce application, inspired by Amazon, is built using Next.js and MongoDB. It includes all the essential features of an e-commerce platform, such as adding items to the cart, instant purchases, wishlists, order lists, and user profiles. User authentication is secured with email verification. Additionally, the app features an admin panel for managing orders and purchased products, creating product cards, and uploading new products. A comprehensive search functionality is also integrated into the web app",
   },
   {
     id: 6,
@@ -141,11 +141,19 @@ const Projects = () => {
           )}
         </div>
       </div>
+      <div
+        dir={`${localeActive === "fa" ? "rtl" : "ltr"}`}
+        className={`ms-24 dark:text-gray-300 text-gray-800 text-[13px] ${
+          localeActive === "fa" ? "me-24 mt-5 leading-7" : "ms-24"
+        }`}
+      >
+        <p>{t("subTitle")}</p>
+      </div>
       <div className="flex justify-center  mt-20 max-w-[80vw] mx-auto">
         <button
           variant="outlined"
           size="small"
-          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-blue-700 rounded-xl me-2 flex items-center justify-center"
+          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-blue-700 rounded-xl me-2 flex items-center justify-center transition-all"
           onClick={slidePrev}
           style={{
             zIndex: 1,
@@ -181,7 +189,7 @@ const Projects = () => {
                 className="m-0 p-0 max-w-[500px] cursor-pointer"
               >
                 <div
-                  dir={localeActive === "fa" ? "rtl" : "ltr"}
+                  // dir={localeActive === "fa" ? "rtl" : "ltr"}
                   className="border border-gray-400 rounded-xl max-w-[100%]"
                   onClick={() => {
                     setIsVisible(true);
@@ -351,7 +359,7 @@ const Projects = () => {
           )}
         </AnimatePresence> */}
         <button
-          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-blue-700 rounded-xl ms-2 flex items-center justify-center"
+          className="border px-1 dark:border-gray-500 border-gray-900 dark:text-gray-300 text-gray-800 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-blue-700 rounded-xl ms-2 flex items-center justify-center transition-all"
           onClick={() => slideNext()}
         >
           <span className="text-[13px]">

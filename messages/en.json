@@ -42,6 +42,7 @@
   "projects": {
     "title1": "MY.",
     "title2": "Projects",
+    "subTitle": " My projects are designed to address various user needs, catering to both personal and corporate requirements. Some projects are personal endeavors, while others involve collaborations with companies. For further details about each project and to learn more, please visit the Projects page. Additionally, you can reach out to me via email for any inquiries or collaboration opportunities. Thank you for your interest!",
 
     "githubBtn": "GITHUB",
     "readMoreBtn": "More...",
@@ -52,6 +53,7 @@
   "contactMe": {
     "title1": "Contact.",
     "title2": "Me",
+    "subTitle": "You can reach me via email with the below form. Please feel free to  send me a message, and I'll get back to you as soon as possible. Thank you for reaching out!",
 
     "email": "Email",
     "name": "Name",
@@ -66,8 +68,8 @@
   },
 
   "footer": {
-    "ready": "Ready to Grow",
-    "readySub": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, cupiditate",
+    "ready": "Ready for challenge !",
+    "readySub": "Just so you know, I'm ready to tackle any challenge that comes my way. Bring it on!",
 
     "email": "Email",
     "hireMeBtn": "HIRE.ME",

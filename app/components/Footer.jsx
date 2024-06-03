@@ -173,7 +173,7 @@ const Footer = () => {
           <div className="dark:text-white text-black font-bold lg:text-[100px] md:text-[70px] text-[30px]">
             {t("ready")}
           </div>
-          <p className="dark:text-white text-gray-700 text-center sm:text-start text-[9px] md:text-[12px] lg:text-[15px] mt-2">
+          <p className="dark:text-white text-gray-700 text-center sm:text-start text-[9px] md:text-[12px] lg:text-[15px] mt-8 mb-4 ">
             {t("readySub")}
           </p>
           <div className="flex gap-2 items-end mt-10">

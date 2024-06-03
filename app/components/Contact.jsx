@@ -249,7 +249,15 @@ const Contact = () => {
           )}
         </div>
       </div>
-      <div className="md:flex md:justify-center md:items-center mt-10 md:mt-14 max-w-[100%]">
+      <div
+        dir={`${localeActive === "fa" ? "rtl" : "ltr"}`}
+        className={`ms-24 dark:text-gray-300 text-gray-800 text-[13px] ${
+          localeActive === "fa" ? "me-24 mt-5" : "ms-24"
+        }`}
+      >
+        <p>{t("subTitle")}</p>
+      </div>
+      <div className="md:flex md:justify-center md:items-center mt-10 md:mt-20 max-w-[100%]">
         <form
           id="contact"
           className="flex flex-col gap-5 md:w-[50%] p-5 md:p-0"
