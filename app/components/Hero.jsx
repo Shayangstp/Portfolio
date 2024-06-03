@@ -29,7 +29,7 @@ const Hero = () => {
         name="keywords"
         content="Shayangstp , shayan golestanipour , software developer, web development, latest technologies, user-friendly applications, problem-solving , backend developer , fullstack developer , portfolio"
       />
-      <meta name="author" content="John Doe" />
+      <meta name="author" content="shayan golestanipour" />
       {/* blur bg */}
       <div
         style={{ zIndex: 0 }}
@@ -58,12 +58,12 @@ const Hero = () => {
       </div>
       <div
         id="mainHero"
-        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-5"
+        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-10"
       >
         <div id="hero-text">
           <motion.div id="Hi">
             <TypingText
-              title={t("title1") + "''"}
+              title={t("title1")}
               textStyles="lg:text-[40px] sm:text-[30px] text-[20px] dark:text-white text-black ms-10 lg:ms-0 font-extrabold mt-5"
             />
           </motion.div>
