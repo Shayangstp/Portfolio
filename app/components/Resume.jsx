@@ -3,7 +3,7 @@ import PDFDownload from "./PDFDownload";
 import PDFViewer from "./PDFViewer";
 import { useLocale, useTranslations } from "next-intl";
 import DescriptionIcon from "@mui/icons-material/Description";
-import PageReLoader from "./PageReloader";
+// import PageReLoader from "./PageReloader";
 
 const Resume = () => {
   const t = useTranslations("resume");
