@@ -5,6 +5,9 @@ import Projects from "../../model/projectModel";
 
 dbConnect();
 
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+
 export async function GET(req, res) {
   try {
     const projects = await Projects.find();
