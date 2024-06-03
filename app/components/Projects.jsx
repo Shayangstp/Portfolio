@@ -143,13 +143,15 @@ const Projects = () => {
       </div>
       <div
         dir={`${localeActive === "fa" ? "rtl" : "ltr"}`}
-        className={`ms-24 dark:text-gray-300 text-gray-800 text-[13px] ${
-          localeActive === "fa" ? "me-24 mt-5 leading-7" : "ms-24"
+        className={`dark:text-gray-300 text-gray-800 md:text-[13px] text-[12px] ${
+          localeActive === "fa"
+            ? "md:me-24 mt-5 leading-7 px-5 md:px-0"
+            : "md:ms-24 px-5 md:px-0"
         }`}
       >
         <p>{t("subTitle")}</p>
       </div>
-      <div className="flex justify-center  mt-20 max-w-[80vw] mx-auto">
+      <div className="flex justify-center  md:mt-20 mt-10 max-w-[100vw] mx-auto">
         <button
           variant="outlined"
           size="small"

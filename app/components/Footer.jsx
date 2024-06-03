@@ -170,10 +170,10 @@ const Footer = () => {
           id="ready_toGrow"
           className="flex flex-col justify-center items-center text-white"
         >
-          <div className="dark:text-white text-black font-bold lg:text-[100px] md:text-[70px] text-[30px]">
+          <div className="dark:text-white text-black font-bold lg:text-[70px] md:text-[50px] sm:text-[30px] text-[20px]">
             {t("ready")}
           </div>
-          <p className="dark:text-white text-gray-700 text-center sm:text-start text-[9px] md:text-[12px] lg:text-[15px] mt-8 mb-4 ">
+          <p className="dark:text-white text-gray-700 text-center sm:text-start text-[9px] md:text-[12px] lg:text-[15px] md:mt-8 mt-3 mb-4 ">
             {t("readySub")}
           </p>
           <div className="flex gap-2 items-end mt-10">
