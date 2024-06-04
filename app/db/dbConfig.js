@@ -6,8 +6,8 @@ export async function dbConnect() {
     await mongoose.connect(
       "mongodb+srv://shayanGstp:Shayan5262@shayangstp.lk8wplv.mongodb.net/protfolio?retryWrites=true&w=majority&appName=ShayanGstp",
       {
-        erverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
-        socketTimeoutMS: 45000, // Increase socket timeout to 45 seconds
+        serverSelectionTimeoutMS: 30000, // Correct spelling
+        socketTimeoutMS: 45000, // Correct spelling
       }
     );
 
