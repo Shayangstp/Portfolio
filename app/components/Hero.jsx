@@ -58,7 +58,7 @@ const Hero = () => {
       </div>
       <div
         id="mainHero"
-        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-10"
+        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-8"
       >
         <div id="hero-text">
           <motion.div id="Hi">

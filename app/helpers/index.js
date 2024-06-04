@@ -291,3 +291,10 @@ export const InputLight = {
     autoComplete: "off",
   },
 };
+
+
+
+export const projectsData = [{
+  titleEn : "Automation" , 
+  contentEn : ""
+}]
