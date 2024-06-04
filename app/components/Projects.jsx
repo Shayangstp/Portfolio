@@ -20,49 +20,49 @@ import { useRouter } from "next/navigation";
 
 const blogData = [
   {
-    id: 1,
+    id: "6650650764ccb1eca9d8270e",
     title: "Order Tracking",
     titleColor: "#4c695b",
     content:
       "The order tracking app is designed for both customers and factory staff to track orders that design and coded as front and back by my self. It allows staff to manage the current location of each order and monitor the quantities loaded onto pallets or vehicles. The app also tracks the loading time for each warehouse vehicle. It covers the entire process from order submission to delivery, enabling staff to oversee every step and allowing managers to monitor the entire workflow. This app is built for four factories and warehouses.",
   },
   {
-    id: 2,
+    id: "6650647c64ccb1eca9d8270d",
     title: "AVL",
     titleColor: "#4c5a69",
     content:
       "The AVL (Automatic Vehicle Location) app gathers data from the GPS devices installed in each company vehicle, allowing us to track their location and speed. The app also provides information on how many hours the vehicles are on the road or stopped. It includes a driver management panel and a user management panel, enabling efficient management of GPS devices and other tasks. This app simplifies these processes for our users.",
   },
   {
-    id: 3,
+    id: "6650641464ccb1eca9d8270c",
     title: "Automation",
     titleColor: "#694c69",
     content:
       "The automation app transforms the entire company into a paperless environment, streamlining tasks for our personnel. This comprehensive application allows employees to manage their work efficiently. With this app, users can check paychecks, request leave, obtain mission tickets, and view personnel details. Additionally, factories can process work requests from customers or staff, and manage vehicles and machines based on these requests. The app also includes warehouse management and facilitates requests from the warehouse.",
   },
   {
-    id: 4,
+    id: "6650658864ccb1eca9d82710",
     title: "VPN-Support",
     titleColor: "#68694c",
     content:
       "The SaaS application is designed to provide software services to clients. The main idea behind this web app is to offer software as a service. It includes custom-built authentication, developed using Next.js and MongoDB. The application also features a ticketing system for user issues, which are managed through messaging. Additionally, there is an admin panel to manage user needs and a download panel for app versions",
   },
   {
-    id: 5,
+    id: "665065d064ccb1eca9d82711",
     title: "BOTIK",
     titleColor: "#694c4c",
     content:
       "My E-commerce application, inspired by Amazon, is built using Next.js and MongoDB. It includes all the essential features of an e-commerce platform, such as adding items to the cart, instant purchases, wishlists, order lists, and user profiles. User authentication is secured with email verification. Additionally, the app features an admin panel for managing orders and purchased products, creating product cards, and uploading new products. A comprehensive search functionality is also integrated into the web app",
   },
   {
-    id: 6,
+    id: "6650666164ccb1eca9d82712",
     title: "BFIT",
     titleColor: "#574c69",
     content:
       "Welcome to our fitness application! Our primary goal is to ensure that you perform every gym exercise correctly. With over a decade of personal experience in fitness sports, I've meticulously curated a collection of instructional GIFs and integrated YouTube APIs for each exercise. This resource empowers users to execute movements with precision, maximizing the effectiveness of their workouts.Please note that our app utilizes third-party APIs, which are subject to limitations. Currently, access is capped at 500 requests per month. This restriction ensures optimal performance and availability for all users. Thank you for choosing our platform to enhance your fitness journey.",
   },
   {
-    id: 7,
+    id: "6650653c64ccb1eca9d8270f",
     title: "Koreh managment",
     titleColor: "#1c3f75",
     content:
@@ -236,6 +236,9 @@ const Projects = () => {
                       size="small"
                       variant="outlined"
                       className="dark:text-red-300 text-black md:text-[12px] text-[9px] ms-2 py-2.5 px-4 border-gray-600 hover:dark:border-white hover:dark:text-red-200"
+                      onClick={() => {
+                        router.push(`/projects/${item.id}`);
+                      }}
                     >
                       <span className="mt-1 mb-1">{t("readMoreBtn")}</span>
                     </Button>

@@ -35,65 +35,65 @@ import { useRouter } from "next/navigation";
 import { postContactEmail } from "../services/emailContact";
 import { TextField } from "@mui/material";
 
-// const textFeildDark = {
-//   "& input": {
-//     color: "white",
-//   },
-//   "& label": {
-//     color: "white",
-//   },
-//   "& .MuiInput-underline:before": {
-//     borderBottomColor: "white",
-//   },
-//   "& label.Mui-focused": {
-//     color: "red",
-//   },
-//   "& .MuiInput-underline:after": {
-//     borderBottomColor: "red",
-//   },
-//   "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-//     borderBottomColor: "white",
-//   },
-//   "& .MuiOutlinedInput-root": {
-//     "& fieldset": {
-//       borderColor: "#E0E3E7",
-//     },
-//     "&:hover fieldset": {
-//       borderColor: "#B2BAC2",
-//     },
-//     "&.Mui-focused fieldset": {
-//       borderColor: "red",
-//     },
-//   },
-// };
-// const textFeildLight = {
-//   "& input": {
-//     color: "black",
-//   },
-//   "& label": {
-//     color: "black",
-//   },
-//   "& .MuiInput-underline:before": {
-//     borderBottomColor: "black",
-//   },
-//   "& label.Mui-focused": {
-//     color: "red",
-//   },
-//   "& .MuiInput-underline:after": {
-//     borderBottomColor: "red",
-//   },
-//   "& .MuiOutlinedInput-root": {
-//     "& fieldset": {
-//       borderColor: "#E0E3E7",
-//     },
-//     "&:hover fieldset": {
-//       borderColor: "#B2BAC2",
-//     },
-//     "&.Mui-focused fieldset": {
-//       borderColor: "red",
-//     },
-//   },
-// };
+const textFeildDark = {
+  "& input": {
+    color: "white",
+  },
+  "& label": {
+    color: "white",
+  },
+  "& .MuiInput-underline:before": {
+    borderBottomColor: "white",
+  },
+  "& label.Mui-focused": {
+    color: "red",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "red",
+  },
+  "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+    borderBottomColor: "white",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#E0E3E7",
+    },
+    "&:hover fieldset": {
+      borderColor: "#B2BAC2",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "red",
+    },
+  },
+};
+const textFeildLight = {
+  "& input": {
+    color: "black",
+  },
+  "& label": {
+    color: "black",
+  },
+  "& .MuiInput-underline:before": {
+    borderBottomColor: "black",
+  },
+  "& label.Mui-focused": {
+    color: "red",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "red",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#E0E3E7",
+    },
+    "&:hover fieldset": {
+      borderColor: "#B2BAC2",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "red",
+    },
+  },
+};
 
 const ProjectsCard = () => {
   const router = useRouter();
@@ -113,7 +113,7 @@ const ProjectsCard = () => {
   const formErrors = useSelector(selectFormErrors);
   const darkMode = useSelector(selectDarkMode);
 
-  // const style = darkMode === "dark" ? textFeildDark : textFeildLight;
+  const style = darkMode === "dark" ? textFeildDark : textFeildLight;
 
   const userEmailIsValid = userEmail !== "";
   const userEmailFormatIsValid = /\S+@\S+\.com$/.test(userEmail);
@@ -196,20 +196,31 @@ const ProjectsCard = () => {
     }
   };
 
+  const truncateText = (text, maxWords) => {
+    const wordsArray = text.split(" ");
+    console.log(wordsArray);
+    if (wordsArray.length <= maxWords) {
+      return text;
+    }
+    const wordsTruncate = wordsArray.slice(0, maxWords).join(" ") + "...";
+    return wordsTruncate;
+  };
+
   return (
     <div className="mt-16 mb-10 flex flex-wrap gap-5 gap-y-10 justify-center items-center">
       {loading ? (
         <LoadingPage />
       ) : (
         projectsData.map((project, index) => {
+          console.log(project);
           return (
             <div
               key={index}
-              className="lg:max-w-[31%] md:max-w-[40%] max-w-[80%] rounded-2xl p-5"
+              className="lg:max-w-[40%] md:max-w-[60%] max-w-[100%] rounded-2xl p-5"
             >
               <div
                 id="card"
-                className="w-[400px] h-[700px] flex flex-col justify-between bg-transparent border dark:border-gray-400 border-gray-700 p-2 rounded-2xl dark:shadow-projectShadowDark shadow-projectShadow"
+                className="h-[700px] flex flex-col justify-between bg-transparent border dark:border-gray-400 border-gray-700 p-2 rounded-2xl dark:shadow-projectShadowDark shadow-projectShadow"
               >
                 <div className="flex flex-col h-full">
                   <div id="image" className="p-5 rounded-t-2xl relative">
@@ -221,7 +232,10 @@ const ProjectsCard = () => {
                       {project.titleEn}
                     </div>
                   </div>
-                  <div id="content" className="flex-grow flex flex-col p-3">
+                  <div
+                    id="content"
+                    className="flex-grow flex flex-col justify-between p-3"
+                  >
                     {/* <Typography
                       gutterBottom
                       variant="h5"
@@ -234,10 +248,8 @@ const ProjectsCard = () => {
                       id="line"
                       className="border-t dark:border-white border-black mt-5"
                     ></div>
-                    <div className="text-black dark:text-white mt-6 leading-6 text-[13px]">
-                      {localeActive === "en"
-                        ? project.contentEn
-                        : project.contentFa}
+                    <div className="text-black dark:text-white mt-2 leading-6 text-[13px]">
+                      {truncateText(project.contentEn, 50)}
                       <span
                         className="text-blue-400 hover:text-blue-500 cursor-pointer ms-1 text-[15px] md:text-[13px] lg:text-[15px]"
                         onClick={() => {
