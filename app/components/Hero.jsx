@@ -21,15 +21,6 @@ const Hero = () => {
       dir={localeActive === "fa" ? "rtl" : "ltr"}
       className="lg:grid grid-cols-6 relative max-w-[1440px] w-[100vw]"
     >
-      <meta
-        name="description"
-        content="I am a software developer who is passionate about working with the latest technologies and tools to create applications that meet users' needs. I love to interact with users and integrate their feedback into my apps, ensuring a seamless and enjoyable experience. I am dedicated to solving problems and addressing issues in any situation, and I am always eager to learn and expand my knowledge.As a self-taught professional in the software development field, I thrive on the joy of continuous learning. I hold a Bachelor's degree in Industrial Engineering, which has provided me with valuable experience in management and planning, enhancing my ability to work efficiently. I am ready for any challenge and committed to delivering high-quality solutions . I am dedicated to solving problems and addressing issues in any situation, and I am always eager to learn and expand my knowledge.As a self-taught professional in the software development field, I thrive on the joy of continuous learning. I hold a Bachelor's degree in Industrial Engineering, which has provided me with valuable experience in management and planning, enhancing my ability to work efficiently. I am ready for any challenge and committed to delivering high-quality solutions."
-      />
-      <meta
-        name="keywords"
-        content="Shayangstp , shayan golestanipour , software developer, web development, latest technologies, user-friendly applications, problem-solving , backend developer , fullstack developer , portfolio"
-      />
-      <meta name="author" content="shayan golestanipour" />
       {/* blur bg */}
       <div
         style={{ zIndex: 0 }}
@@ -58,7 +49,7 @@ const Hero = () => {
       </div>
       <div
         id="mainHero"
-        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-8"
+        className="lg:col-span-4 flex flex-col justify-center lg:items-start items-center mx-auto mt-10 lg:mt-16"
       >
         <div id="hero-text">
           <motion.div id="Hi">
@@ -146,7 +137,7 @@ const Hero = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="mt-5 border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block"
+          className="mt-5 border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block w-[950px]"
         >
           <AboutMe />
         </motion.div>

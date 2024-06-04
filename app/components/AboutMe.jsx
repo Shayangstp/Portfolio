@@ -28,9 +28,9 @@ const AboutMe = () => {
       <p className="text-[13px] leading-6 text-gray-800 dark:text-gray-400 ms-2 mt-4">
         {t("aboutMe3")}
       </p>
-      <p className="text-[13px] leading-6 text-gray-800 dark:text-gray-400 ms-2 mt-4">
+      {/* <p className="text-[13px] leading-6 text-gray-800 dark:text-gray-400 ms-2 mt-4">
         {t("aboutMe4")}
-      </p>
+      </p> */}
       <div className="w-full mt-10 flex justify-end gap-4">
         <Button
           variant="outlined"
