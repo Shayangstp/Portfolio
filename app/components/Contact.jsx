@@ -16,8 +16,6 @@ import {
   selectUserName,
   selectUserSubject,
   handleContactReset,
-  RsetLoading,
-  selectLoading,
   selectFormErrors,
   RsetFormErrors,
 } from "../slices/mainSlices";
@@ -122,6 +120,7 @@ const InputLight = {
 
 const Contact = () => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const { theme } = useTheme();
   const localeActive = useLocale();
@@ -133,7 +132,6 @@ const Contact = () => {
   const userEmail = useSelector(selectUserEmail);
   const userSubject = useSelector(selectUserSubject);
   const userMessage = useSelector(selectUserMessage);
-  const loading = useSelector(selectLoading);
   const formErrors = useSelector(selectFormErrors);
 
   //validation
@@ -177,7 +175,7 @@ const Contact = () => {
     }
 
     if (contactFormIsValid) {
-      dispatch(RsetLoading(true));
+      setLoading(true);
 
       const values = {
         name: userName,
@@ -190,11 +188,12 @@ const Contact = () => {
       const postContactEmailRes = await axios.post("/api/contactEmail", values);
 
       if (postContactEmailRes.data.code === 200) {
-        dispatch(RsetLoading(false));
+        setLoading(false);
         successMessage(t("contactSuccessMessage"));
         dispatch(handleContactReset());
       } else {
-        dispatch(RsetLoading(false));
+        setLoading(false);
+
         errorMessage(t("contactErrorMessage"));
       }
     } else {

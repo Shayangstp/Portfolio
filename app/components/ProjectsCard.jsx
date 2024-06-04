@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import test from "../assets/test.jpg";
-import { Button, TextField } from "@mui/material";
+import { Button } from "@material-tailwind/react";
 import axios from "axios";
 import {
   RsetProjectsData,
@@ -211,11 +211,11 @@ const ProjectsCard = () => {
               key={index}
               className="lg:max-w-[31%] md:max-w-[40%] max-w-[80%] rounded-2xl p-5"
             >
-              <Card
-                sx={{ maxWidth: 400, minHeight: 700 }}
-                className="flex flex-col justify-between bg-transparent border dark:border-gray-400 border-gray-700 p-2 rounded-2xl dark:shadow-projectShadowDark shadow-projectShadow"
+              <div
+                id="card"
+                className="w-[400px] h-[700px] flex flex-col justify-between bg-transparent border dark:border-gray-400 border-gray-700 p-2 rounded-2xl dark:shadow-projectShadowDark shadow-projectShadow"
               >
-                <CardActionArea className="flex flex-col h-full">
+                <div className="flex flex-col h-full">
                   <div id="image" className="p-5 rounded-t-2xl relative">
                     <Image src={test} className="" />
                     <div
@@ -225,7 +225,7 @@ const ProjectsCard = () => {
                       {project.titleEn}
                     </div>
                   </div>
-                  <CardContent className="flex-grow flex flex-col">
+                  <div id="content" className="flex-grow flex flex-col p-3">
                     {/* <Typography
                       gutterBottom
                       variant="h5"
@@ -238,10 +238,7 @@ const ProjectsCard = () => {
                       id="line"
                       className="border-t dark:border-white border-black mt-5"
                     ></div>
-                    <Typography
-                      variant="body2"
-                      className="text-black dark:text-white mt-6 leading-6"
-                    >
+                    <div className="text-black dark:text-white mt-6 leading-6 text-[13px]">
                       {localeActive === "en"
                         ? project.contentEn
                         : project.contentFa}
@@ -253,7 +250,7 @@ const ProjectsCard = () => {
                       >
                         ...ReadMore
                       </span>
-                    </Typography>
+                    </div>
                     <div
                       id="line"
                       className="border-t dark:border-white border-black mt-10"
@@ -297,7 +294,7 @@ const ProjectsCard = () => {
                               <GitHubIcon />
                             </span>
                             <span className="mt-1">GitHub</span>
-                            <span className="me-2 absolute -top-1 -right-1.5">
+                            <span className="me-2 absolute top-1 -right-1.5">
                               <LockIcon
                                 fontSize="small"
                                 className="text-[13px]"
@@ -324,9 +321,9 @@ const ProjectsCard = () => {
                         </a>
                       )}
                     </div>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
+                  </div>
+                </div>
+              </div>
             </div>
           );
         })
