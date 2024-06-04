@@ -44,13 +44,13 @@ const ProjectDetailPage = () => {
             <h1 className="text-[50px]">
               {projectData && projectData.titleEn}
             </h1>
-            <div id="hashtags" className="flex gap-2 mb-3">
+            <div id="hashtags" className="flex flex-wrap gap-2 mb-3">
               {projectData &&
                 projectData.hashtags.map((item, idx) => {
                   return (
                     <p
                       key={idx}
-                      className="px-4 py-2 border dark:border-gray-700 border-gray-300 text-gray-700 dark:text-gray-300 rounded-2xl"
+                      className="px-4 py-2 border dark:border-gray-700 border-gray-300 text-gray-700 dark:text-gray-300 rounded-2xl text-[10px] md:text-[13px]"
                     >
                       {item}
                     </p>
@@ -60,19 +60,19 @@ const ProjectDetailPage = () => {
             <hr />
           </div>
           <div id="desc" className="mt-3">
-            <p className="mb-3 leading-6">
+            <p className="mb-3 leading-6 text-[13px] md:text-[15px]">
               {projectData && projectData.descEn}
             </p>
           </div>
           <div id="keyFeatures">
-            <div id="keyFeatureTitle" className="text-[30px] ">
+            <div id="keyFeatureTitle" className="md:text-[30px] text-[20px]">
               Key Features and Functionalities:
             </div>
             <div1 className="flex flex-col gap-3 mb-4 leading-6">
               {projectData &&
                 projectData.keyFeatures.map((item, idx) => {
                   return (
-                    <li key={idx} className="mt-2">
+                    <li key={idx} className="mt-2 text-[13px] md:text-[15px]">
                       {item}
                     </li>
                   );
@@ -80,14 +80,14 @@ const ProjectDetailPage = () => {
             </div1>
           </div>
           <div id="tech">
-            <div id="textTitle" className="text-[30px] ">
+            <div id="textTitle" className="md:text-[30px] text-[20px]">
               Technological Foundation:
             </div>
             <div1 className="flex flex-col gap-3 mb-4">
               {projectData &&
                 projectData.techs.map((item, idx) => {
                   return (
-                    <li key={idx} className="mt-2">
+                    <li key={idx} className="mt-2 text-[13px] md:text-[15px]">
                       {item}
                     </li>
                   );
@@ -95,10 +95,10 @@ const ProjectDetailPage = () => {
             </div1>
           </div>
           <div id="benefits">
-            <div id="textTitle" className="text-[30px] ">
+            <div id="textTitle" className="md:text-[30px] text-[20px]">
               Benefits of {projectData && projectData.titleEn} :
             </div>
-            <div className="flex flex-col gap-3 mb-4 leading-6">
+            <div className="flex flex-col gap-3 mb-4 leading-6 text-[13px] md:text-[15px]">
               {projectData && projectData.benefits}
             </div>
           </div>
