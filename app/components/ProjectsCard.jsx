@@ -30,74 +30,69 @@ import {
   RsetFormErrors,
   selectFormErrors,
 } from "../slices/mainSlices";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 import { useRouter } from "next/navigation";
 import { postContactEmail } from "../services/emailContact";
 
-const textFeildDark = {
-  "& input": {
-    color: "white",
-  },
-  "& label": {
-    color: "white",
-  },
-  "& .MuiInput-underline:before": {
-    borderBottomColor: "white",
-  },
-  "& label.Mui-focused": {
-    color: "red",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "red",
-  },
-  "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-    borderBottomColor: "white",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "#E0E3E7",
-    },
-    "&:hover fieldset": {
-      borderColor: "#B2BAC2",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "red",
-    },
-  },
-};
-const textFeildLight = {
-  "& input": {
-    color: "black",
-  },
-  "& label": {
-    color: "black",
-  },
-  "& .MuiInput-underline:before": {
-    borderBottomColor: "black",
-  },
-  "& label.Mui-focused": {
-    color: "red",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "red",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "#E0E3E7",
-    },
-    "&:hover fieldset": {
-      borderColor: "#B2BAC2",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "red",
-    },
-  },
-};
+// const textFeildDark = {
+//   "& input": {
+//     color: "white",
+//   },
+//   "& label": {
+//     color: "white",
+//   },
+//   "& .MuiInput-underline:before": {
+//     borderBottomColor: "white",
+//   },
+//   "& label.Mui-focused": {
+//     color: "red",
+//   },
+//   "& .MuiInput-underline:after": {
+//     borderBottomColor: "red",
+//   },
+//   "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+//     borderBottomColor: "white",
+//   },
+//   "& .MuiOutlinedInput-root": {
+//     "& fieldset": {
+//       borderColor: "#E0E3E7",
+//     },
+//     "&:hover fieldset": {
+//       borderColor: "#B2BAC2",
+//     },
+//     "&.Mui-focused fieldset": {
+//       borderColor: "red",
+//     },
+//   },
+// };
+// const textFeildLight = {
+//   "& input": {
+//     color: "black",
+//   },
+//   "& label": {
+//     color: "black",
+//   },
+//   "& .MuiInput-underline:before": {
+//     borderBottomColor: "black",
+//   },
+//   "& label.Mui-focused": {
+//     color: "red",
+//   },
+//   "& .MuiInput-underline:after": {
+//     borderBottomColor: "red",
+//   },
+//   "& .MuiOutlinedInput-root": {
+//     "& fieldset": {
+//       borderColor: "#E0E3E7",
+//     },
+//     "&:hover fieldset": {
+//       borderColor: "#B2BAC2",
+//     },
+//     "&.Mui-focused fieldset": {
+//       borderColor: "red",
+//     },
+//   },
+// };
 
 const ProjectsCard = () => {
   const router = useRouter();
@@ -117,7 +112,7 @@ const ProjectsCard = () => {
   const formErrors = useSelector(selectFormErrors);
   const darkMode = useSelector(selectDarkMode);
 
-  const style = darkMode === "dark" ? textFeildDark : textFeildLight;
+  // const style = darkMode === "dark" ? textFeildDark : textFeildLight;
 
   const userEmailIsValid = userEmail !== "";
   const userEmailFormatIsValid = /\S+@\S+\.com$/.test(userEmail);
@@ -255,10 +250,7 @@ const ProjectsCard = () => {
                       id="line"
                       className="border-t dark:border-white border-black mt-10"
                     ></div>
-                    <div
-                      variant="body2"
-                      className="text-black dark:text-white mt-3 flex flex-wrap gap-2"
-                    >
+                    <div className="text-black dark:text-white mt-3 flex flex-wrap gap-2">
                       {project.hashtags.map((item, idx) => {
                         return (
                           <p
