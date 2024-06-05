@@ -16,7 +16,7 @@ export async function POST(req, res) {
     from: process.env.AUTH_EMAIL,
     to: process.env.AUTH_EMAIL,
     replyTo: email,
-    subject: `Message from ${name}: ${subject}`,
+    subject: `shayangstp.website Message from ${name}: ${subject}`,
     text: `From: ${name} <${email}>\n\n${message}`,
     html: `<p>From: ${name} &lt;${email}&gt;</p><p>${message}</p>`,
   };

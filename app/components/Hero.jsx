@@ -137,7 +137,7 @@ const Hero = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="mt-5 border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block w-[950px]"
+          className="mt-5 border border-y-8 dark:border-gray-200 border-gray-900 px-5 py-8 rounded-2xl hidden lg:inline-block"
         >
           <AboutMe />
         </motion.div>
