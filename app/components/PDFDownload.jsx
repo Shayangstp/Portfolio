@@ -40,31 +40,34 @@ const PDFDownload = () => {
   return (
     <div className="flex gap-2 md:justify-end justify-center mt-2 md:mt-0 md:me-16">
       {!isPDFDownload && (
-        <Button
-          variant="contained"
-          className="py-2 bg-red-500 flex gap-2 hover:bg-red-700"
+        <a
           href={"/Shayan-Golestanipour-Resume.pdf"}
           target="_blank"
           alt="cv"
           rel="noopener noreferrer"
         >
-          <span>
-            <PictureAsPdfIcon />
-          </span>{" "}
-          {t("pdfPreview")}
-        </Button>
+          <button
+            variant="contained"
+            className="py-2 px-6 rounded-md transition-all bg-red-500 flex gap-2 hover:bg-red-700"
+          >
+            <span>
+              <PictureAsPdfIcon />
+            </span>{" "}
+            <span>{t("pdfPreview")}</span>
+          </button>
+        </a>
       )}
       {!isPDFDownload && (
-        <Button
+        <button
           variant="contained"
-          className="py-2 bg-red-500 flex gap-2 hover:bg-red-700"
+          className="py-2 px-6 rounded-md transition-all bg-red-500 flex gap-2 hover:bg-red-700"
           onClick={handlePDFDownload}
         >
           <span>
             <DownloadIcon />
           </span>
           {t("downloadCV")}
-        </Button>
+        </button>
       )}
     </div>
   );
