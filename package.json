@@ -38,7 +38,7 @@
     "react-top-loading-bar": "^2.3.1",
     "redux": "^5.0.1",
     "stylis-plugin-rtl": "^2.1.1",
-    "swiper": "^11.0.6",
+    "swiper": "^11.1.4",
     "vercel": "^34.2.4"
   },
   "devDependencies": {
