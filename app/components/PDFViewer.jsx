@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import resume from "../../public/Shayan-Golestanipour-Resume.jpg";
+import resume from "../../public/Shayan-Golestanipour-Resume.png";
 
 const PDFViewer = () => {
   return (
